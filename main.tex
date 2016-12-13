@@ -18,7 +18,7 @@
 \begin{document}
 
 
-\title{Prueba Causality and the N-photon Scattering matrix in waveguide QED}
+\title{Causality and the N-photon Scattering matrix in waveguide QED}
 
 \author{...}
 \affiliation{...}
@@ -76,13 +76,23 @@ bla, bla
 
 \section{Cluster revisited}
 
-{\color{blue}
 Scattering amplitude between two distant events from the cluster principle: $A_{12\to 1'2'}^{\nu\to\mu} = \sum_\lambda A_{1\to 1'}^{\nu\to\lambda}A_{2\to 2'}^{\lambda\to\mu}$.
-\begin{enumerate}
-\item Build the ansatz for the scattering matrix in position space for $N$ photons using the cluster principle + step functions.
-\item See the connection with the previous identity.
-\item Conditions for the commutator $[a_\text{out}(t),a_\text{in}^\dagger(t')]$ so that $A_{12\to 1'2'}^{\nu\to\mu} = \sum_\lambda A_{1\to 1'}^{\nu\to\lambda}A_{2\to 2'}^{\lambda\to\mu}$ is true \cite{Xu2015}.
-\end{enumerate}
+
+In this section, we build the ansatz for $S^0$ in position space. For the sake of simplicity, let us assume we have two photons. The input photons are placed at $x_1$ and $x_2$ and the outgoing ones are at $y_1$ and $y_2$. The initial and final states for the scatterer are $g_\nu$ and $g_\mu$, respectively. The ansatz is
+\begin{align}\label{eq:S0_2}
+(S^0_{y_1y_2x_1x_2})_{\mu\nu}& = \sum_\lambda \overbrace{(S_{y_1x_1})_{\mu\lambda}(S_{y_2x_2})_{\lambda\nu}}^{\text{single-photon process}}\overbrace{\theta(y_2-y_1)}^\text{causality} \nonumber\\
+&+ [x_1\leftrightarrow x_2,y_1\leftrightarrow y_2].
+\end{align}
+First, notice there is a sum in the stable states of the scatterers, $\lambda$. Secondly, as expected from the cluster decomposition principle \cite{weinberg1995}, we take the product of two single-photon $S$ matrices. Lastly, we add a step function ($\theta(y)=1$ if $y>0$ and $0$ otherwise) to ensure the outgoing photon placed at $y_2$ leaves the scatterer before the photon at $y_1$, since the former has caused the first transition, $\nu\to\lambda$. The generalization for $N$ photons is direct
+\begin{align}\label{eq:S0_N}
+(S^0_{y_1\dots y_N x_1\dots x_N})_{\mu\nu} & = \sum_{\lambda_1\dots \lambda_{N-1}}\prod_{n=1}^M (S_{y_nx_n})_{\lambda_{n-1}\lambda_n}\nonumber\\
+&\prod_{m=1}^{N-1}\theta(y_{m+1}-y_m) + \text{permutations},
+\end{align}
+{\color{blue}Comment: single-photon energy conservation, momenta space (Xu-Fan), $\theta$ ensuring causality...
+
+(ii) Show that $A_{12\to 1'2'}^{\nu\to\mu} = \sum_\lambda A_{1\to 1'}^{\nu\to\lambda}A_{2\to 2'}^{\lambda\to\mu}$ is true provided $S^0$ follows Eq. \eqref{eq:S0_N}.
+
+(iii) Conditions for the commutator $[a_\text{out}(t),a_\text{in}^\dagger(t')]$ so that $A_{12\to 1'2'}^{\nu\to\mu} = \sum_\lambda A_{1\to 1'}^{\nu\to\lambda}A_{2\to 2'}^{\lambda\to\mu}$ is true \cite{Xu2015}.
 }
 
 \section{Examples}
