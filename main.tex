@@ -76,7 +76,7 @@ bla, bla
 
 \section{Cluster revisited}
 
-In this section, we build the ansatz for $S^0$ in position space. For the sake of simplicity, let us assume we have two photons. The input photons are placed at $x_1$ and $x_2$ and the outgoing ones are at $y_1$ and $y_2$. The initial and final states for the scatterer are $|g_\nu\rangle$ and $|g_\mu\rangle$, respectively. The ansatz is
+In this section, we build the ansatz for $S^0$ in position space. For the sake of simplicity, we first assume we have two photons. The input photons are placed at $x_1$ and $x_2$ and the outgoing ones are at $y_1$ and $y_2$. The initial and final states for the scatterer are $|g_\nu\rangle$ and $|g_\mu\rangle$, respectively. The ansatz is
 \begin{align}\label{eq:S0_2}
 (S^0_{y_1y_2x_1x_2})_{\mu\nu}& = \sum_\lambda \overbrace{(S_{y_1x_1})_{\mu\lambda}(S_{y_2x_2})_{\lambda\nu}}^{\text{single-photon process}}\overbrace{\theta(y_2-y_1)}^\text{causality} \nonumber\\
 &+ [x_1\leftrightarrow x_2,y_1\leftrightarrow y_2].
@@ -88,17 +88,42 @@ As expected from the cluster decomposition principle \cite{weinberg1995}, we tak
 \end{align}
 with $\lambda_0\equiv \mu$ and $\lambda_N\equiv\nu$. We add all the permutations in $y_n/x_n\leftrightarrow y_m/x_m$ for all $n$ and $m$ in order to symmetrize $S^0$.
 
-We consider a two-photon input state
-\begin{equation}
+We now show the step functions are necessary to fulfil causality. We consider a two-photon input state
+\begin{equation}\label{eq:input}
 |\Psi_\text{in}\rangle = \frac{1}{\sqrt{2}}(|\phi_1\rangle \otimes|\phi_2\rangle + |\phi_2\rangle\otimes |\phi_1\rangle)\otimes|g_\nu\rangle,
 \end{equation}
-where $|\phi_n\rangle$ is a single-photon state. Both one-photon wave packets are separated by $L\to\infty$, Fig. \ref{fig:input}.
+where $|\phi_n\rangle$ is a single-photon state. The photon whose state is $|\phi_1\rangle$ impinges on the scatterer before the other and they are separated by $L\to\infty$, Fig. \ref{fig:input}. The probability amplitude of going to the state
+\begin{equation}
+|\Psi_\text{out}\rangle = \frac{1}{\sqrt{2}}(|\phi_{1'}\rangle \otimes|\phi_{2'}\rangle + |\phi_{2'}\rangle\otimes |\phi_{1'}\rangle)\otimes|g_\mu\rangle
+\end{equation}
+can be computed just with the linear part of the $S$ matrix, since both incident wave packets are highly separated. Taking the ansatz given by Eq. \eqref{eq:S0_2}, this probability amplitude is
+\begin{equation}\label{eq:A}
+A_{12\to 1'2'}^{\nu\to\mu} \equiv \langle \Psi_\text{out}|S^0|\Psi_\text{in}\rangle =  \sum_\lambda A_{1\to 1'}^{\nu\to\lambda} A_{2\to 2'}^{\lambda\to\mu},
+\end{equation}
+with $A_{n\to n'}^{\nu\to \mu}\equiv (\langle g_\mu |\otimes \langle \phi_{n'}|)S(|\phi_n\rangle\otimes |g_\nu\rangle)$, that is to say, the probability amplitude for the single-photon process between $|\phi_n\rangle\otimes |g_\nu\rangle$ and $|\phi_{n'}\rangle\otimes |g_\mu\rangle$. We choose $|\phi_{m'}\rangle$ such that $A_{n\to m'}^{\nu\to \mu}=0$ if $n\neq m$. More details on the computation can be found in the Appendix.
 
-{\color{blue}Comment: single-photon energy conservation, momenta space (Xu-Fan), $\theta$ ensuring causality...
+Notice this is what one could expect from a standard scattering process: the total amplitude is the product of the amplitudes for both independent process, happening in the proper order. However, if we did not have included the step function in our ansatz, Eq. \eqref{eq:S0_2}, we would have obtained an unphysical term $A_{2\to 2'}^{\nu\to\lambda} A_{1\to 1'}^{\lambda\to\mu}$, which says $|\phi_2\rangle$ impinges on the scatterer before $|\phi_1\rangle$, breaking causality.
 
-(ii) Show that $A_{12\to 1'2'}^{\nu\to\mu} = \sum_\lambda A_{1\to 1'}^{\nu\to\lambda}A_{2\to 2'}^{\lambda\to\mu}$ is true provided $S^0$ follows Eq. \eqref{eq:S0_N}.
+Taking the Fourier transform of Eq. \eqref{eq:S0_2}, we can compute $S^0$ in momentum space. Before doing so, the single-photon $S$ matrix in momentum space is
+\begin{equation}
+(S_{pk})_{\mu\nu}=t_{\mu\nu}(k)\delta(p+E_\mu-k-E_\nu),
+\end{equation}
+with $k$ and $p$ the incident and outgoing momenta, respectively, and $|g_\nu\rangle$ and $|g_\mu\rangle$ the initial and final states of the scatterer. The energies $E_\nu$ and $E_\mu$ correspond to the states $|g_\nu\rangle$ and $|g_\mu\rangle$. The factor $t_{\mu\nu}(k)$ is the so-called transmission amplitude. Notice that the Dirac delta guarantees energy conservation {\color{blue}WE HAVE TO MENTION SOMEWHERE $v_g=1$}. Then, the two-photon $S^0$ matrix is
+\begin{align}\label{eq:S0_2p}
+(S_{p_1p_2k_1k_2}^0)_{\mu\nu}=&\frac{1}{(2\pi)^2}\int  dy_1dy_2dx_1dx_2\; (S_{y_1y_2x_1x_2}^0)_{\mu\nu}\nonumber\\
+& e^{-i(p_1y_1+p_2y_2)}  e^{i(k_1x_1+k_2x_2)} \nonumber\\
+=  \frac{i}{2\pi}\sum_{n,m=1}^2 &\sum_\lambda  \frac{t_{\mu\lambda}(k_n) t_{\lambda\nu}(k_{\overline{n}})}{p_m+E_\mu -k_n -E_\lambda + i0^+}\nonumber\\
+&\delta(p_1+p_2+E_\mu - k_1-k_2-E_\nu).
+\end{align}
+Here, $\overline{n}\neq n$, \emph{e.g.}, $\overline{n}=2$ if $n=1$. This structure has recently been found by Xu and Fan in \cite{Xu2016} for a $\lambda$ atom, a three-level atom which has two stable states and one unstable state, see the scatterer of Fig. \ref{fig:input}. This is not what one finds for wQED systems if the stable state of the scatterer is unique \cite{fan10,Rephaeli2011,Sanchez-Burillo2016}, as shown in general in \cite{xu13}. In that kind of system, there are two Dirac deltas, one for the energy conservation of each photon. In our case, the global Dirac delta imposes energy conservation of the whole process, but each photon does not conserve its energy individually in general. %However, for an input state such as \eqref{eq:input}, both photons do conserve its energy individually. The denominator of Eq. \eqref{eq:S0_2p} comes from the Fourier transform of $\theta$ and it is related to the order in which both photons interact with the scatterer.
 
-(iii) Conditions for the commutator $[a_\text{out}(t),a_\text{in}^\dagger(t')]$ so that $A_{12\to 1'2'}^{\nu\to\mu} = \sum_\lambda A_{1\to 1'}^{\nu\to\lambda}A_{2\to 2'}^{\lambda\to\mu}$ is true \cite{Xu2015}.
+If there is an only stable state, one can trivially show $S^0$ in position space is \eqref{eq:S0_2}
+\begin{equation}
+S^0_{y_1y_2x_1x_2} = S_{y_1x_1}S_{y_2x_2} + S_{y_1x_2}S_{y_2x_1}.
+\end{equation}
+Notice the step function has disappeared. This gives the double Dirac delta structure in momentum space.
+
+{\color{blue} Conditions for the commutator $[a_\text{out}(t),a_\text{in}^\dagger(t')]$ so that $A_{12\to 1'2'}^{\nu\to\mu} = \sum_\lambda A_{1\to 1'}^{\nu\to\lambda}A_{2\to 2'}^{\lambda\to\mu}$ is true \cite{Xu2015}.
 }
 
 \section{Examples}
@@ -114,7 +139,7 @@ where $|\phi_n\rangle$ is a single-photon state. Both one-photon wave packets ar
 
 \appendix
 
-\section{$S^0$ in momentum space}
+\section{$S^0$ in momentum space}\label{app:Sp}
 
 {\color{blue}
 \begin{enumerate}
@@ -137,8 +162,11 @@ integrand. The values of the real parts are arbitrary.}
 \label{fig:upper}
 \end{figure}
 
+\section{Scattering amplitude}\label{app:A}
 
-\section{Matrix Product States}
+{\color{blue}Computation of the scattering amplitude Eq. \eqref{eq:A}.}
+
+\section{Matrix Product States}\label{app:mps}
 
 {\color{blue}
 Brief summary of MPS and how to apply them to few-photon photonics problems.}
