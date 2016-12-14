@@ -46,16 +46,16 @@ bla, bla
 
 \section{Introduction}
 
-{\color{blue}Blablabla on waveguide QED (wQED), scattering matrix as a fundamental object, and causality.} \cite{weinberg1995,Xu2016}
+{\color{blue}Blablabla on waveguide QED (wQED), scattering matrix as a fundamental object, and causality \cite{weinberg1995,Xu2016}.}
 
 
 \section{Model in quantum photonics} 
 
-{\color{blue}Hamiltonian and Fig. \ref{fig:input}.}
+{\color{blue}Hamiltonian and Fig. \ref{fig:input}. Mention it is a chiral model but the generalization to a nonchiral one is trivial \cite{fan10}.}
 
 \begin{figure}
 \includegraphics[scale=0.25]{input.pdf}
-\caption{Two-photon input state impinging on a $\lambda$ atom. The state $e$ is an unstable state which decays to the stable ones, $g_1$ and $g_2$.}
+\caption{Two-photon input state impinging on a $\lambda$ atom. The state $e$ is an unstable state which decays to the stable ones, $|g_1\rangle$ and $|g_2\rangle$.}
 \label{fig:input}
 \end{figure}
 
@@ -76,18 +76,24 @@ bla, bla
 
 \section{Cluster revisited}
 
-Scattering amplitude between two distant events from the cluster principle: $A_{12\to 1'2'}^{\nu\to\mu} = \sum_\lambda A_{1\to 1'}^{\nu\to\lambda}A_{2\to 2'}^{\lambda\to\mu}$.
-
-In this section, we build the ansatz for $S^0$ in position space. For the sake of simplicity, let us assume we have two photons. The input photons are placed at $x_1$ and $x_2$ and the outgoing ones are at $y_1$ and $y_2$. The initial and final states for the scatterer are $g_\nu$ and $g_\mu$, respectively. The ansatz is
+In this section, we build the ansatz for $S^0$ in position space. For the sake of simplicity, let us assume we have two photons. The input photons are placed at $x_1$ and $x_2$ and the outgoing ones are at $y_1$ and $y_2$. The initial and final states for the scatterer are $|g_\nu\rangle$ and $|g_\mu\rangle$, respectively. The ansatz is
 \begin{align}\label{eq:S0_2}
 (S^0_{y_1y_2x_1x_2})_{\mu\nu}& = \sum_\lambda \overbrace{(S_{y_1x_1})_{\mu\lambda}(S_{y_2x_2})_{\lambda\nu}}^{\text{single-photon process}}\overbrace{\theta(y_2-y_1)}^\text{causality} \nonumber\\
 &+ [x_1\leftrightarrow x_2,y_1\leftrightarrow y_2].
 \end{align}
-First, notice there is a sum in the stable states of the scatterers, $\lambda$. Secondly, as expected from the cluster decomposition principle \cite{weinberg1995}, we take the product of two single-photon $S$ matrices. Lastly, we add a step function ($\theta(y)=1$ if $y>0$ and $0$ otherwise) to ensure the outgoing photon placed at $y_2$ leaves the scatterer before the photon at $y_1$, since the former has caused the first transition, $\nu\to\lambda$. The generalization for $N$ photons is direct
+As expected from the cluster decomposition principle \cite{weinberg1995}, we take the product of two single-photon $S$ matrices: a photon going from $x_2$ to $y_2$ induces a transition between $|g_\nu\rangle$ and $|g_\lambda\rangle$, and a second photon, which goes from $x_1$ to $y_1$, causes the transition $|g_\lambda\rangle\to |g_\mu\rangle$. Notice there is a summation in the intermediate stable states of the scatterer, $|g_\lambda\rangle$. We multiply this by a step function ($\theta(y)=1$ if $y>0$ and $0$ otherwise) to ensure the outgoing photon placed at $y_2$ leaves the scatterer before the photon at $y_1$. Lastly, we symmetrize the result. The generalization for $N$ photons is straightforward
 \begin{align}\label{eq:S0_N}
-(S^0_{y_1\dots y_N x_1\dots x_N})_{\mu\nu} & = \sum_{\lambda_1\dots \lambda_{N-1}}\prod_{n=1}^M (S_{y_nx_n})_{\lambda_{n-1}\lambda_n}\nonumber\\
-&\prod_{m=1}^{N-1}\theta(y_{m+1}-y_m) + \text{permutations},
+(S^0_{y_1\dots y_N x_1\dots x_N})_{\mu\nu}& = \sum_{\lambda_1\dots \lambda_{N-1}}\prod_{n=1}^N (S_{y_nx_n})_{\lambda_{n-1}\lambda_n}\nonumber\\
+\prod_{m=1}^{N-1}&\theta(y_{m+1}-y_m) + \text{permutations},
 \end{align}
+with $\lambda_0\equiv \mu$ and $\lambda_N\equiv\nu$. We add all the permutations in $y_n/x_n\leftrightarrow y_m/x_m$ for all $n$ and $m$ in order to symmetrize $S^0$.
+
+We consider a two-photon input state
+\begin{equation}
+|\Psi_\text{in}\rangle = \frac{1}{\sqrt{2}}(|\phi_1\rangle \otimes|\phi_2\rangle + |\phi_2\rangle\otimes |\phi_1\rangle)\otimes|g_\nu\rangle,
+\end{equation}
+where $|\phi_n\rangle$ is a single-photon state. Both one-photon wave packets are separated by $L\to\infty$, Fig. \ref{fig:input}.
+
 {\color{blue}Comment: single-photon energy conservation, momenta space (Xu-Fan), $\theta$ ensuring causality...
 
 (ii) Show that $A_{12\to 1'2'}^{\nu\to\mu} = \sum_\lambda A_{1\to 1'}^{\nu\to\lambda}A_{2\to 2'}^{\lambda\to\mu}$ is true provided $S^0$ follows Eq. \eqref{eq:S0_N}.
