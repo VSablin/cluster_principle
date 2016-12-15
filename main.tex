@@ -102,7 +102,7 @@ A_{12\to 1'2'}^{\nu\to\mu} \equiv \langle \Psi_\text{out}|S^0|\Psi_\text{in}\ran
 \end{equation}
 with $A_{n\to n'}^{\nu\to \mu}\equiv (\langle g_\mu |\otimes \langle \phi_{n'}|)S(|\phi_n\rangle\otimes |g_\nu\rangle)$, that is to say, the probability amplitude for the single-photon process between $|\phi_n\rangle\otimes |g_\nu\rangle$ and $|\phi_{n'}\rangle\otimes |g_\mu\rangle$. We choose $|\phi_{m'}\rangle$ such that $A_{n\to m'}^{\nu\to \mu}=0$ if $n\neq m$. More details on the computation can be found in the Appendix.
 
-Notice this is what one could expect from a standard scattering process: the total amplitude is the product of the amplitudes for both independent process, happening in the proper order. However, if we did not have included the step function in our ansatz, Eq. \eqref{eq:S0_2}, we would have obtained an unphysical term $A_{2\to 2'}^{\nu\to\lambda} A_{1\to 1'}^{\lambda\to\mu}$, which says $|\phi_2\rangle$ impinges on the scatterer before $|\phi_1\rangle$, breaking causality.
+Notice this is what one could expect from a standard scattering process: the total amplitude is the product of the amplitudes for both independent events, happening in the proper order. However, if we did not have included the step function in our ansatz, Eq. \eqref{eq:S0_2}, we would have obtained an unphysical term $A_{2\to 2'}^{\nu\to\lambda} A_{1\to 1'}^{\lambda\to\mu}$, which says $|\phi_2\rangle$ impinges on the scatterer before $|\phi_1\rangle$, breaking causality.
 
 Taking the Fourier transform of Eq. \eqref{eq:S0_2}, we can compute $S^0$ in momentum space. Before doing so, the single-photon $S$ matrix in momentum space is
 \begin{equation}
@@ -115,7 +115,7 @@ with $k$ and $p$ the incident and outgoing momenta, respectively, and $|g_\nu\ra
 =  \frac{i}{2\pi}\sum_{n,m=1}^2 &\sum_\lambda  \frac{t_{\mu\lambda}(k_n) t_{\lambda\nu}(k_{\overline{n}})}{p_m+E_\mu -k_n -E_\lambda + i0^+}\nonumber\\
 &\delta(p_1+p_2+E_\mu - k_1-k_2-E_\nu).
 \end{align}
-Here, $\overline{n}\neq n$, \emph{e.g.}, $\overline{n}=2$ if $n=1$. This structure has recently been found by Xu and Fan in \cite{Xu2016} for a $\lambda$ atom, a three-level atom which has two stable states and one unstable state, see the scatterer of Fig. \ref{fig:input}. This is not what one finds for wQED systems if the stable state of the scatterer is unique \cite{fan10,Rephaeli2011,Sanchez-Burillo2016}, as shown in general in \cite{xu13}. In that kind of system, there are two Dirac deltas, one for the energy conservation of each photon. In our case, the global Dirac delta imposes energy conservation of the whole process, but each photon does not conserve its energy individually in general. %However, for an input state such as \eqref{eq:input}, both photons do conserve its energy individually. The denominator of Eq. \eqref{eq:S0_2p} comes from the Fourier transform of $\theta$ and it is related to the order in which both photons interact with the scatterer.
+Here, $\overline{n}\neq n$, \emph{e.g.}, $\overline{n}=2$ if $n=1$. This structure has recently been found by Xu and Fan in \cite{Xu2016} for a $\lambda$ atom, a three-level atom which has two stable states and one unstable state, see the scatterer of Fig. \ref{fig:input}. This is not what one finds for wQED systems if the stable state of the scatterer is unique \cite{fan10,Rephaeli2011,Sanchez-Burillo2016b}, as shown in general in \cite{xu13}. In that kind of system, there are two Dirac deltas, one for the energy conservation of each photon. In our case, the global Dirac delta imposes energy conservation of the whole process, but each photon does not conserve its energy individually in general. %However, for an input state such as \eqref{eq:input}, both photons do conserve its energy individually. The denominator of Eq. \eqref{eq:S0_2p} comes from the Fourier transform of $\theta$ and it is related to the order in which both photons interact with the scatterer.
 
 If there is an only stable state, one can trivially show $S^0$ in position space is \eqref{eq:S0_2}
 \begin{equation}
@@ -141,12 +141,9 @@ Notice the step function has disappeared. This gives the double Dirac delta stru
 
 \section{$S^0$ in momentum space}\label{app:Sp}
 
-{\color{blue}
-\begin{enumerate}
-\item Computation in general: Figs. \ref{fig:lower} and \ref{fig:upper}.
-\item To particularize for $N=2$ and $\lambda$ atom \cite{Xu2016}.
-\end{enumerate}
-}
+We show here the structure of $S^0$ in momentum space, Eq. \eqref{eq:S0_2p}.
+
+{\color{blue}To particularize for $N=2$ and $\lambda$ atom \cite{Xu2016}.}
 
 \begin{figure}[tbh!]
 \includegraphics[scale=0.25]{lower_contour.pdf}
@@ -166,10 +163,49 @@ integrand. The values of the real parts are arbitrary.}
 
 {\color{blue}Computation of the scattering amplitude Eq. \eqref{eq:A}.}
 
-\section{Matrix Product States}\label{app:mps}
+\section{Matrix Product States}
 
-{\color{blue}
-Brief summary of MPS and how to apply them to few-photon photonics problems.}
+As we indicated in the manuscript, we solve the ultrastrong example by means of the MPS technique. We explain the method and justify why we can use it, as we already did in \cite{Sanchez-Burillo2014,Sanchez-Burillo2015,Sanchez-Burillo2016a}.
+
+Unlike in \cite{Peropadre2013}, our bandwidth-limited photonic medium can be treated in the RWA and its ground state is the vacuum both in frequency and position space. Moreover, even if we go beyond RWA in the qubit-resonator coupling ($g/\Delta\gtrsim 0.1$), it is true that the ground state is not the vacuum anymore, as we showed in \cite{Sanchez-Burillo2014}, but it will follow the area law \cite{Eisert2010}, so it will be slightly entangled. As we are studying the dynamics of two photons flying over the ground state, the state will have a small amount of entanglement.
+
+The main consequence of the previous discussion is that we may use the variational ansatz of Matrix Product States \cite{Ripoll2006,Verstraete2008} to describe the discrete wavefunction, since it is valid for 1D systems when the entanglement is small enough. This ansatz has the form
+\begin{equation}
+\ket{\psi} = \sum_{s_i \in \{1,d_i\}} \mathrm{tr}\left[
+\prod A_i^{s_i}\right] \ket{s_1,s_2,\ldots,s_L}.
+\label{eq:mps}
+\end{equation}
+It is constructed from $L$ sets of complex matrices $A_i^{s_i} \in M[\mathbb{C}^{D}]$, where each set is labeled by the quantum state $s_i$ of the corresponding site. The local Hilbert space dimention $d_i$ is infinity, since we are dealing with bosonic sites. However, during the dynamics, processes creating multiple photons are still highly off-resonance. Thus, we can truncate the bosonic space and consider states with $0$ to
+$n_\text{max}$ photons per cavity. So, the composite Hilbert space is $\mathcal{H}=\bigotimes_i \mathbb{C}^{d_i}$, where the dimension is $d_i=n_\text{max}+1$ for the empty resonators and $d_{i_0}=2(n_\text{max}+1)$ for the cavity with the qubit. We thus expect the composite wavefunction of the photon-qubit system to consist of a superposition with a small number of photons
+
+The total number of variational parameters $(L-1)D^2(n_\text{max}+1) + 2D^2(n_\text{max}+1)$ depends on the size of the matrices, $D$. The key point is that, for describing a general state, $D$ increases exponentially with $L$, whereas its dependence is polynomial if the entanglement is small enough, in such a way that the number of parameters increases polynomially with $L$ for this class of states.
+
+Our work with MPS relies on four different algorithms. The most basic one is to create trivial, product states of known shape, such as a vacuum state with a deexcited qubit $\ket{\psi}=\ket{\downarrow}\ket{\text{vac}}$. These states can be reproduced using matrices of bond dimension $D=1$, so each matrix is just a coefficient $A_i^{s_i}=\delta_{s_i1}$. The second algorithm is to compute expectation values from MPS. This amounts to a contraction of tensors that can be performed efficiently \cite{Ripoll2006}, and allows us to compute single-site operators $\langle a^\dagger_i a_i\rangle$, $\langle \sigma_z\rangle$, or correlators, $\langle a_i^\dagger a_j\rangle$. The third operation that we need to perform is to apply operators on to the state, $O\ket{\psi}$, such as introducing or removing excitations $a_i^\dagger\ket{\psi}$. We do this in an efficient fashion by interpreting the operator $O$ as a Matrix Product Operator (MPO) \cite{Pirvu2010}. A MPO is a matrix product representation of an operator:
+
+\begin{equation}
+O = \sum_{s_{i}^{},s_{i}^\prime \in \{1,d_i\}} \mathrm{tr}\left[\prod B_i^{s_i^{},s_i^\prime}\right]\ket{s_1^{},s_2^{},\ldots,s_L^{}}\bra{s_1^\prime,s_2^\prime,\ldots,s_L^\prime}
+\end{equation}
+
+So, now we have $L$ sets of complex matrices $B_i^{s_i^{},s_i^\prime} \in M[\mathbb{C}^{D_O}]$, where each set is labeled by two indices $s_i^{},s_i^\prime$ of the corresponding site.
+
+We just need to apply sums of one-body operators
+
+\begin{equation}
+O = a_\phi^\dagger = \sum_n \phi_n a_n^\dagger.
+\end{equation}
+
+In such a case, an efficient representation of the MPO is obtained with $D_O=2$
+
+\begin{equation}
+B_i^{s_i^{},s_i^\prime}=\left(\begin{array}{c c}
+\delta_{s_i^{},s_i^\prime} & 0\\
+\phi_i(a_i^\dagger)_{s_i^{},s_i^\prime} & \delta_{s_i^{},s_i^\prime}
+\end{array}\right)\qquad i=2,3,\dots,L-1,
+\end{equation}
+whereas $B_1^{s_1^{},s_1^\prime}=(\phi_1(a_1^\dagger)_{s_1^{},s_1^\prime},\delta_{s_1^{},s_1^\prime})$ and $B_L^{s_L^{},s_L^\prime}=(\delta_{s_L^{},s_L^\prime},\phi_L(a_L^\dagger)_{s_L^{},s_L^\prime})^T$, with $(a_i^\dagger)_{s_i^{},s_i^\prime}=:\bra{s_i^{}}a_i^\dagger\ket{s_i^\prime}$.
+
+Finally, with this tool in our box, we can also approximate time evolution, repeatedly contracting the state with an MPO approximation of the unitary operator $\exp(-iH\Delta t)$ for short times, and truncating it to an ansatz with a fixed $D$. Since our problem does not contain long-range interactions and since the state is well approximated by MPS, it is sufficient to rely on a third-order Suzuki-Trotter formula \cite{Suzuki1991}.
+In the same way as we can consider time evolution, we can take imaginary time to obtain the ground state and excited states, that is solving the equation $i\tfrac{d}{dt}P\ket{\psi}=PHP\ket{\psi}$ for finite time-steps, while constantly renormalizing the state. Here, $P$ is either the identity (for the ground state) or a projector that either selects a well defined quantum number (parity $\Pi$) or projects out already computed states. In either case, provided a suitable initial state, the algorithm converges to the lowest-energy state of $H$ in the subspace selected by $P$.
 
 \bibliographystyle{apsrev4-1}
 \bibliography{bib_cluster}
