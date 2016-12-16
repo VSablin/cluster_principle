@@ -94,15 +94,15 @@ We now show the step functions are necessary to fulfil causality. We consider a 
 \end{equation}
 where $|\phi_n\rangle$ is a single-photon state. The photon whose state is $|\phi_1\rangle$ impinges on the scatterer before the other and they are separated by $L\to\infty$, Fig. \ref{fig:input}. The probability amplitude of going to the state
 \begin{equation}
-|\Psi_\text{out}\rangle = \frac{1}{\sqrt{2}}(|\phi_{1'}\rangle \otimes|\phi_{2'}\rangle + |\phi_{2'}\rangle\otimes |\phi_{1'}\rangle)\otimes|g_\mu\rangle
+|\Psi_\text{out}\rangle = \frac{1}{\sqrt{2}}(|\phi_{a'}\rangle \otimes|\phi_{b'}\rangle + |\phi_{b'}\rangle\otimes |\phi_{a'}\rangle)\otimes|g_\mu\rangle
 \end{equation}
 can be computed just with the linear part of the $S$ matrix, since both incident wave packets are highly separated. Taking the ansatz given by Eq. \eqref{eq:S0_2}, this probability amplitude is
 \begin{equation}\label{eq:A}
-A_{12\to 1'2'}^{\nu\to\mu} \equiv \langle \Psi_\text{out}|S^0|\Psi_\text{in}\rangle =  \sum_\lambda A_{1\to 1'}^{\nu\to\lambda} A_{2\to 2'}^{\lambda\to\mu},
+A_{ab\to a'b'}^{\nu\to\mu} \equiv \langle \Psi_\text{out}|S^0|\Psi_\text{in}\rangle =  \sum_\lambda A_{a\to a'}^{\nu\to\lambda} A_{b\to b'}^{\lambda\to\mu},
 \end{equation}
 with $A_{n\to n'}^{\nu\to \mu}\equiv (\langle g_\mu |\otimes \langle \phi_{n'}|)S(|\phi_n\rangle\otimes |g_\nu\rangle)$, that is to say, the probability amplitude for the single-photon process between $|\phi_n\rangle\otimes |g_\nu\rangle$ and $|\phi_{n'}\rangle\otimes |g_\mu\rangle$. We choose $|\phi_{m'}\rangle$ such that $A_{n\to m'}^{\nu\to \mu}=0$ if $n\neq m$. More details on the computation can be found in the Appendix.
 
-Notice this is what one could expect from a standard scattering process: the total amplitude is the product of the amplitudes for both independent events, happening in the proper order. However, if we did not have included the step function in our ansatz, Eq. \eqref{eq:S0_2}, we would have obtained an unphysical term $A_{2\to 2'}^{\nu\to\lambda} A_{1\to 1'}^{\lambda\to\mu}$, which says $|\phi_2\rangle$ impinges on the scatterer before $|\phi_1\rangle$, breaking causality.
+Notice this is what one could expect from a standard scattering process: the total amplitude is the product of the amplitudes for both independent events, happening in the proper order. However, if we did not have included the step function in our ansatz, Eq. \eqref{eq:S0_2}, we would have obtained an unphysical term $A_{b\to b'}^{\nu\to\lambda} A_{a\to a'}^{\lambda\to\mu}$, which says $|\phi_b\rangle$ impinges on the scatterer before $|\phi_a\rangle$, breaking causality.
 
 Taking the Fourier transform of Eq. \eqref{eq:S0_2}, we can compute $S^0$ in momentum space. Before doing so, the single-photon $S$ matrix in momentum space is
 \begin{equation}\label{eq:S01_p}
@@ -123,7 +123,7 @@ S^0_{y_1y_2x_1x_2} = S_{y_1x_1}S_{y_2x_2} + S_{y_1x_2}S_{y_2x_1}.
 \end{equation}
 Notice the step function has disappeared. This gives the double Dirac delta structure in momentum space.
 
-{\color{blue} Conditions for the commutator $[a_\text{out}(t),a_\text{in}^\dagger(t')]$ so that $A_{12\to 1'2'}^{\nu\to\mu} = \sum_\lambda A_{1\to 1'}^{\nu\to\lambda}A_{2\to 2'}^{\lambda\to\mu}$ is true \cite{Xu2015}.
+{\color{blue} Conditions for the commutator $[a_\text{out}(t),a_\text{in}^\dagger(t')]$ so that $A_{ab\to a'b'}^{\nu\to\mu} = \sum_\lambda A_{a\to a'}^{\nu\to\lambda}A_{b\to b'}^{\lambda\to\mu}$ is true \cite{Xu2015}.
 }
 
 \section{Examples}
@@ -161,7 +161,7 @@ Introducing this in \eqref{eq:App_1}
 \end{align}
 with $\overline{n}(\overline{m})\neq n(m)$. The Fourier transform of the step function is
 \begin{equation}
-\frac{1}{\sqrt{2\pi}}\int dy e^{-i(q-q')y}\theta(\mp(y-y_0))=\pm\frac{i}{\sqrt{2\pi}}\frac{e^{-i(q-q')y}}{q-q'\pm i0^+}.
+\frac{1}{\sqrt{2\pi}}\int dy \; e^{-iqy}\theta(\mp(y-y_0))=\pm\frac{i}{\sqrt{2\pi}}\frac{e^{-iqy_0}}{q\pm i0^+}.
 \end{equation}
 Integrating Eq. \eqref{eq:App_2} in $y_1$
 \begin{align}
@@ -198,7 +198,100 @@ which is the expression given in the main text, Eq. \eqref{eq:S0_2p}. This resul
 
 \section{Scattering amplitude}\label{app:A}
 
-{\color{blue}Computation of the scattering amplitude Eq. \eqref{eq:A}.}
+In this section of the appendix, we compute the probability amplitude of going from an incident input state to a certain output state in the two-particle subspace. Before, we will need to do the same in the single-photon sector.
+
+\subsection{One photon}
+
+Let us assume we have an input state with one photon
+\begin{equation}
+|\Psi_\text{in}^1\rangle=|a\rangle|g_\nu\rangle,
+\end{equation}
+with
+\begin{equation}
+|a\rangle\equiv \int dx\; \phi_a(x)|x\rangle.
+\end{equation}
+The output state will read
+\begin{equation}\label{eq:out1}
+|\Psi_\text{out}^1\rangle = S|\Psi_\text{in}\rangle = \sum_\mu \int dy dx\;(S_{yx})_{\mu\nu}f_a(x)|y\rangle|g_\mu\rangle.
+\end{equation}
+Defining
+\begin{equation}\label{eq:phi_munu}
+\phi_{a,\mu\nu}(y)\equiv \int dx\; (S_{yx})_{\mu\nu} \phi_a(x)
+\end{equation}
+and
+\begin{equation}\label{eq:out_munu}
+|\psi_\text{out}^1\rangle_{a,\mu\nu}\equiv \int dy\;\phi_{a,\mu\nu}(y) |y\rangle
+\end{equation}
+the output state \eqref{eq:out1} can be rewritten as
+\begin{equation}
+|\Psi_\text{out}^1\rangle = \sum_\mu |\psi_\text{out}^1\rangle_{a,\mu\nu}|g_\mu\rangle.
+\end{equation}
+The probability amplitude $A_{a\to a'}^{\nu\to\mu}$ will be
+\begin{equation}\label{eq:A1}
+A_{a\to a'}^{\nu\to\mu} = \langle g_\mu|\langle a'|S|a\rangle|g_\nu\rangle = \langle a'|\psi_\text{out}\rangle_{a,\mu\nu}.
+\end{equation}
+
+\subsection{Two photons}
+
+We now assume we have a two-photon input state like that seen in Fig. \ref{fig:input}
+\begin{equation}\label{eq:input2}
+|\Psi_\text{in}^2\rangle = \frac{1}{\sqrt{2}}(|a\rangle|b\rangle+|b\rangle|a\rangle)|g_\nu\rangle.
+\end{equation}
+By definition, the output state is
+\begin{equation}
+|\Psi_\text{out}^2\rangle = S^0|\Psi_\text{in}^2\rangle.
+\end{equation}
+We just take into account the linear part of the scattering matrix because the incident photons are far away. We introduce the identity operator
+\begin{equation}\label{eq:out2}
+|\Psi_\text{out}^2\rangle = \mathbb{I}S^0\mathbb{I}|\Psi_\text{in}^2\rangle,
+\end{equation}
+with
+\begin{equation}\label{eq:I}
+\mathbb{I}=\frac{1}{2}\sum_\mu \int dx_1dx_2\;|x_1x_2;g_\nu\rangle \langle x_1x_2;g_\nu|,
+\end{equation}
+being $|x_1x_2\rangle$ the symmetrized state
+\begin{equation}
+|x_1x_2\rangle=\frac{1}{\sqrt{2}}(|x_1\rangle|x_2\rangle + |x_2\rangle|x_1\rangle).
+\end{equation}
+Introducing \eqref{eq:I} in \eqref{eq:out2} and considering \eqref{eq:input2} and \eqref{eq:S0_2}
+\begin{align}\label{eq:out2_2}
+|\Psi_\text{out}^2\rangle = &\frac{1}{4}\int dy_1dy_2dx_1dx_2\nonumber\\
+&\sum_{\mu\lambda}\sum_{n,m}(S_{y_nx_m})_{\mu\lambda} (S_{y_{\overline{n}}x_{\overline{m}}})_{\lambda\nu}\theta(y_{\overline{n}}-y_n)\nonumber\\
+&(\phi_a(x_1)\phi_b(x_2)+\phi_a(x_2)\phi_b(x_1))|y_1y_2;g_\mu\rangle.
+\end{align}
+We have to compute integrals such as
+\begin{align}
+C=\int dx_1dx_2\;\sum_{n,m}&(S_{y_nx_m})_{\mu\lambda} (S_{y_{\overline{n}}x_{\overline{m}}})_{\lambda\nu}\nonumber\\
+&\phi_i(x_1)\phi_j(x_2)\theta(y_{\overline{n}}-y_n).
+\end{align}
+Using Eq. \eqref{eq:phi_munu}
+\begin{align}\label{eq:C1}
+C=\sum_n(&\phi_{i,\mu\lambda}(y_n)\phi_{j,\lambda\nu}(y_{\overline{n}}) \nonumber\\
+& + \phi_{j,\mu\lambda}(y_n)\phi_{i,\lambda\nu}(y_{\overline{n}}))\theta(y_{\overline{n}}-y_n).
+\end{align}
+The functions $\phi_a(x)$ and $\phi_b(x)$ are such that if $\phi_a(x_m)\phi_b(x_{\overline{m}})$ is different from zero, then $x_m>x_{\overline{m}}$, Fig. \ref{fig:input}. The same applies for $\phi_{a,\mu\nu}(y_n)\phi_{b,\mu\nu}(y_{\overline{n}})$. Notice that the previous expression is different from zero just if $y_{\overline{n}}>y_n$, since we have the step function. If $i=a$ and $j=b$, the first term is zero and the step function is irrelevant, so $I_2$ will read
+\begin{align}\label{eq:C2}
+C=\sum_n\phi_{b,\mu\lambda}(y_n)\phi_{a,\lambda\nu}(y_{\overline{n}})).
+\end{align}
+One can see easily that the same expression is true if $i=b$ and $j=a$. Then, the output state, Eq. \eqref{eq:out2_2} is
+\begin{align}
+|\Psi_\text{out}^2\rangle &=\frac{1}{2\sqrt{2}}\int dy_1dy_2\;\sum_{\mu\lambda}(\phi_{b,\mu\lambda}(y_1)\phi_{a,\lambda\nu}(y_2)\nonumber\\
++&\phi_{b,\mu\lambda}(y_2)\phi_{a,\lambda\nu}(y_1))(|y_1\rangle|y_2\rangle + |y_2\rangle|y_1\rangle)|g_\mu\rangle.
+\end{align}
+Introducing Eq. \eqref{eq:out_munu}
+\begin{align}\label{eq:out_final}
+|\Psi_\text{out}^2\rangle =&\frac{1}{\sqrt{2}}\sum_{\mu\lambda}(|\psi_\text{out}^1\rangle_{b,\mu\nu}|\psi_\text{out}^1\rangle_{a,\nu\lambda}  \nonumber\\
+& + |\psi_\text{out}^1\rangle_{a,\nu\lambda}|\psi_\text{out}^1\rangle_{b,\mu\nu})|g_\mu\rangle.
+\end{align}
+Finally, the probability amplitude of going to the output state
+\begin{equation}
+\frac{1}{\sqrt{2}}(|a'\rangle|b'\rangle+|b'\rangle|a'\rangle)|g_\mu\rangle
+\end{equation}
+will be the overlap between this state and \eqref{eq:out_final}. Using \eqref{eq:A1}
+\begin{equation}
+A_{ab\to a'b'}^{\nu\to\mu}=\sum_\lambda A_{a\to a'}^{\nu\to\lambda} A_{b\to b'}^{\lambda\to\mu},
+\end{equation}
+as expected. If we would not have considered the step functions, when going from \eqref{eq:C1} to \eqref{eq:C2}, we would have obtained the unphysical amplitude $A_{b\to b'}^{\nu\to\lambda} A_{a\to a'}^{\lambda\to\mu}$.
 
 \section{Matrix Product States}
 
