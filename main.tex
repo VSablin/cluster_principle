@@ -105,7 +105,7 @@ with $A_{n\to n'}^{\nu\to \mu}\equiv (\langle g_\mu |\otimes \langle \phi_{n'}|)
 Notice this is what one could expect from a standard scattering process: the total amplitude is the product of the amplitudes for both independent events, happening in the proper order. However, if we did not have included the step function in our ansatz, Eq. \eqref{eq:S0_2}, we would have obtained an unphysical term $A_{2\to 2'}^{\nu\to\lambda} A_{1\to 1'}^{\lambda\to\mu}$, which says $|\phi_2\rangle$ impinges on the scatterer before $|\phi_1\rangle$, breaking causality.
 
 Taking the Fourier transform of Eq. \eqref{eq:S0_2}, we can compute $S^0$ in momentum space. Before doing so, the single-photon $S$ matrix in momentum space is
-\begin{equation}
+\begin{equation}\label{eq:S01_p}
 (S_{pk})_{\mu\nu}=t_{\mu\nu}(k)\delta(p+E_\mu-k-E_\nu),
 \end{equation}
 with $k$ and $p$ the incident and outgoing momenta, respectively, and $|g_\nu\rangle$ and $|g_\mu\rangle$ the initial and final states of the scatterer. The energies $E_\nu$ and $E_\mu$ correspond to the states $|g_\nu\rangle$ and $|g_\mu\rangle$. The factor $t_{\mu\nu}(k)$ is the so-called transmission amplitude. Notice that the Dirac delta guarantees energy conservation {\color{blue}WE HAVE TO MENTION SOMEWHERE $v_g=1$}. Then, the two-photon $S^0$ matrix is
@@ -141,23 +141,60 @@ Notice the step function has disappeared. This gives the double Dirac delta stru
 
 \section{$S^0$ in momentum space}\label{app:Sp}
 
-We show here the structure of $S^0$ in momentum space, Eq. \eqref{eq:S0_2p}.
+We show $S^0$ in momentum space follows Eq. \eqref{eq:S0_2p}. For the sake of simplicity, we focus on $N=2$ so we start from Eq. \eqref{eq:S0_2}. By definition, $(S^0_{p_1p_2k_1k_2})_{\mu\nu}$ reads
+\begin{align}\label{eq:App_1}
+(S_{p_1p_2k_1k_2}^0)_{\mu\nu}=&\frac{1}{(2\pi)^2}\int  dy_1dy_2dx_1dx_2\; (S_{y_1y_2x_1x_2}^0)_{\mu\nu}\nonumber\\
+& e^{-i(p_1y_1+p_2y_2)}  e^{i(k_1x_1+k_2x_2)},
+\end{align}
+with $(S_{y_1y_2x_1x_2}^0)_{\mu\nu}$ given by \eqref{eq:S0_2}. We will have integrals such as
+\begin{equation}
+I=\int dx\; e^{ikx}(S_{yx})_{\mu\nu}.
+\end{equation}
+As $(S_{yx})_{\mu\nu}$ is just the Fourier transform of $(S_{pk})_{\mu\nu}$ (Eq. \eqref{eq:S01_p}), the former integral will be
+\begin{equation}
+I=e^{i(k+E_\nu-E_\mu)y}t_{\mu\nu}(k).
+\end{equation}
+Introducing this in \eqref{eq:App_1}
+\begin{align}\label{eq:App_2}
+&(S_{p_1p_2k_1k_2}^0)_{\mu\nu}=\frac{1}{(2\pi)^2} \int dy_1 dy_2\; e^{-i(p_1y_1+p_2y_2)} \sum_{n=1}^2 e^{i(k_ny_1 + k_{\overline{n}} y_2)} \nonumber\\
+& \sum_{m=1}^2 e^{i[(E_\lambda-E_\mu)y_m+(E_\nu-E_\lambda)y_{\overline{n}}]}t_{\mu\lambda}(k_n)t_{\lambda\nu}(k_{\overline{n}}) \theta(y_{\overline{m}}-y_m),
+\end{align}
+with $\overline{n}(\overline{m})\neq n(m)$. The Fourier transform of the step function is
+\begin{equation}
+\frac{1}{\sqrt{2\pi}}\int dy e^{-i(q-q')y}\theta(\mp(y-y_0))=\pm\frac{i}{\sqrt{2\pi}}\frac{e^{-i(q-q')y}}{q-q'\pm i0^+}.
+\end{equation}
+Integrating Eq. \eqref{eq:App_2} in $y_1$
+\begin{align}
+(S_{p_1p_2k_1k_2}^0)_{\mu\nu}=&\frac{i}{(2\pi)^2} \int dy_2\; e^{-i(p_1+p_2+E_\mu-k_1-k_2-E_\nu)y_2} \nonumber\\
+\sum_{n=1}^2 & \left( \frac{t_{\mu\lambda}(k_n)t_{\lambda\nu}(k_{\overline{n}})}{p_1+E_\mu-k_n-E_\lambda+i0^+} \right. \nonumber\\
+&\left. -\frac{t_{\mu\lambda}(k_n)t_{\lambda\nu}(k_{\overline{n}})}{p_1+E_\lambda-k_n-E_\nu-i0^+}\right).
+\end{align}
+Notice the integral in $y_2$ is just a Dirac delta. Thus
+\begin{align}
+(S_{p_1p_2k_1k_2}^0)_{\mu\nu}=&\frac{i}{2\pi} \delta(p_1+p_2+E_\mu-k_1-k_2-E_\nu) \nonumber\\
+\sum_{n=1}^2 & \left( \frac{t_{\mu\lambda}(k_n)t_{\lambda\nu}(k_{\overline{n}})}{p_1+E_\mu-k_n-E_\lambda+i0^+} \right. \nonumber\\
+&\left. -\frac{t_{\mu\lambda}(k_n)t_{\lambda\nu}(k_{\overline{n}})}{p_1+E_\lambda-k_n-E_\nu-i0^+}\right).
+\end{align}
+Applying the condition imposed by the Dirac delta to the denominator of the third row
+\begin{align}
+(S_{p_1p_2k_1k_2}^0)_{\mu\nu}=  &\frac{i}{2\pi}\sum_{n,m=1}^2 \sum_\lambda  \frac{t_{\mu\lambda}(k_n) t_{\lambda\nu}(k_{\overline{n}})}{p_m+E_\mu -k_n -E_\lambda + i0^+}\nonumber\\
+&\delta(p_1+p_2+E_\mu - k_1-k_2-E_\nu),
+\end{align}
+which is the expression given in the main text, Eq. \eqref{eq:S0_2p}. This result has been recently reported for a $\lambda$ atom and different local scatterers by Xu and Fan \cite{Xu2016}. Here, we show this is completely general, according to our ansatz (Eq. \eqref{eq:S0_2}).
 
-{\color{blue}To particularize for $N=2$ and $\lambda$ atom \cite{Xu2016}.}
+%\begin{figure}[tbh!]
+%\includegraphics[scale=0.25]{lower_contour.pdf}
+%\caption{Integration contour for Eq. (...). The red points are the poles of the
+%integrand. The values of the real parts are arbitrary.}
+%\label{fig:lower}
+%\end{figure}
 
-\begin{figure}[tbh!]
-\includegraphics[scale=0.25]{lower_contour.pdf}
-\caption{Integration contour for Eq. (...). The red points are the poles of the
-integrand. The values of the real parts are arbitrary.}
-\label{fig:lower}
-\end{figure}
-
-\begin{figure}[tbh!]
-\includegraphics[scale=0.25]{upper_contour.pdf}
-\caption{Integration contour for Eq. (...). The red points are the poles of the
-integrand. The values of the real parts are arbitrary.}
-\label{fig:upper}
-\end{figure}
+%\begin{figure}[tbh!]
+%\includegraphics[scale=0.25]{upper_contour.pdf}
+%\caption{Integration contour for Eq. (...). The red points are the poles of the
+%integrand. The values of the real parts are arbitrary.}
+%\label{fig:upper}
+%\end{figure}
 
 \section{Scattering amplitude}\label{app:A}
 
