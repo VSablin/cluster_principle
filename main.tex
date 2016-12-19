@@ -26,11 +26,10 @@
 
 
 \begin{abstract}
-The scattering matrix is one of the most fundamental objects for
+The scattering matrix $S$ is one of the most fundamental objects for
 describing particle processes. It connects the far past state with the
-far future state, where the particles are well described by a free
-Hamiltonian but they interact in some nontrivial way
-for mid times. It can always be split into two parts: the linear part,
+far future state for interacting particles, provided the particles are well described by a free
+Hamiltonian before and after interacting. The $S$ matrix can always be split into two parts: the linear part,
 where each particle is scattered independently, and the nonlinear one,
 which gives information about the interaction among the
 particles. Here, we study the linear part of the scattering matrix for
@@ -51,11 +50,11 @@ bla, bla
 
 \section{Model in quantum photonics} 
 
-{\color{blue}Hamiltonian and Fig. \ref{fig:input}. Mention it is a chiral model but the generalization to a nonchiral one is trivial \cite{fan10}.}
+{\color{blue}Hamiltonian and Fig. \ref{fig:input}. Mention it is a chiral model but the generalization to a nonchiral one is trivial \cite{fan10}. Notation: according to the rest of the text, the number of stable states should be $M$.}
 
 \begin{figure}
 \includegraphics[scale=0.25]{input.pdf}
-\caption{Two-photon input state impinging on a $\lambda$ atom. The state $e$ is an unstable state which decays to the stable ones, $|g_1\rangle$ and $|g_2\rangle$.}
+\caption{Two-photon input state impinging on a $\lambda$ atom. The state $e$ is an unstable state which decays to the stable ones, $|g_1\rangle$ and $|g_2\rangle$. The distance $L$ between both wave packets, $\phi_a$ and $\phi_b$, will eventually tend to $\infty$.}
 \label{fig:input}
 \end{figure}
 
@@ -76,19 +75,19 @@ bla, bla
 
 \section{Cluster revisited}
 
-In this section, we build the ansatz for $S^0$ in position space. For the sake of simplicity, we first assume we have two photons. The input photons are placed at $x_1$ and $x_2$ and the outgoing ones are at $y_1$ and $y_2$. The initial and final states for the scatterer are $|g_\nu\rangle$ and $|g_\mu\rangle$, respectively. The ansatz is
+In this section, we build the ansatz for $S^0$ in position space. For the sake of simplicity, we first assume we have two photons. The ansatz is
 \begin{align}\label{eq:S0_2}
-(S^0_{y_1y_2x_1x_2})_{\mu\nu}& = \sum_\lambda \overbrace{(S_{y_1x_1})_{\mu\lambda}(S_{y_2x_2})_{\lambda\nu}}^{\text{single-photon process}}\overbrace{\theta(y_2-y_1)}^\text{causality} \nonumber\\
-&+ [x_1\leftrightarrow x_2,y_1\leftrightarrow y_2].
+(S^0_{y_1y_2x_1x_2})_{\mu\nu}& = \sum_{\lambda=1}^M \overbrace{(S_{y_1x_1})_{\mu\lambda}(S_{y_2x_2})_{\lambda\nu}}^{\text{single-photon process}}\overbrace{\theta(y_2-y_1)}^\text{causality} \nonumber\\
+&+ [x_1\leftrightarrow x_2,y_1\leftrightarrow y_2],
 \end{align}
-As expected from the cluster decomposition principle \cite{weinberg1995}, we take the product of two single-photon $S$ matrices: a photon going from $x_2$ to $y_2$ induces a transition between $|g_\nu\rangle$ and $|g_\lambda\rangle$, and a second photon, which goes from $x_1$ to $y_1$, causes the transition $|g_\lambda\rangle\to |g_\mu\rangle$. Notice there is a summation in the intermediate stable states of the scatterer, $|g_\lambda\rangle$. We multiply this by a step function ($\theta(y)=1$ if $y>0$ and $0$ otherwise) to ensure the outgoing photon placed at $y_2$ leaves the scatterer before the photon at $y_1$. Lastly, we symmetrize the result. The generalization for $N$ photons is straightforward
+with $x_{1,2}$ the positions of the input photons, $y_{1,2}$ the positions of the output ones, and $|g_\nu\rangle$ and $|g_\mu\rangle$ the initial and final states, respectively. As expected from the cluster decomposition principle \cite{weinberg1995}, we take the product of two single-photon $S$ matrices: a photon going from $x_2$ to $y_2$, which induces a transition between $|g_\nu\rangle$ and $|g_\lambda\rangle$, and a second photon, which goes from $x_1$ to $y_1$, causing the transition $|g_\lambda\rangle\to |g_\mu\rangle$. Notice there is a summation in the $M$ intermediate stable states of the scatterer, $|g_\lambda\rangle$. We multiply this by a step function ($\theta(y)=1$ if $y>0$ and $0$ otherwise) to ensure the outgoing photon placed at $y_2$ leaves the scatterer before the photon at $y_1$. Lastly, we symmetrize the result. The generalization for $N$ photons is straightforward
 \begin{align}\label{eq:S0_N}
-(S^0_{y_1\dots y_N x_1\dots x_N})_{\mu\nu}& = \sum_{\lambda_1\dots \lambda_{N-1}}\prod_{n=1}^N (S_{y_nx_n})_{\lambda_{n-1}\lambda_n}\nonumber\\
+(S^0_{y_1\dots y_N x_1\dots x_N})_{\mu\nu}& = \sum_{\lambda_1\dots \lambda_{N-1}=1}^M\prod_{n=1}^N (S_{y_nx_n})_{\lambda_{n-1}\lambda_n}\nonumber\\
 \prod_{m=1}^{N-1}&\theta(y_{m+1}-y_m) + \text{permutations},
 \end{align}
 with $\lambda_0\equiv \mu$ and $\lambda_N\equiv\nu$. We add all the permutations in $y_n/x_n\leftrightarrow y_m/x_m$ for all $n$ and $m$ in order to symmetrize $S^0$.
 
-We now show the step functions are necessary to fulfil causality. We consider a two-photon input state
+Naively, one could build the ansatz \eqref{eq:S0_2} without the step functions. Actually, this is true for scatterers with a unique stable state \cite{Xu2013}. However, they are necessary to fulfil causality, as we show in the following. We consider a two-photon input state
 \begin{equation}\label{eq:input}
 |\Psi_\text{in}\rangle = \frac{1}{\sqrt{2}}(|\phi_1\rangle \otimes|\phi_2\rangle + |\phi_2\rangle\otimes |\phi_1\rangle)\otimes|g_\nu\rangle,
 \end{equation}
@@ -98,7 +97,7 @@ where $|\phi_n\rangle$ is a single-photon state. The photon whose state is $|\ph
 \end{equation}
 can be computed just with the linear part of the $S$ matrix, since both incident wave packets are highly separated. Taking the ansatz given by Eq. \eqref{eq:S0_2}, this probability amplitude is
 \begin{equation}\label{eq:A}
-A_{ab\to a'b'}^{\nu\to\mu} \equiv \langle \Psi_\text{out}|S^0|\Psi_\text{in}\rangle =  \sum_\lambda A_{a\to a'}^{\nu\to\lambda} A_{b\to b'}^{\lambda\to\mu},
+A_{ab\to a'b'}^{\nu\to\mu} \equiv \langle \Psi_\text{out}|S^0|\Psi_\text{in}\rangle =  \sum_{\lambda=1}^M A_{a\to a'}^{\nu\to\lambda} A_{b\to b'}^{\lambda\to\mu},
 \end{equation}
 with $A_{n\to n'}^{\nu\to \mu}\equiv (\langle g_\mu |\otimes \langle \phi_{n'}|)S(|\phi_n\rangle\otimes |g_\nu\rangle)$, that is to say, the probability amplitude for the single-photon process between $|\phi_n\rangle\otimes |g_\nu\rangle$ and $|\phi_{n'}\rangle\otimes |g_\mu\rangle$. We choose $|\phi_{m'}\rangle$ such that $A_{n\to m'}^{\nu\to \mu}=0$ if $n\neq m$. More details on the computation can be found in the Appendix.
 
@@ -112,7 +111,7 @@ with $k$ and $p$ the incident and outgoing momenta, respectively, and $|g_\nu\ra
 \begin{align}\label{eq:S0_2p}
 (S_{p_1p_2k_1k_2}^0)_{\mu\nu}=&\frac{1}{(2\pi)^2}\int  dy_1dy_2dx_1dx_2\; (S_{y_1y_2x_1x_2}^0)_{\mu\nu}\nonumber\\
 & e^{-i(p_1y_1+p_2y_2)}  e^{i(k_1x_1+k_2x_2)} \nonumber\\
-=  \frac{i}{2\pi}\sum_{n,m=1}^2 &\sum_\lambda  \frac{t_{\mu\lambda}(k_n) t_{\lambda\nu}(k_{\overline{n}})}{p_m+E_\mu -k_n -E_\lambda + i0^+}\nonumber\\
+=  \frac{i}{2\pi}\sum_{n,m=1}^2 &\sum_{\lambda=1}^M  \frac{t_{\mu\lambda}(k_n) t_{\lambda\nu}(k_{\overline{n}})}{p_m+E_\mu -k_n -E_\lambda + i0^+}\nonumber\\
 &\delta(p_1+p_2+E_\mu - k_1-k_2-E_\nu).
 \end{align}
 Here, $\overline{n}\neq n$, \emph{e.g.}, $\overline{n}=2$ if $n=1$. This structure has recently been found by Xu and Fan in \cite{Xu2016} for a $\lambda$ atom, a three-level atom which has two stable states and one unstable state, see the scatterer of Fig. \ref{fig:input}. This is not what one finds for wQED systems if the stable state of the scatterer is unique \cite{fan10,Rephaeli2011,Sanchez-Burillo2016b}, as shown in general in \cite{xu13}. In that kind of system, there are two Dirac deltas, one for the energy conservation of each photon. In our case, the global Dirac delta imposes energy conservation of the whole process, but each photon does not conserve its energy individually in general. %However, for an input state such as \eqref{eq:input}, both photons do conserve its energy individually. The denominator of Eq. \eqref{eq:S0_2p} comes from the Fourier transform of $\theta$ and it is related to the order in which both photons interact with the scatterer.
@@ -156,8 +155,9 @@ I=e^{i(k+E_\nu-E_\mu)y}t_{\mu\nu}(k).
 \end{equation}
 Introducing this in \eqref{eq:App_1}
 \begin{align}\label{eq:App_2}
-&(S_{p_1p_2k_1k_2}^0)_{\mu\nu}=\frac{1}{(2\pi)^2} \int dy_1 dy_2\; e^{-i(p_1y_1+p_2y_2)} \sum_{n=1}^2 e^{i(k_ny_1 + k_{\overline{n}} y_2)} \nonumber\\
-& \sum_{m=1}^2 e^{i[(E_\lambda-E_\mu)y_m+(E_\nu-E_\lambda)y_{\overline{n}}]}t_{\mu\lambda}(k_n)t_{\lambda\nu}(k_{\overline{n}}) \theta(y_{\overline{m}}-y_m),
+(S_{p_1p_2k_1k_2}^0)_{\mu\nu}=\frac{1}{(2\pi)^2} &\int dy_1 dy_2\; e^{-i(p_1y_1+p_2y_2)}\nonumber\\
+\sum_{n,m=1}^2 \sum_{\lambda=1}^M e^{i(k_ny_1 + k_{\overline{n}} y_2)}& e^{i[(E_\lambda-E_\mu)y_m+(E_\nu-E_\lambda)y_{\overline{n}}]} \nonumber\\
+t_{\mu\lambda}(k_n)t_{\lambda\nu}(k_{\overline{n}})& \theta(y_{\overline{m}}-y_m),
 \end{align}
 with $\overline{n}(\overline{m})\neq n(m)$. The Fourier transform of the step function is
 \begin{equation}
@@ -169,15 +169,15 @@ Integrating Eq. \eqref{eq:App_2} in $y_1$
 \sum_{n=1}^2 & \left( \frac{t_{\mu\lambda}(k_n)t_{\lambda\nu}(k_{\overline{n}})}{p_1+E_\mu-k_n-E_\lambda+i0^+} \right. \nonumber\\
 &\left. -\frac{t_{\mu\lambda}(k_n)t_{\lambda\nu}(k_{\overline{n}})}{p_1+E_\lambda-k_n-E_\nu-i0^+}\right).
 \end{align}
-Notice the integral in $y_2$ is just a Dirac delta. Thus
+Notice the integral in $y_2$ gives a Dirac delta. Thus
 \begin{align}
 (S_{p_1p_2k_1k_2}^0)_{\mu\nu}=&\frac{i}{2\pi} \delta(p_1+p_2+E_\mu-k_1-k_2-E_\nu) \nonumber\\
-\sum_{n=1}^2 & \left( \frac{t_{\mu\lambda}(k_n)t_{\lambda\nu}(k_{\overline{n}})}{p_1+E_\mu-k_n-E_\lambda+i0^+} \right. \nonumber\\
+\sum_{n=1}^2 \sum_{\lambda=1}^M& \left( \frac{t_{\mu\lambda}(k_n)t_{\lambda\nu}(k_{\overline{n}})}{p_1+E_\mu-k_n-E_\lambda+i0^+} \right. \nonumber\\
 &\left. -\frac{t_{\mu\lambda}(k_n)t_{\lambda\nu}(k_{\overline{n}})}{p_1+E_\lambda-k_n-E_\nu-i0^+}\right).
 \end{align}
 Applying the condition imposed by the Dirac delta to the denominator of the third row
 \begin{align}
-(S_{p_1p_2k_1k_2}^0)_{\mu\nu}=  &\frac{i}{2\pi}\sum_{n,m=1}^2 \sum_\lambda  \frac{t_{\mu\lambda}(k_n) t_{\lambda\nu}(k_{\overline{n}})}{p_m+E_\mu -k_n -E_\lambda + i0^+}\nonumber\\
+(S_{p_1p_2k_1k_2}^0)_{\mu\nu}=  &\frac{i}{2\pi}\sum_{n,m=1}^2 \sum_{\lambda=1}^M  \frac{t_{\mu\lambda}(k_n) t_{\lambda\nu}(k_{\overline{n}})}{p_m+E_\mu -k_n -E_\lambda + i0^+}\nonumber\\
 &\delta(p_1+p_2+E_\mu - k_1-k_2-E_\nu),
 \end{align}
 which is the expression given in the main text, Eq. \eqref{eq:S0_2p}. This result has been recently reported for a $\lambda$ atom and different local scatterers by Xu and Fan \cite{Xu2016}. Here, we show this is completely general, according to our ansatz (Eq. \eqref{eq:S0_2}).
@@ -212,7 +212,7 @@ with
 \end{equation}
 The output state will read
 \begin{equation}\label{eq:out1}
-|\Psi_\text{out}^1\rangle = S|\Psi_\text{in}\rangle = \sum_\mu \int dy dx\;(S_{yx})_{\mu\nu}f_a(x)|y\rangle|g_\mu\rangle.
+|\Psi_\text{out}^1\rangle = S|\Psi_\text{in}\rangle = \sum_{\mu=1}^M \int dy dx\;(S_{yx})_{\mu\nu}f_a(x)|y\rangle|g_\mu\rangle.
 \end{equation}
 Defining
 \begin{equation}\label{eq:phi_munu}
@@ -224,7 +224,7 @@ and
 \end{equation}
 the output state \eqref{eq:out1} can be rewritten as
 \begin{equation}
-|\Psi_\text{out}^1\rangle = \sum_\mu |\psi_\text{out}^1\rangle_{a,\mu\nu}|g_\mu\rangle.
+|\Psi_\text{out}^1\rangle = \sum_{\mu=1}^M |\psi_\text{out}^1\rangle_{a,\mu\nu}|g_\mu\rangle.
 \end{equation}
 The probability amplitude $A_{a\to a'}^{\nu\to\mu}$ will be
 \begin{equation}\label{eq:A1}
@@ -247,7 +247,7 @@ We just take into account the linear part of the scattering matrix because the i
 \end{equation}
 with
 \begin{equation}\label{eq:I}
-\mathbb{I}=\frac{1}{2}\sum_\mu \int dx_1dx_2\;|x_1x_2;g_\nu\rangle \langle x_1x_2;g_\nu|,
+\mathbb{I}=\frac{1}{2}\sum_{\mu=1}^M \int dx_1dx_2\;|x_1x_2;g_\nu\rangle \langle x_1x_2;g_\nu|,
 \end{equation}
 being $|x_1x_2\rangle$ the symmetrized state
 \begin{equation}
@@ -256,7 +256,7 @@ being $|x_1x_2\rangle$ the symmetrized state
 Introducing \eqref{eq:I} in \eqref{eq:out2} and considering \eqref{eq:input2} and \eqref{eq:S0_2}
 \begin{align}\label{eq:out2_2}
 |\Psi_\text{out}^2\rangle = &\frac{1}{4}\int dy_1dy_2dx_1dx_2\nonumber\\
-&\sum_{\mu\lambda}\sum_{n,m}(S_{y_nx_m})_{\mu\lambda} (S_{y_{\overline{n}}x_{\overline{m}}})_{\lambda\nu}\theta(y_{\overline{n}}-y_n)\nonumber\\
+&\sum_{\mu,\lambda=1}^M\sum_{n,m=1}^2(S_{y_nx_m})_{\mu\lambda} (S_{y_{\overline{n}}x_{\overline{m}}})_{\lambda\nu}\theta(y_{\overline{n}}-y_n)\nonumber\\
 &(\phi_a(x_1)\phi_b(x_2)+\phi_a(x_2)\phi_b(x_1))|y_1y_2;g_\mu\rangle.
 \end{align}
 We have to compute integrals such as
@@ -266,21 +266,21 @@ C=\int dx_1dx_2\;\sum_{n,m}&(S_{y_nx_m})_{\mu\lambda} (S_{y_{\overline{n}}x_{\ov
 \end{align}
 Using Eq. \eqref{eq:phi_munu}
 \begin{align}\label{eq:C1}
-C=\sum_n(&\phi_{i,\mu\lambda}(y_n)\phi_{j,\lambda\nu}(y_{\overline{n}}) \nonumber\\
+C=\sum_{n=1}^2(&\phi_{i,\mu\lambda}(y_n)\phi_{j,\lambda\nu}(y_{\overline{n}}) \nonumber\\
 & + \phi_{j,\mu\lambda}(y_n)\phi_{i,\lambda\nu}(y_{\overline{n}}))\theta(y_{\overline{n}}-y_n).
 \end{align}
 The functions $\phi_a(x)$ and $\phi_b(x)$ are such that if $\phi_a(x_m)\phi_b(x_{\overline{m}})$ is different from zero, then $x_m>x_{\overline{m}}$, Fig. \ref{fig:input}. The same applies for $\phi_{a,\mu\nu}(y_n)\phi_{b,\mu\nu}(y_{\overline{n}})$. Notice that the previous expression is different from zero just if $y_{\overline{n}}>y_n$, since we have the step function. If $i=a$ and $j=b$, the first term is zero and the step function is irrelevant, so $I_2$ will read
 \begin{align}\label{eq:C2}
-C=\sum_n\phi_{b,\mu\lambda}(y_n)\phi_{a,\lambda\nu}(y_{\overline{n}})).
+C=\sum_{n=1}^2\phi_{b,\mu\lambda}(y_n)\phi_{a,\lambda\nu}(y_{\overline{n}})).
 \end{align}
 One can see easily that the same expression is true if $i=b$ and $j=a$. Then, the output state, Eq. \eqref{eq:out2_2} is
 \begin{align}
-|\Psi_\text{out}^2\rangle &=\frac{1}{2\sqrt{2}}\int dy_1dy_2\;\sum_{\mu\lambda}(\phi_{b,\mu\lambda}(y_1)\phi_{a,\lambda\nu}(y_2)\nonumber\\
+|\Psi_\text{out}^2\rangle &=\frac{1}{2\sqrt{2}}\int dy_1dy_2\;\sum_{\mu,\lambda=1}^M(\phi_{b,\mu\lambda}(y_1)\phi_{a,\lambda\nu}(y_2)\nonumber\\
 +&\phi_{b,\mu\lambda}(y_2)\phi_{a,\lambda\nu}(y_1))(|y_1\rangle|y_2\rangle + |y_2\rangle|y_1\rangle)|g_\mu\rangle.
 \end{align}
 Introducing Eq. \eqref{eq:out_munu}
 \begin{align}\label{eq:out_final}
-|\Psi_\text{out}^2\rangle =&\frac{1}{\sqrt{2}}\sum_{\mu\lambda}(|\psi_\text{out}^1\rangle_{b,\mu\nu}|\psi_\text{out}^1\rangle_{a,\nu\lambda}  \nonumber\\
+|\Psi_\text{out}^2\rangle =&\frac{1}{\sqrt{2}}\sum_{\mu,\lambda=1}^M(|\psi_\text{out}^1\rangle_{b,\mu\nu}|\psi_\text{out}^1\rangle_{a,\nu\lambda}  \nonumber\\
 & + |\psi_\text{out}^1\rangle_{a,\nu\lambda}|\psi_\text{out}^1\rangle_{b,\mu\nu})|g_\mu\rangle.
 \end{align}
 Finally, the probability amplitude of going to the output state
@@ -289,7 +289,7 @@ Finally, the probability amplitude of going to the output state
 \end{equation}
 will be the overlap between this state and \eqref{eq:out_final}. Using \eqref{eq:A1}
 \begin{equation}
-A_{ab\to a'b'}^{\nu\to\mu}=\sum_\lambda A_{a\to a'}^{\nu\to\lambda} A_{b\to b'}^{\lambda\to\mu},
+A_{ab\to a'b'}^{\nu\to\mu}=\sum_{\lambda=1}^M A_{a\to a'}^{\nu\to\lambda} A_{b\to b'}^{\lambda\to\mu},
 \end{equation}
 as expected. If we would not have considered the step functions, when going from \eqref{eq:C1} to \eqref{eq:C2}, we would have obtained the unphysical amplitude $A_{b\to b'}^{\nu\to\lambda} A_{a\to a'}^{\lambda\to\mu}$.
 
