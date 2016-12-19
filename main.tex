@@ -50,7 +50,7 @@ bla, bla
 
 \section{Model in quantum photonics} 
 
-{\color{blue}Hamiltonian and Fig. \ref{fig:input}. Mention it is a chiral model but the generalization to a nonchiral one is trivial \cite{fan10}. Notation: according to the rest of the text, the number of stable states should be $M$; if the stable states are $\ket{g_1}$, $\ket{g_2}$, \dots, $\ket{g_M}$, then $E_1\leq E_2\leq \dots E_M$.}
+{\color{blue}Hamiltonian and Fig. \ref{fig:input}. Mention it is a chiral model but the generalization to a nonchiral one is trivial \cite{Fan2010}. Notation: according to the rest of the text, the number of stable states should be $M$; if the stable states are $\ket{g_1}$, $\ket{g_2}$, \dots, $\ket{g_M}$, then $E_1\leq E_2\leq \dots E_M$.}
 
 \begin{figure}
 \includegraphics[scale=0.25]{input.pdf}
@@ -87,12 +87,16 @@ with $x_{1,2}$ the positions of the input photons, $y_{1,2}$ the positions of th
 \end{align}
 with $\lambda_0\equiv \mu$ and $\lambda_N\equiv\nu$. We add all the permutations in $y_n/x_n\leftrightarrow y_m/x_m$ for all $n$ and $m$ in order to symmetrize $S^0$.
 
-Naively, one could build the ansatz \eqref{eq:S0_2} without the step functions. Actually, this is true for scatterers with a unique stable state \cite{Xu2013}. However, they are necessary to fulfil causality, as we show in the following. We consider a two-photon input state
+Naively, one could build the ansatz \eqref{eq:S0_2} without the step functions. This is true for scatterers with a unique stable state \cite{Xu2013}. Actually, if we take $M=1$ in Eq. \eqref{eq:S0_2}, we recover this structure
+\begin{equation}\label{eq:S0_2_1}
+S^0_{y_1y_2x_1x_2} = S_{y_1x_1}S_{y_2x_2} + S_{y_1x_2}S_{y_2x_1},
+\end{equation}
+where the step functions disappear. However, the step functions are necessary to fulfil causality if $M>1$, as we show in the following. We consider a two-photon input state
 \begin{equation}\label{eq:input}
 |\Psi_\text{in}\rangle = \frac{1}{\sqrt{2}}(|\phi_1\rangle \otimes|\phi_2\rangle + |\phi_2\rangle\otimes |\phi_1\rangle)\otimes|g_\nu\rangle,
 \end{equation}
 where $|\phi_n\rangle$ is a single-photon state. The photon whose state is $|\phi_1\rangle$ impinges on the scatterer before the other and they are separated by $L\to\infty$, Fig. \ref{fig:input}. Let us compute the probability amplitude of going to the state
-\begin{equation}
+\begin{equation}\label{eq:output}
 |\Psi_\text{out}\rangle = \frac{1}{\sqrt{2}}(|\phi_{a'}\rangle \otimes|\phi_{b'}\rangle + |\phi_{b'}\rangle\otimes |\phi_{a'}\rangle)\otimes|g_\mu\rangle.
 \end{equation}
 We just  need the linear part of the $S$ matrix, $S^0$, since both incident wave packets are highly separated. Taking the ansatz given by Eq. \eqref{eq:S0_2}, this probability amplitude is
@@ -105,22 +109,87 @@ Taking the Fourier transform of Eq. \eqref{eq:S0_2}, we can compute $S^0$ in mom
 \begin{equation}\label{eq:S01_p}
 (S_{pk})_{\mu\nu}=t_{\mu\nu}(k)\delta(p+E_\mu-k-E_\nu),
 \end{equation}
-with $k$ and $p$ the incident and outgoing momenta, respectively, and $|g_\nu\rangle$ and $|g_\mu\rangle$ the initial and final states of the scatterer. The energies $E_\nu$ and $E_\mu$ correspond to the states $|g_\nu\rangle$ and $|g_\mu\rangle$. The factor $t_{\mu\nu}(k)$ is the so-called transmission amplitude. Notice that the Dirac delta guarantees energy conservation {\color{blue}WE HAVE TO MENTION SOMEWHERE $v_g=1$}. Then, the two-photon $S^0$ matrix is
+with $k$ and $p$ the incident and outgoing momenta, respectively, and $|g_\nu\rangle$ and $|g_\mu\rangle$ the initial and final states of the scatterer. The energies $E_\nu$ and $E_\mu$ correspond to the states $|g_\nu\rangle$ and $|g_\mu\rangle$. The factor $t_{\mu\nu}(k)$ is the so-called transmission amplitude. The Dirac delta guarantees energy conservation {\color{blue}WE HAVE TO MENTION SOMEWHERE $v_g=1$}. Then, the two-photon $S^0$ matrix is
 \begin{align}\label{eq:S0_2p}
 (S_{p_1p_2k_1k_2}^0)_{\mu\nu}=&\frac{1}{(2\pi)^2}\int  dy_1dy_2dx_1dx_2\; (S_{y_1y_2x_1x_2}^0)_{\mu\nu}\nonumber\\
 & e^{-i(p_1y_1+p_2y_2)}  e^{i(k_1x_1+k_2x_2)} \nonumber\\
 =  \frac{i}{2\pi}\sum_{n,m=1}^2 &\sum_{\lambda=1}^M  \frac{t_{\mu\lambda}(k_n) t_{\lambda\nu}(k_{\overline{n}})}{p_m+E_\mu -k_n -E_\lambda + i0^+}\nonumber\\
 &\delta(p_1+p_2+E_\mu - k_1-k_2-E_\nu).
 \end{align}
-Here, $\overline{n}\neq n$, \emph{e.g.}, $\overline{n}=2$ if $n=1$. This structure has recently been found by Xu and Fan in \cite{Xu2016} for a $\lambda$ atom, a three-level atom which has two stable states and one unstable state (see the scatterer of Fig. \ref{fig:input}). This is not what one finds for wQED systems if the stable state of the scatterer is unique \cite{fan10,Rephaeli2011,Sanchez-Burillo2016b}, as shown in general in \cite{Xu2013}. In that kind of system, there are two Dirac deltas, one for the energy conservation of each photon. In our case, the global Dirac delta imposes energy conservation of the whole process, but each photon does not conserve its energy individually in general. %However, for an input state such as \eqref{eq:input}, both photons do conserve its energy individually. The denominator of Eq. \eqref{eq:S0_2p} comes from the Fourier transform of $\theta$ and it is related to the order in which both photons interact with the scatterer.
+Here, $\overline{n}\neq n$, \emph{e.g.}, $\overline{n}=2$ if $n=1$. The computation is detailed in the Appendix. This structure has recently been found by Xu and Fan in \cite{Xu2016} for a $\lambda$ atom, a three-level atom with two stable states and one unstable state (see the scatterer of Fig. \ref{fig:input}). This is not what one finds for wQED systems if the stable state of the scatterer is unique \cite{Fan2010,Rephaeli2011,Sanchez-Burillo2016b}, as shown in general in \cite{Xu2013}. In that kind of systems, $S^0$ has two Dirac deltas, one for the energy conservation of each photon. One finds this structure from the scattering matrix for $M=1$ (Eqs. \eqref{eq:S0_2_1} and \eqref{eq:S01_p}). In our case, the global Dirac delta imposes energy conservation of the whole process, but each photon does not conserve its energy individually in general. For input states like \eqref{eq:input}, they do conserve their energies, as seen in the Appendix. %However, for an input state such as \eqref{eq:input}, both photons do conserve its energy individually. The denominator of Eq. \eqref{eq:S0_2p} comes from the Fourier transform of $\theta$ and it is related to the order in which both photons interact with the scatterer.
 
-If there is an only stable state, one can trivially show $S^0$ in position space is \eqref{eq:S0_2}
+\section{Connection with input-output theory}
+
+In this section, we set the relation between this and the input-output formalism \cite{Gardiner1985}, adapted to few-photon scattering in one dimension in \cite{Fan2010}. Concretely, we show the conditions the input-output operators must fulfil so that Eq. \eqref{eq:A} is true.
+
+The input and output states, Eqs. \eqref{eq:input} and \eqref{eq:output}, can be written as a couple of photonic operators acting on the vacuum:
+\begin{align}
+\label{eq:input_inout}|\Psi_\text{in}\rangle & = \xi_b^\dagger \xi_a^\dagger|\text{vac}\rangle \otimes \ket{g_\nu},\\
+\label{eq:output_inout}|\Psi_\text{out}\rangle & = \xi_{b'}^\dagger \xi_{a'}^\dagger|\text{vac}\rangle \otimes \ket{g_\mu},
+\end{align}
+where $\xi_n^\dagger$ generates a photon whose state is $\ket{\phi_n}$, with $n=a,b,a',b'$, and $\ket{\text{vac}}$ is the photonic state without particles. As $\xi_n^\dagger$ is a bosonic operator, both states are already symmetrized. According to the input-output theory, the probability amplitude between both states, Eq. \eqref{eq:A}, reads \cite{Fan2010}
+\begin{align}\label{eq:A_inout}
+A_{ab\to a'b'}^{\nu\to\mu}&=\bra{g_\nu}\otimes\bra{\text{vac}}\xi_{a'}\xi_{b'}\;S\;\xi_b^\dagger\xi_a^\dagger
+\ket{\text{vac}}\otimes\ket{g_\nu}\nonumber\\
+=\bra{g_\nu}&\otimes\bra{\text{vac}}\xi_{a',\text{out}}\xi_{b',\text{out}}\;\xi_{b,\text{in}}^\dagger\xi_{a,\text{in}}^\dagger
+\ket{\text{vac}}\otimes\ket{g_\nu},
+\end{align}
+where the input and output operators are defined as
+\begin{align}
+\xi_{n,\text{in}}^\dagger & \equiv e^{iHt_-} e^{-iH_0t_-}\xi_n^\dagger e^{iH_0 t_-} e^{-iHt_0},\\
+\xi_{n',\text{out}}^\dagger & \equiv e^{iHt_+} e^{-iH_0t_+}\xi_{n'}^\dagger e^{iH_0 t_+} e^{-iHt_+},
+\end{align}
+with $t_-\to-\infty$ and $t_+\to\infty$ {\color{blue}($H$ and $H_0$ should be defined in Section II)}. As we want to find Eq. \eqref{eq:A}, we need the following relations to fulfil
+\begin{align}
+[\xi_{a',\text{out}},\xi_{b,\text{in}}^\dagger]&=0, \label{eq:comm_1} \\
+[\xi_{b',\text{out}},\xi_{a,\text{in}}^\dagger]&\neq 0. \label{eq:comm_2}
+\end{align}
+If they are true, Eq. \eqref{eq:A_inout} can be rewritten as
+\begin{align}
+A_{ab\to a'b'}^{\nu\to\mu}=\sum_{\lambda=1}^M&\bra{g_\mu}\otimes\bra{\text{vac}}\xi_{b',\text{out}}\xi_{b,\text{in}}^\dagger \ket{\text{vac}}\otimes\ket{g_\lambda}\nonumber\\
+&\bra{g_\lambda} \otimes \bra{\text{vac}} \xi_{a',\text{out}} \xi_{a,\text{in}}^\dagger
+\ket{\text{vac}}\otimes\ket{g_\nu},
+\end{align}
+which is equal to Eq. \eqref{eq:A}, since $A_{n\to n'}^{\nu\to\mu}=\bra{g_\mu}\otimes\bra{\text{vac}}\xi_{n',\text{out}}\xi_{n,\text{in}}^\dagger \ket{\text{vac}}\otimes\ket{g_\nu}$. If Eq. \eqref{eq:comm_2} were false, we would find again noncausal terms, such as $A_{b\to b'}^{\nu\to\lambda}$. In the following, we show relations \eqref{eq:comm_1} and \eqref{eq:comm_2} are true.
+
+We can think of the initial state \eqref{eq:input_inout} as if we would have created a photon at a certain time $t$ and a second photon at $t+L$; then, we measure the output, firstly for the first photon and, lastly, for the second one. Thus, commutators \eqref{eq:comm_1} and \eqref{eq:comm_2} can be rewritten in terms of input-output operators in time space \cite{Fan2010}
+\begin{align}
+\label{eq:comm_a_1}&[a_\text{out}(t),a_\text{in}^\dagger(t+L)]=0,\\
+\label{eq:comm_a_2}&[a_\text{out}(t+L),a_\text{in}^\dagger(t)]\neq 0.
+\end{align}
+We need the equation relating $a_\text{in/out}(t)$ in order to evaluate the previous commutators. For the sake of simplicity, we particularize this computation for a $\lambda$ atom: $M=2$ and an only unstable state, with decay rates $\gamma_i$. The equation, derived in the Appendix, is
 \begin{equation}
-S^0_{y_1y_2x_1x_2} = S_{y_1x_1}S_{y_2x_2} + S_{y_1x_2}S_{y_2x_1}.
+\label{eq:a_inout}a_\text{out}(t)=a_\text{in}(t) - i\sqrt{2\gamma_1}\sigma_{1e}(t)-i\sqrt{2\gamma_2}\sigma_{2e}(t).
 \end{equation}
-Notice the step function has disappeared. This gives the double Dirac delta structure in momentum space.
+The commutator $[a_\text{out}(t_1),a_\text{in}^\dagger(t_2)]$ is
+\begin{align}
+&[a_\text{out}(t_1),a_\text{in}^\dagger(t_2)]=[a_\text{in}(t_1),a_\text{in}^\dagger(t_2)]\nonumber\\
+-i&\sqrt{2\gamma_1}[\sigma_{1e}(t_1),a_\text{in}(t_2)]-i\sqrt{2\gamma_2}[\sigma_{2e}(t_1),a_\text{in}(t_2)].
+\end{align}
+As $a_\text{in/out}(t)$ are bosonic operators \cite{Fan2010} and $t_1\neq t_2$, the first term vanishes. We need the equations for $\sigma_{\lambda e}(t)$, with $\sigma_{\lambda e}\equiv \ket{g_\lambda}\bra{e}$ in order to evaluate the remaining terms. They are also derived in the Appendix. They read
+\begin{align}
+\label{eq:sigma_inout}\frac{d\sigma_{\lambda e}(t)}{dt}=&-(i\Delta_\lambda+\gamma_1+\gamma_2)\sigma_{\lambda e}(t)\nonumber\\
+&+i\left(\sqrt{2\gamma_\lambda}\sigma_{\lambda e}^z(t)-\sqrt{2\gamma_{\overline{\lambda}}}\sigma_{\lambda \overline{\lambda}}(t)\right)a_\text{in}(t),
+\end{align}
+with $\sigma_{\lambda e}^z\equiv \ket{e}\bra{e}-\ket{g_\lambda}\bra{g_\lambda}$, $\sigma_{\lambda\lambda'}\equiv \ket{g_\lambda}\bra{g_{\lambda'}}$, and $\Delta_\lambda$ the energy gap between $\ket{g_\lambda}$ and $\ket{e}$. In this equation, $\overline{\lambda}\neq \lambda$. Integrating \eqref{eq:sigma_inout} in time from $t_-\to-\infty$ to $t$
+\begin{align}
+\label{sigma_inout_int}
+\sigma_{\lambda e}&(t)-\sigma_{\lambda e}(t_-)=-(i\Delta_\lambda+\gamma_1+\gamma_2)\int_{t_-}^t dt'\sigma_{\lambda e}(t')\nonumber\\
+&+i\int_{t_-}^t dt' \left(\sqrt{2\gamma_\lambda}\sigma_{\lambda e}^z(t')- \sqrt{2\gamma_{\overline{\lambda}}}\sigma_{\lambda \overline{\lambda}}(t')\right)a_\text{in}(t').
+\end{align}
+Taking the commutator between this equation for $t=t_1$ and $a_\text{in}^\dagger(t_2)$
+\begin{align}
+&[\sigma_{\lambda e}(t_1),a_\text{in}^\dagger(t_2)]=[\sigma_{\lambda e}(t_-),a_\text{in}^\dagger(t_2)]\nonumber\\
+&-\left[(i\Delta_\lambda+\gamma_1+\gamma_2)\int_{t_-}^{t_1} dt'\sigma_{\lambda e}(t') \right.\nonumber\\
+&\left.+i\int_{t_-}^{t_1} dt' \left(\sqrt{2\gamma_\lambda}\sigma_{\lambda e}^z(t')- \sqrt{2\gamma_{\overline{\lambda}}}\sigma_{\lambda \overline{\lambda}}(t')\right)a_\text{in}(t'),a_\text{in}^\dagger(t_2)]\right].
+\end{align}
+The first term of the right hand side vanishes, since $a_\text{in}^\dagger(t)$ is a Heisenberg operator evaluated at time $t_-$ \cite{Fan2010,Xu2015}
 
-{\color{blue} Conditions for the commutator $[a_\text{out}(t),a_\text{in}^\dagger(t')]$ so that $A_{ab\to a'b'}^{\nu\to\mu} = \sum_{\lambda=1}^M A_{a\to a'}^{\nu\to\lambda}A_{b\to b'}^{\lambda\to\mu}$ is true \cite{Xu2015}.
+{\color{blue}
+\begin{enumerate}
+\item Write input-output equations for the $\lambda$ atom (Appendix).
+\item Show the relations for the commutators.
+\end{enumerate}
 }
 
 \section{Examples}
@@ -135,64 +204,6 @@ Notice the step function has disappeared. This gives the double Dirac delta stru
 \section{Summary and acknowledgements}
 
 \appendix
-
-\section{$S^0$ in momentum space}\label{app:Sp}
-
-We show $S^0$ in momentum space follows Eq. \eqref{eq:S0_2p}. For the sake of simplicity, we focus on $N=2$ so we start from Eq. \eqref{eq:S0_2}. By definition, $(S^0_{p_1p_2k_1k_2})_{\mu\nu}$ reads
-\begin{align}\label{eq:App_1}
-(S_{p_1p_2k_1k_2}^0)_{\mu\nu}=&\frac{1}{(2\pi)^2}\int  dy_1dy_2dx_1dx_2\; (S_{y_1y_2x_1x_2}^0)_{\mu\nu}\nonumber\\
-& e^{-i(p_1y_1+p_2y_2)}  e^{i(k_1x_1+k_2x_2)},
-\end{align}
-with $(S_{y_1y_2x_1x_2}^0)_{\mu\nu}$ given by \eqref{eq:S0_2}. We will have integrals such as
-\begin{equation}
-I=\int dx\; e^{ikx}(S_{yx})_{\mu\nu}.
-\end{equation}
-As $(S_{yx})_{\mu\nu}$ is just the Fourier transform of $(S_{pk})_{\mu\nu}$ (Eq. \eqref{eq:S01_p}), the former integral will be
-\begin{equation}
-I=e^{i(k+E_\nu-E_\mu)y}t_{\mu\nu}(k).
-\end{equation}
-Introducing this in \eqref{eq:App_1}
-\begin{align}\label{eq:App_2}
-(S_{p_1p_2k_1k_2}^0)_{\mu\nu}=\frac{1}{(2\pi)^2} &\int dy_1 dy_2\; e^{-i(p_1y_1+p_2y_2)}\nonumber\\
-\sum_{n,m=1}^2 \sum_{\lambda=1}^M e^{i(k_ny_1 + k_{\overline{n}} y_2)}& e^{i[(E_\lambda-E_\mu)y_m+(E_\nu-E_\lambda)y_{\overline{n}}]} \nonumber\\
-t_{\mu\lambda}(k_n)t_{\lambda\nu}(k_{\overline{n}})& \theta(y_{\overline{m}}-y_m),
-\end{align}
-with $\overline{n}(\overline{m})\neq n(m)$. The Fourier transform of the step function is
-\begin{equation}
-\frac{1}{\sqrt{2\pi}}\int dy \; e^{-iqy}\theta(\mp(y-y_0))=\pm\frac{i}{\sqrt{2\pi}}\frac{e^{-iqy_0}}{q\pm i0^+}.
-\end{equation}
-Integrating Eq. \eqref{eq:App_2} in $y_1$
-\begin{align}
-(S_{p_1p_2k_1k_2}^0)_{\mu\nu}=&\frac{i}{(2\pi)^2} \int dy_2\; e^{-i(p_1+p_2+E_\mu-k_1-k_2-E_\nu)y_2} \nonumber\\
-\sum_{n=1}^2 & \left( \frac{t_{\mu\lambda}(k_n)t_{\lambda\nu}(k_{\overline{n}})}{p_1+E_\mu-k_n-E_\lambda+i0^+} \right. \nonumber\\
-&\left. -\frac{t_{\mu\lambda}(k_n)t_{\lambda\nu}(k_{\overline{n}})}{p_1+E_\lambda-k_n-E_\nu-i0^+}\right).
-\end{align}
-Notice the integral in $y_2$ gives a Dirac delta. Thus
-\begin{align}
-(S_{p_1p_2k_1k_2}^0)_{\mu\nu}=&\frac{i}{2\pi} \delta(p_1+p_2+E_\mu-k_1-k_2-E_\nu) \nonumber\\
-\sum_{n=1}^2 \sum_{\lambda=1}^M& \left( \frac{t_{\mu\lambda}(k_n)t_{\lambda\nu}(k_{\overline{n}})}{p_1+E_\mu-k_n-E_\lambda+i0^+} \right. \nonumber\\
-&\left. -\frac{t_{\mu\lambda}(k_n)t_{\lambda\nu}(k_{\overline{n}})}{p_1+E_\lambda-k_n-E_\nu-i0^+}\right).
-\end{align}
-Applying the condition imposed by the Dirac delta to the denominator of the third row
-\begin{align}
-(S_{p_1p_2k_1k_2}^0)_{\mu\nu}=  &\frac{i}{2\pi}\sum_{n,m=1}^2 \sum_{\lambda=1}^M  \frac{t_{\mu\lambda}(k_n) t_{\lambda\nu}(k_{\overline{n}})}{p_m+E_\mu -k_n -E_\lambda + i0^+}\nonumber\\
-&\delta(p_1+p_2+E_\mu - k_1-k_2-E_\nu),
-\end{align}
-which is the expression given in the main text, Eq. \eqref{eq:S0_2p}. This result has been recently reported for a $\lambda$ atom and different local scatterers by Xu and Fan \cite{Xu2016}. Here, we show this is completely general, according to our ansatz (Eq. \eqref{eq:S0_2}).
-
-%\begin{figure}[tbh!]
-%\includegraphics[scale=0.25]{lower_contour.pdf}
-%\caption{Integration contour for Eq. (...). The red points are the poles of the
-%integrand. The values of the real parts are arbitrary.}
-%\label{fig:lower}
-%\end{figure}
-
-%\begin{figure}[tbh!]
-%\includegraphics[scale=0.25]{upper_contour.pdf}
-%\caption{Integration contour for Eq. (...). The red points are the poles of the
-%integrand. The values of the real parts are arbitrary.}
-%\label{fig:upper}
-%\end{figure}
 
 \section{Scattering amplitude}\label{app:A}
 
@@ -290,6 +301,69 @@ will be the overlap between this state and \eqref{eq:out_final}. Using \eqref{eq
 A_{ab\to a'b'}^{\nu\to\mu}=\sum_{\lambda=1}^M A_{a\to a'}^{\nu\to\lambda} A_{b\to b'}^{\lambda\to\mu},
 \end{equation}
 as expected. If we would not have considered the step functions, when going from \eqref{eq:C1} to \eqref{eq:C2}, we would have obtained the unphysical amplitude $A_{b\to b'}^{\nu\to\lambda} A_{a\to a'}^{\lambda\to\mu}$.
+
+
+\section{$S^0$ in momentum space}\label{app:Sp}
+
+We show $S^0$ in momentum space follows Eq. \eqref{eq:S0_2p}. For the sake of simplicity, we focus on $N=2$ so we start from Eq. \eqref{eq:S0_2}. By definition, $(S^0_{p_1p_2k_1k_2})_{\mu\nu}$ reads
+\begin{align}\label{eq:App_1}
+(S_{p_1p_2k_1k_2}^0)_{\mu\nu}=&\frac{1}{(2\pi)^2}\int  dy_1dy_2dx_1dx_2\; (S_{y_1y_2x_1x_2}^0)_{\mu\nu}\nonumber\\
+& e^{-i(p_1y_1+p_2y_2)}  e^{i(k_1x_1+k_2x_2)},
+\end{align}
+with $(S_{y_1y_2x_1x_2}^0)_{\mu\nu}$ given by \eqref{eq:S0_2}. We will have integrals such as
+\begin{equation}
+I=\int dx\; e^{ikx}(S_{yx})_{\mu\nu}.
+\end{equation}
+As $(S_{yx})_{\mu\nu}$ is just the Fourier transform of $(S_{pk})_{\mu\nu}$ (Eq. \eqref{eq:S01_p}), the former integral will be
+\begin{equation}
+I=e^{i(k+E_\nu-E_\mu)y}t_{\mu\nu}(k).
+\end{equation}
+Introducing this in \eqref{eq:App_1}
+\begin{align}\label{eq:App_2}
+(S_{p_1p_2k_1k_2}^0)_{\mu\nu}=\frac{1}{(2\pi)^2} &\int dy_1 dy_2\; e^{-i(p_1y_1+p_2y_2)}\nonumber\\
+\sum_{n,m=1}^2 \sum_{\lambda=1}^M e^{i(k_ny_1 + k_{\overline{n}} y_2)}& e^{i[(E_\lambda-E_\mu)y_m+(E_\nu-E_\lambda)y_{\overline{n}}]} \nonumber\\
+t_{\mu\lambda}(k_n)t_{\lambda\nu}(k_{\overline{n}})& \theta(y_{\overline{m}}-y_m),
+\end{align}
+with $\overline{n}(\overline{m})\neq n(m)$. The Fourier transform of the step function is
+\begin{equation}
+\frac{1}{\sqrt{2\pi}}\int dy \; e^{-iqy}\theta(\mp(y-y_0))=\pm\frac{i}{\sqrt{2\pi}}\frac{e^{-iqy_0}}{q\pm i0^+}.
+\end{equation}
+Integrating Eq. \eqref{eq:App_2} in $y_1$
+\begin{align}
+(S_{p_1p_2k_1k_2}^0)_{\mu\nu}=&\frac{i}{(2\pi)^2} \int dy_2\; e^{-i(p_1+p_2+E_\mu-k_1-k_2-E_\nu)y_2} \nonumber\\
+\sum_{n=1}^2 & \left( \frac{t_{\mu\lambda}(k_n)t_{\lambda\nu}(k_{\overline{n}})}{p_1+E_\mu-k_n-E_\lambda+i0^+} \right. \nonumber\\
+&\left. -\frac{t_{\mu\lambda}(k_n)t_{\lambda\nu}(k_{\overline{n}})}{p_1+E_\lambda-k_n-E_\nu-i0^+}\right).
+\end{align}
+Notice the integral in $y_2$ gives a Dirac delta. Thus
+\begin{align}
+(S_{p_1p_2k_1k_2}^0)_{\mu\nu}=&\frac{i}{2\pi} \delta(p_1+p_2+E_\mu-k_1-k_2-E_\nu) \nonumber\\
+\sum_{n=1}^2 \sum_{\lambda=1}^M& \left( \frac{t_{\mu\lambda}(k_n)t_{\lambda\nu}(k_{\overline{n}})}{p_1+E_\mu-k_n-E_\lambda+i0^+} \right. \nonumber\\
+&\left. -\frac{t_{\mu\lambda}(k_n)t_{\lambda\nu}(k_{\overline{n}})}{p_1+E_\lambda-k_n-E_\nu-i0^+}\right).
+\end{align}
+Applying the condition imposed by the Dirac delta to the denominator of the third row
+\begin{align}
+(S_{p_1p_2k_1k_2}^0)_{\mu\nu}=  &\frac{i}{2\pi}\sum_{n,m=1}^2 \sum_{\lambda=1}^M  \frac{t_{\mu\lambda}(k_n) t_{\lambda\nu}(k_{\overline{n}})}{p_m+E_\mu -k_n -E_\lambda + i0^+}\nonumber\\
+&\delta(p_1+p_2+E_\mu - k_1-k_2-E_\nu),
+\end{align}
+which is the expression given in the main text, Eq. \eqref{eq:S0_2p}. This result has been recently reported for a $\lambda$ atom and different local scatterers by Xu and Fan \cite{Xu2016}. Here, we show this is completely general, according to our ansatz (Eq. \eqref{eq:S0_2}).
+
+%\begin{figure}[tbh!]
+%\includegraphics[scale=0.25]{lower_contour.pdf}
+%\caption{Integration contour for Eq. (...). The red points are the poles of the
+%integrand. The values of the real parts are arbitrary.}
+%\label{fig:lower}
+%\end{figure}
+
+%\begin{figure}[tbh!]
+%\includegraphics[scale=0.25]{upper_contour.pdf}
+%\caption{Integration contour for Eq. (...). The red points are the poles of the
+%integrand. The values of the real parts are arbitrary.}
+%\label{fig:upper}
+%\end{figure}
+
+\section{Input-output equations for a $\lambda$ atom}
+
+
 
 \section{Matrix Product States}
 
