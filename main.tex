@@ -162,7 +162,7 @@ We need the equation relating $a_\text{in/out}(t)$ in order to evaluate the prev
 \label{eq:a_inout}a_\text{out}(t)=a_\text{in}(t) - i\sqrt{2\gamma_1}\sigma_{1e}(t)-i\sqrt{2\gamma_2}\sigma_{2e}(t).
 \end{equation}
 The commutator $[a_\text{out}(t_1),a_\text{in}^\dagger(t_2)]$ is
-\begin{align}
+\begin{align}\label{eq:comm_in_out}
 &[a_\text{out}(t_1),a_\text{in}^\dagger(t_2)]=[a_\text{in}(t_1),a_\text{in}^\dagger(t_2)]\nonumber\\
 -i&\sqrt{2\gamma_1}[\sigma_{1e}(t_1),a_\text{in}(t_2)]-i\sqrt{2\gamma_2}[\sigma_{2e}(t_1),a_\text{in}(t_2)].
 \end{align}
@@ -183,14 +183,18 @@ Taking the commutator between this equation for $t=t_1$ and $a_\text{in}^\dagger
 &-\left[(i\Delta_\lambda+\gamma_1+\gamma_2)\int_{t_-}^{t_1} dt'\sigma_{\lambda e}(t') \right.\nonumber\\
 &\left.+i\int_{t_-}^{t_1} dt' \left(\sqrt{2\gamma_\lambda}\sigma_{\lambda e}^z(t')- \sqrt{2\gamma_{\overline{\lambda}}}\sigma_{\lambda \overline{\lambda}}(t')\right)a_\text{in}(t'),a_\text{in}^\dagger(t_2)]\right].
 \end{align}
-The first term of the right hand side vanishes, since $a_\text{in}^\dagger(t)$ is a Heisenberg operator evaluated at time $t_-$ \cite{Fan2010,Xu2015}
+The first term of the right hand side vanishes, since $a_\text{in}^\dagger(t)$ can be written as an integral of Heisenberg operators evaluated at time $t_-$, $a_k^\dagger(t_-)$ \cite{Fan2010,Xu2015} and $[\sigma_{\lambda e},a_k^\dagger]=0$, since they belong to different Hilbert spaces. For the other term, as argued in \cite{Xu2015}, the first argument of the commutator just depends on $\{a_\text{in}(t')\}$, for $t_-<t'<t_1$. Thus, if $t_1<t_2$, this commutator is zero, and otherwise it is not. In consequence, $[\sigma_{\lambda e}(t_1),a_\text{in}^\dagger(t_2)]=0$ if $t_1<t_2$ and $[\sigma_{\lambda e}(t_1),a_\text{in}^\dagger(t_2)]$ if $t_2>t_1$. Introducing these conditions in \eqref{eq:comm_in_out}
+\begin{align}
+\label{eq:comm_causality_1}&[a_\text{out}(t_1),a_\text{in}^\dagger(t_2)]=0\quad \text{if}\;\; t_1<t_2,\\
+\label{eq:comm_causality_2}&[a_\text{out}(t_1),a_\text{in}^\dagger(t_2)]\neq 0\quad \text{if}\;\; t_1>t_2.
+\end{align}
+From this, both Eq. \eqref{eq:comm_a_1} and Eq. \eqref{eq:comm_a_2} follow particularizing \eqref{eq:comm_causality_1} for $(t_1,t_2)=(t,t+L)$ and \eqref{eq:comm_causality_2} for $(t_1,t_2)=(t+L,t)$.
 
-{\color{blue}
-\begin{enumerate}
-\item Write input-output equations for the $\lambda$ atom (Appendix).
-\item Show the relations for the commutators.
-\end{enumerate}
-}
+We conclude the conditions \eqref{eq:comm_causality_1} and \eqref{eq:comm_causality_2} are necessary to fulfil causality.%Otherwise, the scattering process would not be able to distinguish the order of the incident photons. This condition also applies for systems with a unique stable state. However, in such a case, the probability amplitude \eqref{eq:A} is
+%\begin{equation}
+%A_{ab\to a'b'}^{1\to 1} =  A_{a\to a'}^{1\to 1} A_{b\to b'}^{1\to 1}.
+%\end{equation}
+%Thus, the process is not sensitive to the order.
 
 \section{Examples}
 
