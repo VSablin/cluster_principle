@@ -116,9 +116,9 @@ with $k$ and $p$ the incident and outgoing momenta, respectively, and $|g_\nu\ra
 =  \frac{i}{2\pi}\sum_{n,m=1}^2 &\sum_{\lambda=1}^M  \frac{t_{\mu\lambda}(k_n) t_{\lambda\nu}(k_{\overline{n}})}{p_m+E_\mu -k_n -E_\lambda + i0^+}\nonumber\\
 &\delta(p_1+p_2+E_\mu - k_1-k_2-E_\nu).
 \end{align}
-Here, $\overline{n}\neq n$, \emph{e.g.}, $\overline{n}=2$ if $n=1$. The computation is detailed in the Appendix. This structure has recently been found by Xu and Fan in \cite{Xu2016} for a $\lambda$ atom, a three-level atom with two stable states and one unstable state (see the scatterer of Fig. \ref{fig:input}). This is not what one finds for wQED systems if the stable state of the scatterer is unique \cite{Fan2010,Rephaeli2011,Sanchez-Burillo2016b}, as shown in general in \cite{Xu2013}. In that kind of systems, $S^0$ has two Dirac deltas, one for the energy conservation of each photon. One finds this structure from the scattering matrix for $M=1$ (Eqs. \eqref{eq:S0_2_1} and \eqref{eq:S01_p}). In our case, the global Dirac delta imposes energy conservation of the whole process, but each photon does not conserve its energy individually in general. For input states like \eqref{eq:input}, they do conserve their energies, as seen in the Appendix. %However, for an input state such as \eqref{eq:input}, both photons do conserve its energy individually. The denominator of Eq. \eqref{eq:S0_2p} comes from the Fourier transform of $\theta$ and it is related to the order in which both photons interact with the scatterer.
+Here, $\overline{n}\neq n$, \emph{e.g.}, $\overline{n}=2$ if $n=1$. The computation is detailed in the Appendix. This structure has recently been found by Xu and Fan in \cite{Xu2016} for a $\lambda$ atom, a three-level atom with two stable states and one unstable state (see the scatterer of Fig. \ref{fig:input}). This is not what one finds for wQED systems if the stable state of the scatterer is unique \cite{Fan2010,Rephaeli2011,Sanchez-Burillo2016b}, as shown in general in \cite{Xu2013}. In that kind of systems, $S^0$ has two Dirac deltas, one for the energy conservation of each photon. We find this structure for $M=1$ (Eqs. \eqref{eq:S0_2_1} and \eqref{eq:S01_p}). In our case, the global Dirac delta imposes energy conservation of the whole process, but each photon does not conserve its energy individually in general. For input states like \eqref{eq:input}, they do conserve their energies, as seen in the Appendix. %However, for an input state such as \eqref{eq:input}, both photons do conserve its energy individually. The denominator of Eq. \eqref{eq:S0_2p} comes from the Fourier transform of $\theta$ and it is related to the order in which both photons interact with the scatterer.
 
-\section{Connection with input-output theory}
+\section{Connection with input-output theory}\label{sec:inout}
 
 In this section, we set the relation between this and the input-output formalism \cite{Gardiner1985}, adapted to few-photon scattering in one dimension in \cite{Fan2010}. Concretely, we show the conditions the input-output operators must fulfil so that Eq. \eqref{eq:A} is true.
 
@@ -183,7 +183,7 @@ Taking the commutator between this equation for $t=t_1$ and $a_\text{in}^\dagger
 &-\left[(i\Delta_\lambda+\gamma_1+\gamma_2)\int_{t_-}^{t_1} dt'\sigma_{\lambda e}(t') \right.\nonumber\\
 &\left.+i\int_{t_-}^{t_1} dt' \left(\sqrt{2\gamma_\lambda}\sigma_{\lambda e}^z(t')- \sqrt{2\gamma_{\overline{\lambda}}}\sigma_{\lambda \overline{\lambda}}(t')\right)a_\text{in}(t'),a_\text{in}^\dagger(t_2)]\right].
 \end{align}
-The first term of the right hand side vanishes, since $a_\text{in}^\dagger(t)$ can be written as an integral of Heisenberg operators evaluated at time $t_-$, $a_k^\dagger(t_-)$ \cite{Fan2010,Xu2015} and $[\sigma_{\lambda e},a_k^\dagger]=0$, since they belong to different Hilbert spaces. For the other term, as argued in \cite{Xu2015}, the first argument of the commutator just depends on $\{a_\text{in}(t')\}$, for $t_-<t'<t_1$. Thus, if $t_1<t_2$, this commutator is zero, and otherwise it is not. In consequence, $[\sigma_{\lambda e}(t_1),a_\text{in}^\dagger(t_2)]=0$ if $t_1<t_2$ and $[\sigma_{\lambda e}(t_1),a_\text{in}^\dagger(t_2)]$ if $t_2>t_1$. Introducing these conditions in \eqref{eq:comm_in_out}
+The first term of the right hand side vanishes, since $a_\text{in}^\dagger(t)$ can be written as an integral of Heisenberg operators evaluated at time $t_-$, $a_k^\dagger(t_-)$ \cite{Fan2010,Xu2015} and $[\sigma_{\lambda e},a_k^\dagger]=0$, since they belong to different Hilbert spaces. For the other term, as argued in \cite{Xu2015}, the first argument of the commutator just depends on $\{a_\text{in}(t')\}$, for $t_-<t'<t_1$. Thus, if $t_1<t_2$, this commutator is zero, and otherwise it is not. In consequence, $[\sigma_{\lambda e}(t_1),a_\text{in}^\dagger(t_2)]=0$ if $t_1<t_2$ and $[\sigma_{\lambda e}(t_1),a_\text{in}^\dagger(t_2)]\neq 0$ if $t_1>t_2$. Introducing these conditions in \eqref{eq:comm_in_out}
 \begin{align}
 \label{eq:comm_causality_1}&[a_\text{out}(t_1),a_\text{in}^\dagger(t_2)]=0\quad \text{if}\;\; t_1<t_2,\\
 \label{eq:comm_causality_2}&[a_\text{out}(t_1),a_\text{in}^\dagger(t_2)]\neq 0\quad \text{if}\;\; t_1>t_2.
@@ -367,7 +367,53 @@ which is the expression given in the main text, Eq. \eqref{eq:S0_2p}. This resul
 
 \section{Input-output equations for a $\lambda$ atom}
 
+In this section of the Appendix we derive the input-output equations \eqref{eq:a_inout} and \eqref{eq:sigma_inout}. We start from the Hamiltonian for a chiral one-dimensional waveguide coupled to a $\lambda$ atom
+\begin{align}
+H & = \int d\omega \; \omega a_\omega^\dagger a_\omega + E_1\ket{1}\bra{1} + E_2\ket{2}\bra{2} + E_e\ket{e}\bra{e}\nonumber\\
+& + \int d\omega\; (g_1\sigma_{1e}a_\omega + g_2 \sigma_{2e} a_\omega + \text{H.c.}).
+\end{align}
+Subtract $E_1$
+\begin{align}
+H & = \int d\omega \; \omega a_\omega^\dagger a_\omega + \Delta_1\sigma_{1e}^\dagger\sigma_{1e} + \Delta_2 \sigma_{2e}^\dagger\sigma_{2e} \nonumber\\
+& + \int d\omega\; (g_1\sigma_{1e}a_\omega + g_2 \sigma_{2e} a_\omega + \text{H.c.}),
+\end{align}
+with $\Delta_\lambda\equiv E_e-E_\lambda$. The operators $\sigma_{\lambda e}=\ket{g_\lambda}\bra{e}$ were defined in the main text (Section \ref{sec:inout}).
 
+We need to know the Heisenberg equations in order to derive the input-output ones. The Heisenberg equation for $a_\omega(t)$ is
+\begin{equation}\label{eq:aw_Heisenberg}
+i\frac{d a_\omega(t)}{dt}=\omega a_\omega(t) + g_1 \sigma_{1e}(t) + g_2 \sigma_{2e}(t).
+\end{equation}
+For $\sigma_{\lambda e}(t)$
+\begin{align}\label{eq:sigma_Heisenberg}
+&i\frac{d\sigma_{\lambda e}(t)}{dt}=\Delta_\lambda \sigma_{\lambda e}(t)\nonumber\\
+&-\int d\omega\; (g_\lambda \sigma_{\lambda e}^z(t)-g_{\overline{\lambda}} \sigma_{\lambda\overline{\lambda}}(t))a_\omega(t).
+\end{align}
+The operators $\sigma_{\lambda e}^z=\ket{e}\bra{e}-\ket{g_\lambda}\bra{g_\lambda}$ and $\sigma_{\lambda\overline{\lambda}}=\ket{g_\lambda}\bra{g_{\overline{\lambda}}}$ have already been defined in the main text. As usual, $\overline{\lambda}\neq \lambda$.
+
+Evaluationg Eq. \eqref{eq:aw_Heisenberg} at $t=t'$, multiplying it by $e^{i\omega t'}$ and integrating $t'$ from $t_-\to -\infty$ to $t$
+\begin{align}\label{eq:aw_t}
+&a_\omega(t)=e^{-i\omega(t-t_-)} a_\omega(t_-)\nonumber\\
+& - i\sum_{\lambda=1}^2 g_\lambda \int_{t_-}^t dt'\; \sigma_{\lambda e}(t')e^{-i\omega(t-t')}.
+\end{align}
+I define
+\begin{align}
+\Phi(t) & \equiv \frac{1}{\sqrt{2}}\int d\omega\; a_\omega (t),\\
+a_\text{in}(t) & \equiv \frac{1}{\sqrt{2}}\int d\omega\; a_\omega(t_-) e^{-i\omega(t-t_-)},\\
+a_\text{out}(t) & \equiv \frac{1}{\sqrt{2}}\int d\omega\; a_\omega(t_+) e^{-i\omega(t-t_+)}.
+\end{align}
+The times $t_\pm$ are $t_\pm\to \pm\infty$. Integrating Eq. \eqref{eq:aw_t} with respect to $\omega$ and taking into account that the decay rates are related to the coupling constants as $\gamma_\lambda=\pi g_\lambda^2$
+\begin{equation}\label{eq:phi_in}
+\Phi(t)=a_\text{in}(t)-\frac{i}{\sqrt{2}}\sum_{\lambda=1}^2\sqrt{\gamma_\lambda} \sigma_{\lambda e}(t).
+\end{equation}
+Repeating the same procedure, integrating Eq. \eqref{eq:aw_t} from $t$ to $t_+$
+\begin{equation}\label{eq:phi_out}
+\Phi(t)=a_\text{out}(t)+\frac{i}{\sqrt{2}}\sum_{\lambda=1}^2\sqrt{\gamma_\lambda} \sigma_{\lambda e}(t).
+\end{equation}
+Form Eqs. \eqref{eq:phi_in} and \eqref{eq:phi_out}
+\begin{equation}
+a_\text{out}(t)=a_\text{in}(t)-i\sum_{\lambda=1}^2 \sqrt{2\gamma_\lambda} \sigma_{\lambda e}(t),
+\end{equation}
+which is equal to Eq. \eqref{eq:a_inout}.
 
 \section{Matrix Product States}
 
