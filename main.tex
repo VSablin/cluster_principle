@@ -32,7 +32,7 @@ far future state for interacting particles, provided the particles are well desc
 Hamiltonian before and after interacting. The $S$ matrix can always be split into two parts: the linear part,
 where each particle is scattered independently, and the nonlinear one,
 which gives information about the interaction among the
-particles. Here, we study the linear part of the scattering matrix for
+particles. Here, we study the conditions under the scattering is well defined. Besides, we analyze the linear part of the scattering matrix for
 $N$ photons impinging on a local system with several stable states. 
 bla, bla
 \end{abstract}
@@ -54,7 +54,7 @@ bla, bla
 
 \begin{figure}
 \includegraphics[scale=0.25]{input.pdf}
-\caption{Two-photon input state impinging on a $\lambda$ atom. The state $e$ is an unstable state which decays to the stable ones, $|g_1\rangle$ and $|g_2\rangle$. The distance $L$ between both wave packets, $\phi_a$ and $\phi_b$, will eventually tend to $\infty$.}
+\caption{Two-photon input state impinging on a $\lambda$ atom. The state $\ket{e}$ is an unstable state which decays to the stable ones, $|g_1\rangle$ and $|g_2\rangle$. The distance $L$ between both wave packets, $\phi_a$ and $\phi_b$, will eventually tend to $\infty$.}
 \label{fig:input}
 \end{figure}
 
@@ -75,37 +75,41 @@ bla, bla
 
 \section{Cluster revisited}
 
-In this section, we build the ansatz for $S^0$ in position space. For the sake of simplicity, we first assume we have two photons. The ansatz is
+In this section, we build the ansatz for $S^0$ {\color{blue}(I'm assuming we have already defined $S^0$ and $T$)} in position space. For the sake of simplicity, we first assume we have two photons. The ansatz is
 \begin{align}\label{eq:S0_2}
 (S^0_{y_1y_2x_1x_2})_{\mu\nu}& = \sum_{\lambda=1}^M \overbrace{(S_{y_1x_1})_{\mu\lambda}(S_{y_2x_2})_{\lambda\nu}}^{\text{single-photon process}}\overbrace{\theta(y_2-y_1)}^\text{causality} \nonumber\\
 &+ [x_1\leftrightarrow x_2,y_1\leftrightarrow y_2],
 \end{align}
-with $x_{1,2}$ the positions of the input photons, $y_{1,2}$ the positions of the output ones, and $|g_\nu\rangle$ and $|g_\mu\rangle$ the initial and final states of the scatterer, respectively. As expected from the cluster decomposition principle \cite{weinberg1995}, we take the product of two single-photon $S$ matrices: a photon going from $x_2$ to $y_2$, which induces a transition between  the initial state $|g_\nu\rangle$ and $|g_\lambda\rangle$, and a second photon, which goes from $x_1$ to $y_1$, causing the transition $|g_\lambda\rangle\to |g_\mu\rangle$. Notice there is a summation in the $M$ intermediate stable states of the scatterer, $|g_\lambda\rangle$. We multiply this by a step function ($\theta(y)=1$ if $y>0$ and $0$ otherwise) to ensure the outgoing photon placed at $y_2$ leaves the scatterer before the photon at $y_1$, since the former is the first which interacts with the scatterer. Lastly, we symmetrize the result. The generalization for $N$ photons is straightforward
+with $x_{1,2}$ the positions of the input photons, $y_{1,2}$ the positions of the output ones, $|g_\nu\rangle$ and $|g_\mu\rangle$ the initial and final states of the scatterer, respectively. The one-photon matrix $(S_{yx})_{\mu\nu}$ is the amplitude of going from $\ket{x}\otimes \ket{g_\nu}$ to $\ket{y}\otimes \ket{g_\mu}$. As expected from the cluster decomposition principle \cite{weinberg1995}, we take the product of two single-photon $S$ matrices: a photon going from $x_2$ to $y_2$, which induces a transition between  the initial state $|g_\nu\rangle$ and $|g_\lambda\rangle$, and a second photon, which goes from $x_1$ to $y_1$, causing the transition $|g_\lambda\rangle\to |g_\mu\rangle$. Notice there is a summation in the $M$ intermediate stable states of the scatterer, $|g_\lambda\rangle$. We multiply this by a step function ($\theta(y)=1$ if $y>0$ and $0$ otherwise) to ensure the outgoing photon placed at $y_2$ leaves the scatterer before the photon at $y_1$. Lastly, we symmetrize the result. The generalization for $N$ photons is straightforward
 \begin{align}\label{eq:S0_N}
 (S^0_{y_1\dots y_N x_1\dots x_N})_{\mu\nu}& = \sum_{\lambda_1\dots \lambda_{N-1}=1}^M\prod_{n=1}^N (S_{y_nx_n})_{\lambda_{n-1}\lambda_n}\nonumber\\
 \prod_{m=1}^{N-1}&\theta(y_{m+1}-y_m) + \text{permutations},
 \end{align}
 with $\lambda_0\equiv \mu$ and $\lambda_N\equiv\nu$. We add all the permutations in $y_n/x_n\leftrightarrow y_m/x_m$ for all $n$ and $m$ in order to symmetrize $S^0$.
 
-Naively, one could build the ansatz \eqref{eq:S0_2} without the step functions. This is true for scatterers with a unique stable state \cite{Xu2013}. Actually, if we take $M=1$ in Eq. \eqref{eq:S0_2}, we recover this structure
+Naively, one could build the ansatz \eqref{eq:S0_2} without the step functions. This is valid for scatterers with a unique stable state \cite{Xu2013}. Actually, if we take $M=1$ in Eq. \eqref{eq:S0_2}, we recover this structure
 \begin{equation}\label{eq:S0_2_1}
 S^0_{y_1y_2x_1x_2} = S_{y_1x_1}S_{y_2x_2} + S_{y_1x_2}S_{y_2x_1},
 \end{equation}
-where the step functions disappear. However, the step functions are necessary to fulfil causality if $M>1$, as we show in the following. We consider a two-photon input state
+where the step functions disappear. However, the step functions are essential if $M>1$. Otherwise, we would break causality. We consider a two-photon input state
 \begin{equation}\label{eq:input}
 |\Psi_\text{in}\rangle = \frac{1}{\sqrt{2}}(|\phi_1\rangle \otimes|\phi_2\rangle + |\phi_2\rangle\otimes |\phi_1\rangle)\otimes|g_\nu\rangle,
 \end{equation}
-where $|\phi_n\rangle$ is a single-photon state. The photon whose state is $|\phi_1\rangle$ impinges on the scatterer before the other and they are separated by $L\to\infty$, Fig. \ref{fig:input}. Let us compute the probability amplitude of going to the state
+where $|\phi_n\rangle$ is a single-photon state. The photon $|\phi_1\rangle$ impinges on the scatterer before $\ket{\phi_2}$ and they are separated by $L\to\infty$, Fig. \ref{fig:input}. Let us compute the probability amplitude of going to the output state
 \begin{equation}\label{eq:output}
-|\Psi_\text{out}\rangle = \frac{1}{\sqrt{2}}(|\phi_{a'}\rangle \otimes|\phi_{b'}\rangle + |\phi_{b'}\rangle\otimes |\phi_{a'}\rangle)\otimes|g_\mu\rangle.
+|\Psi_\text{out}\rangle = \frac{1}{\sqrt{2}}(|\phi_{a'}\rangle \otimes|\phi_{b'}\rangle + |\phi_{b'}\rangle\otimes |\phi_{a'}\rangle)\otimes|g_\mu\rangle,
 \end{equation}
-We just  need the linear part of the $S$ matrix, $S^0$, since both incident wave packets are highly separated. Taking the ansatz given by Eq. \eqref{eq:S0_2}, this probability amplitude is
+which is defined as
+\begin{equation}\label{eq:A_def}
+A_{ab\to a'b'}^{\nu\to\mu} \equiv \langle \Psi_\text{out}|S|\Psi_\text{in}\rangle.
+\end{equation}
+We just need the linear part of the $S$ matrix, $S^0$, since both incident wave packets are highly separated. Taking the ansatz given by Eq. \eqref{eq:S0_2}, this probability amplitude is
 \begin{equation}\label{eq:A}
-A_{ab\to a'b'}^{\nu\to\mu} \equiv \langle \Psi_\text{out}|S^0|\Psi_\text{in}\rangle =  \sum_{\lambda=1}^M A_{a\to a'}^{\nu\to\lambda} A_{b\to b'}^{\lambda\to\mu},
+A_{ab\to a'b'}^{\nu\to\mu} =  \sum_{\lambda=1}^M A_{a\to a'}^{\nu\to\lambda} A_{b\to b'}^{\lambda\to\mu},
 \end{equation}
 with $A_{n\to n'}^{\nu\to \mu}\equiv (\langle g_\mu |\otimes \langle \phi_{n'}|)S(|\phi_n\rangle\otimes |g_\nu\rangle)$, that is to say, the probability amplitude for the single-photon process between $|\phi_n\rangle\otimes |g_\nu\rangle$ and $|\phi_{n'}\rangle\otimes |g_\mu\rangle$. We choose $|\phi_{m'}\rangle$ such that $A_{n\to m'}^{\nu\to \mu}=0$ if $n\neq m$. Notice this is what one could expect from a standard scattering process: the total amplitude is the product of the amplitudes for both independent events, happening in the proper order. However, if we did not have included the step function in our ansatz, Eq. \eqref{eq:S0_2}, we would have obtained an unphysical term $A_{b\to b'}^{\nu\to\lambda} A_{a\to a'}^{\lambda\to\mu}$, which says $|\phi_b\rangle$ impinges on the scatterer before $|\phi_a\rangle$, breaking causality. Details on the computation can be found in the Appendix.
 
-Taking the Fourier transform of Eq. \eqref{eq:S0_2}, we can compute $S^0$ in momentum space. Before doing so, the single-photon $S$ matrix in momentum space is
+{\color{blue}What about a section with $S^0$ in momentum space?} Taking the Fourier transform of Eq. \eqref{eq:S0_2}, we can compute $S^0$ in momentum space. Before doing so, the single-photon $S$ matrix in momentum space is
 \begin{equation}\label{eq:S01_p}
 (S_{pk})_{\mu\nu}=t_{\mu\nu}(k)\delta(p+E_\mu-k-E_\nu),
 \end{equation}
@@ -116,18 +120,18 @@ with $k$ and $p$ the incident and outgoing momenta, respectively, and $|g_\nu\ra
 =  \frac{i}{2\pi}\sum_{n,m=1}^2 &\sum_{\lambda=1}^M  \frac{t_{\mu\lambda}(k_n) t_{\lambda\nu}(k_{\overline{n}})}{p_m+E_\mu -k_n -E_\lambda + i0^+}\nonumber\\
 &\delta(p_1+p_2+E_\mu - k_1-k_2-E_\nu).
 \end{align}
-Here, $\overline{n}\neq n$, \emph{e.g.}, $\overline{n}=2$ if $n=1$. The computation is detailed in the Appendix. This structure has recently been found by Xu and Fan in \cite{Xu2016} for a $\lambda$ atom, a three-level atom with two stable states and one unstable state (see the scatterer of Fig. \ref{fig:input}). This is not what one finds for wQED systems if the stable state of the scatterer is unique \cite{Fan2010,Rephaeli2011,Sanchez-Burillo2016b}, as shown in general in \cite{Xu2013}. In that kind of systems, $S^0$ has two Dirac deltas, one for the energy conservation of each photon. We find this structure for $M=1$ (Eqs. \eqref{eq:S0_2_1} and \eqref{eq:S01_p}). In our case, the global Dirac delta imposes energy conservation of the whole process, but each photon does not conserve its energy individually in general. For input states like \eqref{eq:input}, they do conserve their energies, as seen in the Appendix. %However, for an input state such as \eqref{eq:input}, both photons do conserve its energy individually. The denominator of Eq. \eqref{eq:S0_2p} comes from the Fourier transform of $\theta$ and it is related to the order in which both photons interact with the scatterer.
+Here, $\overline{n}\neq n$, \emph{e.g.}, $\overline{n}=2$ if $n=1$. The computation is detailed in the Appendix. This structure has recently been found by Xu and Fan in \cite{Xu2016} for a $\lambda$ atom, a three-level atom with two stable states and one unstable state (see the scatterer of Fig. \ref{fig:input}). This is not what one finds for wQED systems if the stable state of the scatterer is unique \cite{Fan2010,Rephaeli2011,Sanchez-Burillo2016b}, as shown in general in \cite{Xu2013}. In that kind of systems, $S^0$ has two Dirac deltas, one for the energy conservation of each photon. We find this structure for $M=1$ (Eqs. \eqref{eq:S0_2_1} and \eqref{eq:S01_p}). In our case, the global Dirac delta imposes energy conservation of the whole process, but each photon does not conserve its energy individually in general. For input states like \eqref{eq:input}, they do conserve their energies, as seen in the Appendix. {\color{blue}Say how the photon-photon correlations induced by $S^0$ decay?} %However, for an input state such as \eqref{eq:input}, both photons do conserve its energy individually. The denominator of Eq. \eqref{eq:S0_2p} comes from the Fourier transform of $\theta$ and it is related to the order in which both photons interact with the scatterer.
 
 \section{Connection with input-output theory}\label{sec:inout}
 
-In this section, we set the relation between this and the input-output formalism \cite{Gardiner1985}, adapted to few-photon scattering in one dimension in \cite{Fan2010}. Concretely, we show the conditions the input-output operators must fulfil so that Eq. \eqref{eq:A} is true.
+In this section, we set the relation between our ansatz, Eq. \eqref{eq:S0_2}, and the input-output formalism \cite{Gardiner1985}, adapted to wQED problems in \cite{Fan2010}. Concretely, we show what conditions the input-output operators must fulfil so that Eq. \eqref{eq:A} is true.
 
 The input and output states, Eqs. \eqref{eq:input} and \eqref{eq:output}, can be written as a couple of photonic operators acting on the vacuum:
 \begin{align}
 \label{eq:input_inout}|\Psi_\text{in}\rangle & = \xi_b^\dagger \xi_a^\dagger|\text{vac}\rangle \otimes \ket{g_\nu},\\
 \label{eq:output_inout}|\Psi_\text{out}\rangle & = \xi_{b'}^\dagger \xi_{a'}^\dagger|\text{vac}\rangle \otimes \ket{g_\mu},
 \end{align}
-where $\xi_n^\dagger$ generates a photon whose state is $\ket{\phi_n}$, with $n=a,b,a',b'$, and $\ket{\text{vac}}$ is the photonic state without particles. As $\xi_n^\dagger$ is a bosonic operator, both states are already symmetrized. According to the input-output theory, the probability amplitude between both states, Eq. \eqref{eq:A}, reads \cite{Fan2010}
+where $\xi_n^\dagger$ generates a photon whose state is $\ket{\phi_n}$, with $n=a,b,a',b'$, and $\ket{\text{vac}}$ is the photonic state without particles. As $\xi_n^\dagger$ is a bosonic operator, both states are already symmetrized. According to the input-output theory, the probability amplitude between both states, Eq. \eqref{eq:A_def}, reads \cite{Fan2010}
 \begin{align}\label{eq:A_inout}
 A_{ab\to a'b'}^{\nu\to\mu}&=\bra{g_\nu}\otimes\bra{\text{vac}}\xi_{a'}\xi_{b'}\;S\;\xi_b^\dagger\xi_a^\dagger
 \ket{\text{vac}}\otimes\ket{g_\nu}\nonumber\\
@@ -136,28 +140,28 @@ A_{ab\to a'b'}^{\nu\to\mu}&=\bra{g_\nu}\otimes\bra{\text{vac}}\xi_{a'}\xi_{b'}\;
 \end{align}
 where the input and output operators are defined as
 \begin{align}
-\xi_{n,\text{in}}^\dagger & \equiv e^{iHt_-} e^{-iH_0t_-}\xi_n^\dagger e^{iH_0 t_-} e^{-iHt_0},\\
+\xi_{n,\text{in}}^\dagger & \equiv e^{iHt_-} e^{-iH_0t_-}\xi_n^\dagger e^{iH_0 t_-} e^{-iHt_-},\\
 \xi_{n',\text{out}}^\dagger & \equiv e^{iHt_+} e^{-iH_0t_+}\xi_{n'}^\dagger e^{iH_0 t_+} e^{-iHt_+},
 \end{align}
-with $t_-\to-\infty$ and $t_+\to\infty$ {\color{blue}($H$ and $H_0$ should be defined in Section II)}. As we want to find Eq. \eqref{eq:A}, we need the following relations to fulfil
+with $t_-\to-\infty$ and $t_+\to\infty$ {\color{blue}($H$ and $H_0$ should be defined in Section II)}. Provided the following conditions fulfil
 \begin{align}
 [\xi_{a',\text{out}},\xi_{b,\text{in}}^\dagger]&=0, \label{eq:comm_1} \\
 [\xi_{b',\text{out}},\xi_{a,\text{in}}^\dagger]&\neq 0. \label{eq:comm_2}
 \end{align}
-If they are true, Eq. \eqref{eq:A_inout} can be rewritten as
+Eq. \eqref{eq:A_inout} can be rewritten as
 \begin{align}
 A_{ab\to a'b'}^{\nu\to\mu}=\sum_{\lambda=1}^M&\bra{g_\mu}\otimes\bra{\text{vac}}\xi_{b',\text{out}}\xi_{b,\text{in}}^\dagger \ket{\text{vac}}\otimes\ket{g_\lambda}\nonumber\\
 &\bra{g_\lambda} \otimes \bra{\text{vac}} \xi_{a',\text{out}} \xi_{a,\text{in}}^\dagger
 \ket{\text{vac}}\otimes\ket{g_\nu},
 \end{align}
-which is equal to Eq. \eqref{eq:A}, since $A_{n\to n'}^{\nu\to\mu}=\bra{g_\mu}\otimes\bra{\text{vac}}\xi_{n',\text{out}}\xi_{n,\text{in}}^\dagger \ket{\text{vac}}\otimes\ket{g_\nu}$. If Eq. \eqref{eq:comm_2} were false, we would find again noncausal terms, such as $A_{b\to b'}^{\nu\to\lambda}$. In the following, we show relations \eqref{eq:comm_1} and \eqref{eq:comm_2} are true.
+which is equal to Eq. \eqref{eq:A}, since $A_{n\to n'}^{\nu\to\mu}=\bra{g_\mu}\otimes\bra{\text{vac}}\xi_{n',\text{out}}\xi_{n,\text{in}}^\dagger \ket{\text{vac}}\otimes\ket{g_\nu}$. If Eqs. \eqref{eq:comm_1} and \eqref{eq:comm_2} were false, we would find again noncausal terms, such as $A_{b\to b'}^{\nu\to\lambda}$. In the following, we show relations \eqref{eq:comm_1} and \eqref{eq:comm_2} are true.
 
 We can think of the initial state \eqref{eq:input_inout} as if we would have created a photon at a certain time $t$ and a second photon at $t+L$; then, we measure the output, firstly for the first photon and, lastly, for the second one. Thus, commutators \eqref{eq:comm_1} and \eqref{eq:comm_2} can be rewritten in terms of input-output operators in time space \cite{Fan2010}
 \begin{align}
 \label{eq:comm_a_1}&[a_\text{out}(t),a_\text{in}^\dagger(t+L)]=0,\\
 \label{eq:comm_a_2}&[a_\text{out}(t+L),a_\text{in}^\dagger(t)]\neq 0.
 \end{align}
-We need the equation relating $a_\text{in/out}(t)$ in order to evaluate the previous commutators. For the sake of simplicity, we particularize this computation for a $\lambda$ atom: $M=2$ and an only unstable state, with decay rates $\gamma_i$. The equation, derived in the Appendix, is
+We need the equation relating $a_\text{in/out}(t)$ in order to evaluate the previous commutators. For the sake of simplicity, we particularize this computation for a $\lambda$ atom: $M=2$ and an only unstable state, with decay rates $\gamma_1,\gamma_2$. The equation, derived in the Appendix, is
 \begin{equation}
 \label{eq:a_inout}a_\text{out}(t)=a_\text{in}(t) - i\sqrt{2\gamma_1}\sigma_{1e}(t)-i\sqrt{2\gamma_2}\sigma_{2e}(t).
 \end{equation}
@@ -173,7 +177,7 @@ As $a_\text{in/out}(t)$ are bosonic operators \cite{Fan2010} and $t_1\neq t_2$, 
 \end{align}
 with $\sigma_{\lambda e}^z\equiv \ket{e}\bra{e}-\ket{g_\lambda}\bra{g_\lambda}$, $\sigma_{\lambda\lambda'}\equiv \ket{g_\lambda}\bra{g_{\lambda'}}$, and $\Delta_\lambda$ the energy gap between $\ket{g_\lambda}$ and $\ket{e}$. In this equation, $\overline{\lambda}\neq \lambda$. Integrating \eqref{eq:sigma_inout} in time from $t_-\to-\infty$ to $t$
 \begin{align}
-\label{sigma_inout_int}
+\label{eq:sigma_inout_int}
 \sigma_{\lambda e}&(t)-\sigma_{\lambda e}(t_-)=-(i\Delta_\lambda+\gamma_1+\gamma_2)\int_{t_-}^t dt'\sigma_{\lambda e}(t')\nonumber\\
 &+i\int_{t_-}^t dt' \left(\sqrt{2\gamma_\lambda}\sigma_{\lambda e}^z(t')- \sqrt{2\gamma_{\overline{\lambda}}}\sigma_{\lambda \overline{\lambda}}(t')\right)a_\text{in}(t').
 \end{align}
@@ -200,8 +204,8 @@ We conclude the conditions \eqref{eq:comm_causality_1} and \eqref{eq:comm_causal
 
 {\color{blue}
 \begin{enumerate}
-\item $\lambda$ atom with $N=2$ in momentum space \cite{Xu2016}. Fluorescence from the new part of $S^0$. How the fluorescence decays. MAYBE NOT
-\item Ultrastrong MPS. Fig. with resonance fluorescence. We might include a figure with the decay of the fluorescence as a function of $L$. \cite{Sanchez-Burillo2014,Sanchez-Burillo2015}. MAYBE NOT
+\item $\lambda$ atom with $N=2$ in momentum space \cite{Xu2016}. Fluorescence from the new part of $S^0$. How the fluorescence decays. MAYBE NOT. IT IS ALREADY EXPLAINED IN SECTION V
+\item Ultrastrong MPS. Fig. with resonance fluorescence. We might include a figure with the decay of the fluorescence as a function of $L$. \cite{Sanchez-Burillo2014,Sanchez-Burillo2015}. Simulations running.
 \end{enumerate}
 }
 
@@ -211,21 +215,21 @@ We conclude the conditions \eqref{eq:comm_causality_1} and \eqref{eq:comm_causal
 
 \section{Scattering amplitude}\label{app:A}
 
-In this section of the appendix, we compute the probability amplitude of going from an incident input state to a certain output state in the two-particle subspace. Before, we will need to do the same in the single-photon sector.
+We compute the probability amplitude of going from an incident input state to a certain output state in the two-particle subspace. Before, we will need to do the same in the single-photon sector.
 
 \subsection{One photon}
 
 Let us assume we have an input state with one photon
 \begin{equation}
-|\Psi_\text{in}^1\rangle=|a\rangle|g_\nu\rangle,
+|\Psi_\text{in}^1\rangle=|\phi_a\rangle\otimes |g_\nu\rangle,
 \end{equation}
 with
 \begin{equation}
-|a\rangle\equiv \int dx\; \phi_a(x)|x\rangle.
+|\phi_a\rangle\equiv \int dx\; \phi_a(x)|x\rangle.
 \end{equation}
 The output state will read
 \begin{equation}\label{eq:out1}
-|\Psi_\text{out}^1\rangle = S|\Psi_\text{in}\rangle = \sum_{\mu=1}^M \int dy dx\;(S_{yx})_{\mu\nu}f_a(x)|y\rangle|g_\mu\rangle.
+|\Psi_\text{out}^1\rangle = S|\Psi_\text{in}\rangle = \sum_{\mu=1}^M \int dy dx\;(S_{yx})_{\mu\nu}\phi_a(x)|y\rangle|g_\mu\rangle.
 \end{equation}
 Defining
 \begin{equation}\label{eq:phi_munu}
@@ -237,18 +241,18 @@ and
 \end{equation}
 the output state \eqref{eq:out1} can be rewritten as
 \begin{equation}
-|\Psi_\text{out}^1\rangle = \sum_{\mu=1}^M |\psi_\text{out}^1\rangle_{a,\mu\nu}|g_\mu\rangle.
+|\Psi_\text{out}^1\rangle = \sum_{\mu=1}^M |\psi_\text{out}^1\rangle_{a,\mu\nu}\otimes |g_\mu\rangle.
 \end{equation}
 The probability amplitude $A_{a\to a'}^{\nu\to\mu}$ will be
 \begin{equation}\label{eq:A1}
-A_{a\to a'}^{\nu\to\mu} = \langle g_\mu|\langle a'|S|a\rangle|g_\nu\rangle = \langle a'|\psi_\text{out}\rangle_{a,\mu\nu}.
+A_{a\to a'}^{\nu\to\mu} = \langle g_\mu|\langle \phi_{a'}|S|\phi_a\rangle|g_\nu\rangle = \langle \phi_{a'}|\psi_\text{out}\rangle_{a,\mu\nu}.
 \end{equation}
 
 \subsection{Two photons}
 
-We now assume we have a two-photon input state like that seen in Fig. \ref{fig:input}
+We now assume we have a two-photon input state like that shown in Fig. \ref{fig:input}
 \begin{equation}\label{eq:input2}
-|\Psi_\text{in}^2\rangle = \frac{1}{\sqrt{2}}(|a\rangle|b\rangle+|b\rangle|a\rangle)|g_\nu\rangle.
+|\Psi_\text{in}^2\rangle = \frac{1}{\sqrt{2}}(|\phi_a\rangle\otimes|\phi_b\rangle+|\phi_b\rangle\otimes|\phi_a\rangle)\otimes|g_\nu\rangle.
 \end{equation}
 By definition, the output state is
 \begin{equation}
@@ -262,9 +266,9 @@ with
 \begin{equation}\label{eq:I}
 \mathbb{I}=\frac{1}{2}\sum_{\mu=1}^M \int dx_1dx_2\;|x_1x_2;g_\nu\rangle \langle x_1x_2;g_\nu|,
 \end{equation}
-being $|x_1x_2\rangle$ the symmetrized state
+being $|x_1x_2;g_\nu\rangle$ the symmetrized state
 \begin{equation}
-|x_1x_2\rangle=\frac{1}{\sqrt{2}}(|x_1\rangle|x_2\rangle + |x_2\rangle|x_1\rangle).
+|x_1x_2;g_\nu\rangle=\frac{1}{\sqrt{2}}(|x_1\rangle\otimes|x_2\rangle + |x_2\rangle\otimes|x_1\rangle)\otimes \ket{g_\nu}.
 \end{equation}
 Introducing \eqref{eq:I} in \eqref{eq:out2} and considering \eqref{eq:input2} and \eqref{eq:S0_2}
 \begin{align}\label{eq:out2_2}
@@ -282,23 +286,23 @@ Using Eq. \eqref{eq:phi_munu}
 C=\sum_{n=1}^2(&\phi_{i,\mu\lambda}(y_n)\phi_{j,\lambda\nu}(y_{\overline{n}}) \nonumber\\
 & + \phi_{j,\mu\lambda}(y_n)\phi_{i,\lambda\nu}(y_{\overline{n}}))\theta(y_{\overline{n}}-y_n).
 \end{align}
-The functions $\phi_a(x)$ and $\phi_b(x)$ are such that if $\phi_a(x_m)\phi_b(x_{\overline{m}})$ is different from zero, then $x_m>x_{\overline{m}}$, Fig. \ref{fig:input}. The same applies for $\phi_{a,\mu\nu}(y_n)\phi_{b,\mu\nu}(y_{\overline{n}})$. Notice that the previous expression is different from zero just if $y_{\overline{n}}>y_n$, since we have the step function. If $i=a$ and $j=b$, the first term is zero and the step function is irrelevant, so $I_2$ will read
+The functions $\phi_a(x)$ and $\phi_b(x)$ are such that, if $\phi_a(x_m)\phi_b(x_{\overline{m}})$ is different from zero, then $x_m>x_{\overline{m}}$, Fig. \ref{fig:input}. The same applies for $\phi_{a,\mu\nu}(y_n)\phi_{b,\mu\nu}(y_{\overline{n}})$. Notice that the previous expression is different from zero just if $y_{\overline{n}}>y_n$, since we have the step function. If $i=a$ and $j=b$, the first term is zero and the step function is irrelevant, so $I_2$ will read
 \begin{align}\label{eq:C2}
 C=\sum_{n=1}^2\phi_{b,\mu\lambda}(y_n)\phi_{a,\lambda\nu}(y_{\overline{n}})).
 \end{align}
 One can see easily that the same expression is true if $i=b$ and $j=a$. Then, the output state, Eq. \eqref{eq:out2_2} is
 \begin{align}
 |\Psi_\text{out}^2\rangle &=\frac{1}{2\sqrt{2}}\int dy_1dy_2\;\sum_{\mu,\lambda=1}^M(\phi_{b,\mu\lambda}(y_1)\phi_{a,\lambda\nu}(y_2)\nonumber\\
-+&\phi_{b,\mu\lambda}(y_2)\phi_{a,\lambda\nu}(y_1))(|y_1\rangle|y_2\rangle + |y_2\rangle|y_1\rangle)|g_\mu\rangle.
++&\phi_{b,\mu\lambda}(y_2)\phi_{a,\lambda\nu}(y_1))(|y_1\rangle\otimes|y_2\rangle + |y_2\rangle\otimes|y_1\rangle)\otimes|g_\mu\rangle.
 \end{align}
 Introducing Eq. \eqref{eq:out_munu}
 \begin{align}\label{eq:out_final}
-|\Psi_\text{out}^2\rangle =&\frac{1}{\sqrt{2}}\sum_{\mu,\lambda=1}^M(|\psi_\text{out}^1\rangle_{b,\mu\nu}|\psi_\text{out}^1\rangle_{a,\nu\lambda}  \nonumber\\
-& + |\psi_\text{out}^1\rangle_{a,\nu\lambda}|\psi_\text{out}^1\rangle_{b,\mu\nu})|g_\mu\rangle.
+|\Psi_\text{out}^2\rangle =&\frac{1}{\sqrt{2}}\sum_{\mu,\lambda=1}^M(|\psi_\text{out}^1\rangle_{b,\mu\nu}\otimes|\psi_\text{out}^1\rangle_{a,\nu\lambda}  \nonumber\\
+& + |\psi_\text{out}^1\rangle_{a,\nu\lambda}\otimes|\psi_\text{out}^1\rangle_{b,\mu\nu})\otimes|g_\mu\rangle.
 \end{align}
 Finally, the probability amplitude of going to the output state
 \begin{equation}
-\frac{1}{\sqrt{2}}(|a'\rangle|b'\rangle+|b'\rangle|a'\rangle)|g_\mu\rangle
+\frac{1}{\sqrt{2}}(|\phi_{a'}\rangle\otimes|\phi_{b'}\rangle+|\phi_{b'}\rangle\otimes|\phi_{a'}\rangle)\otimes|g_\mu\rangle
 \end{equation}
 will be the overlap between this state and \eqref{eq:out_final}. Using \eqref{eq:A1}
 \begin{equation}
@@ -370,25 +374,24 @@ which is the expression given in the main text, Eq. \eqref{eq:S0_2p}. This resul
 In this section of the Appendix we derive the input-output equations \eqref{eq:a_inout} and \eqref{eq:sigma_inout}. We start from the Hamiltonian for a chiral one-dimensional waveguide coupled to a $\lambda$ atom
 \begin{align}
 H & = \int d\omega \; \omega a_\omega^\dagger a_\omega + E_1\ket{1}\bra{1} + E_2\ket{2}\bra{2} + E_e\ket{e}\bra{e}\nonumber\\
-& + \int d\omega\; (g_1\sigma_{1e}a_\omega + g_2 \sigma_{2e} a_\omega + \text{H.c.}).
+& + \int d\omega\; (g_1\sigma_{1e}^\dagger a_\omega + g_2 \sigma_{2e}^\dagger a_\omega + \text{H.c.}).
 \end{align}
-Subtract $E_1$
-\begin{align}
-H & = \int d\omega \; \omega a_\omega^\dagger a_\omega + \Delta_1\sigma_{1e}^\dagger\sigma_{1e} + \Delta_2 \sigma_{2e}^\dagger\sigma_{2e} \nonumber\\
-& + \int d\omega\; (g_1\sigma_{1e}a_\omega + g_2 \sigma_{2e} a_\omega + \text{H.c.}),
-\end{align}
-with $\Delta_\lambda\equiv E_e-E_\lambda$. The operators $\sigma_{\lambda e}=\ket{g_\lambda}\bra{e}$ were defined in the main text (Section \ref{sec:inout}).
-
-We need to know the Heisenberg equations in order to derive the input-output ones. The Heisenberg equation for $a_\omega(t)$ is
+%Subtracting $E_1$
+%\begin{align}
+%H & = \int d\omega \; \omega a_\omega^\dagger a_\omega + \Delta_1\sigma_{1e}^\dagger\sigma_{1e} + \Delta_2 \sigma_{2e}^\dagger\sigma_{2e} \nonumber\\
+%& + \int d\omega\; (g_1\sigma_{1e}a_\omega + g_2 \sigma_{2e} a_\omega + \text{H.c.}),
+%\end{align}
+%with $\Delta_\lambda\equiv E_e-E_\lambda$. The operators $\sigma_{\lambda e}=\ket{g_\lambda}\bra{e}$ were defined in the main text (Section \ref{sec:inout}).
+We need to know the Heisenberg equations, $d\mathcal{O}/dt=i[H,\mathcal{O}]$, in order to derive the input-output ones. The Heisenberg equation for $a_\omega(t)$ is
 \begin{equation}\label{eq:aw_Heisenberg}
 i\frac{d a_\omega(t)}{dt}=\omega a_\omega(t) + g_1 \sigma_{1e}(t) + g_2 \sigma_{2e}(t).
 \end{equation}
 For $\sigma_{\lambda e}(t)$
 \begin{align}\label{eq:sigma_Heisenberg}
 &i\frac{d\sigma_{\lambda e}(t)}{dt}=\Delta_\lambda \sigma_{\lambda e}(t)\nonumber\\
-&-\int d\omega\; (g_\lambda \sigma_{\lambda e}^z(t)-g_{\overline{\lambda}} \sigma_{\lambda\overline{\lambda}}(t))a_\omega(t).
+&-\int d\omega\; (g_\lambda \sigma_{\lambda e}^z(t)-g_{\overline{\lambda}} \sigma_{\lambda\overline{\lambda}}(t))a_\omega(t),
 \end{align}
-The operators $\sigma_{\lambda e}^z=\ket{e}\bra{e}-\ket{g_\lambda}\bra{g_\lambda}$ and $\sigma_{\lambda\overline{\lambda}}=\ket{g_\lambda}\bra{g_{\overline{\lambda}}}$ have already been defined in the main text. As usual, $\overline{\lambda}\neq \lambda$.
+where the gap $\Delta_\lambda=E_e-E_\lambda$ and the operators $\sigma_{\lambda e}^z=\ket{e}\bra{e}-\ket{g_\lambda}\bra{g_\lambda}$ and $\sigma_{\lambda\overline{\lambda}}=\ket{g_\lambda}\bra{g_{\overline{\lambda}}}$ have already been defined in the main text. As before, $\overline{\lambda}\neq \lambda$.
 
 Evaluationg Eq. \eqref{eq:aw_Heisenberg} at $t=t'$, multiplying it by $e^{i\omega t'}$ and integrating $t'$ from $t_-\to -\infty$ to $t$
 \begin{align}\label{eq:aw_t}
@@ -397,29 +400,34 @@ Evaluationg Eq. \eqref{eq:aw_Heisenberg} at $t=t'$, multiplying it by $e^{i\omeg
 \end{align}
 I define
 \begin{align}
-\Phi(t) & \equiv \frac{1}{\sqrt{2}}\int d\omega\; a_\omega (t),\\
+\label{eq:Phi}\Phi(t) & \equiv \frac{1}{\sqrt{2}}\int d\omega\; a_\omega (t),\\
 a_\text{in}(t) & \equiv \frac{1}{\sqrt{2}}\int d\omega\; a_\omega(t_-) e^{-i\omega(t-t_-)},\\
-a_\text{out}(t) & \equiv \frac{1}{\sqrt{2}}\int d\omega\; a_\omega(t_+) e^{-i\omega(t-t_+)}.
+a_\text{out}(t) & \equiv \frac{1}{\sqrt{2}}\int d\omega\; a_\omega(t_+) e^{-i\omega(t-t_+)},
 \end{align}
-The times $t_\pm$ are $t_\pm\to \pm\infty$. Integrating Eq. \eqref{eq:aw_t} with respect to $\omega$ and taking into account that the decay rates are related to the coupling constants as $\gamma_\lambda=\pi g_\lambda^2$
+with $t_\pm\to \pm\infty$. Integrating Eq. \eqref{eq:aw_t} with respect to $\omega$ and taking into account that the decay rates are related to the coupling constants as $\gamma_\lambda=\pi g_\lambda^2$
 \begin{equation}\label{eq:phi_in}
-\Phi(t)=a_\text{in}(t)-\frac{i}{\sqrt{2}}\sum_{\lambda=1}^2\sqrt{\gamma_\lambda} \sigma_{\lambda e}(t).
+\Phi(t)=a_\text{in}(t)-i\sum_{\lambda=1}^2\sqrt{\frac{\gamma_\lambda}{2}} \sigma_{\lambda e}(t).
 \end{equation}
 Repeating the same procedure, integrating Eq. \eqref{eq:aw_t} from $t$ to $t_+$
 \begin{equation}\label{eq:phi_out}
-\Phi(t)=a_\text{out}(t)+\frac{i}{\sqrt{2}}\sum_{\lambda=1}^2\sqrt{\gamma_\lambda} \sigma_{\lambda e}(t).
+\Phi(t)=a_\text{out}(t)+i\sum_{\lambda=1}^2\sqrt{\frac{\gamma_\lambda}{2}} \sigma_{\lambda e}(t).
 \end{equation}
-Form Eqs. \eqref{eq:phi_in} and \eqref{eq:phi_out}
+From Eqs. \eqref{eq:phi_in} and \eqref{eq:phi_out}
 \begin{equation}
 a_\text{out}(t)=a_\text{in}(t)-i\sum_{\lambda=1}^2 \sqrt{2\gamma_\lambda} \sigma_{\lambda e}(t),
 \end{equation}
-which is equal to Eq. \eqref{eq:a_inout}.
+which is equal to Eq. \eqref{eq:a_inout}. Introducing \eqref{eq:phi_in} in \eqref{eq:sigma_Heisenberg}, taking into account the definition of $\Phi(t)$ \eqref{eq:Phi}
+\begin{align}
+\frac{d\sigma_{\lambda e}(t)}{dt}=&-(i\Delta_\lambda +\gamma_1+\gamma_2)\sigma_{\lambda e}(t)\nonumber\\
+&+i(\sqrt{2\gamma_\lambda} \sigma_{\lambda e}^z(t) - \sqrt{2\gamma_{\overline{\lambda}}}\sigma_{\lambda\overline{\lambda}}(t))a_\text{in}(t),
+\end{align} 
+which is equal to \eqref{eq:sigma_inout}.
 
 \section{Matrix Product States}
 
-As we indicated in the manuscript, we solve the ultrastrong example by means of the MPS technique. We explain the method and justify why we can use it, as we already did in \cite{Sanchez-Burillo2014,Sanchez-Burillo2015,Sanchez-Burillo2016a}.
+As we indicated in the main text, we solve the ultrastrong example by means of the MPS technique. We explain the method and justify why we can use it, as we already did in \cite{Sanchez-Burillo2014,Sanchez-Burillo2015,Sanchez-Burillo2016a}.
 
-Unlike in \cite{Peropadre2013}, our bandwidth-limited photonic medium can be treated in the RWA and its ground state is the vacuum both in frequency and position space. Moreover, even if we go beyond RWA in the scatterer-resonator coupling ($g/\Delta\gtrsim 0.1$), it is true that the ground state is not the vacuum anymore, as we showed in \cite{Sanchez-Burillo2014}, but it will follow the area law \cite{Eisert2010}, so it will be slightly entangled. As we are studying the dynamics of two photons flying over the ground state, the state will have a small amount of entanglement.
+Our photonic medium can be treated in the RWA and its ground state is the vacuum both in frequency and position space. Moreover, even if we go beyond RWA in the scatterer-resonator coupling ($g/\Delta\gtrsim 0.1$), it is true that the ground state is not the vacuum anymore, as we showed in \cite{Sanchez-Burillo2014}, but it will follow the area law \cite{Eisert2010}, so it will be slightly entangled. As we are studying the dynamics of two photons flying over the ground state, the state will have a small amount of entanglement.
 
 The main consequence of the previous discussion is that we may use the variational ansatz of Matrix Product States \cite{Ripoll2006,Verstraete2008} to describe the discrete wavefunction, since it is valid for 1D systems when the entanglement is small enough. This ansatz has the form
 \begin{equation}
@@ -428,11 +436,11 @@ The main consequence of the previous discussion is that we may use the variation
 \label{eq:mps}
 \end{equation}
 It is constructed from $L$ sets of complex matrices $A_i^{s_i} \in M[\mathbb{C}^{D}]$, where each set is labeled by the quantum state $s_i$ of the corresponding site. The local Hilbert space dimention $d_i$ is infinity, since we are dealing with bosonic sites. However, during the dynamics, processes creating multiple photons are still highly off-resonance. Thus, we can truncate the bosonic space and consider states with $0$ to
-$n_\text{max}$ photons per cavity. So, the composite Hilbert space is $\mathcal{H}=\bigotimes_i \mathbb{C}^{d_i}$, where the dimension is $d_i=n_\text{max}+1$ for the empty resonators and $d_{i_0}=M(n_\text{max}+1)$ for the cavity with the scatterer. We thus expect the composite wavefunction of the photon-scatterer system to consist of a superposition with a small number of photons
+$n_\text{max}$ photons per cavity. So, the composite Hilbert space is $\mathcal{H}=\bigotimes_i \mathbb{C}^{d_i}$, where the dimension is $d_i=n_\text{max}+1$ for the empty resonators and $d_{i_0}=n_\text{scatt}(n_\text{max}+1)$ for the cavity with the scatterer, where $n_\text{scatt}$ is the number of levels of the scatterer. We thus expect the composite wavefunction of the photon-scatterer system to consist of a superposition with a small number of photons
 
-The total number of variational parameters $(L-1)D^2(n_\text{max}+1) + 2D^2(n_\text{max}+1)$ depends on the size of the matrices, $D$. The key point is that, for describing a general state, $D$ increases exponentially with $L$, whereas its dependence is polynomial if the entanglement is small enough, in such a way that the number of parameters increases polynomially with $L$ for this class of states.
+The total number of variational parameters $(L-1)D^2(n_\text{max}+1) + n_\text{scatt}D^2(n_\text{max}+1)$, depends on the size of the matrices, $D$. The key point is that, for describing a general state, $D$ increases exponentially with $L$, whereas its dependence is polynomial if the entanglement is small enough, in such a way that the number of parameters increases polynomially with $L$ for this class of states.
 
-Our work with MPS relies on four different algorithms. The most basic one is to create trivial, product states of known shape, such as a vacuum state with the scatterer in the ground state $\ket{\psi}=\ket{g_1}\ket{\text{vac}}$. These states can be reproduced using matrices of bond dimension $D=1$, so each matrix is just a coefficient $A_i^{s_i}=\delta_{s_i1}$. The second algorithm is to compute expectation values from MPS. This amounts to a contraction of tensors that can be performed efficiently \cite{Ripoll2006}, and allows us to compute single-site operators $\langle a^\dagger_i a_i\rangle$, $\langle \sigma_z\rangle$, or correlators, $\langle a_i^\dagger a_j\rangle$. The third operation that we need to perform is to apply operators on to the state, $O\ket{\psi}$, such as introducing or removing excitations $a_i^\dagger\ket{\psi}$. We do this in an efficient fashion by interpreting the operator $O$ as a Matrix Product Operator (MPO) \cite{Pirvu2010}. A MPO is a matrix product representation of an operator:
+Our work with MPS relies on four different algorithms. The most basic one is to create trivial, product states of known shape, such as a vacuum state with the scatterer in the ground state $\ket{\psi}=\ket{\text{vac}}\otimes \ket{g_1}$. These states can be reproduced using matrices of bond dimension $D=1$, so each matrix is just a coefficient $A_i^{s_i}=\delta_{s_i1}$. The second algorithm is to compute expectation values from MPS. This amounts to a contraction of tensors that can be performed efficiently \cite{Ripoll2006}, and allows us to compute single-site operators $\langle a^\dagger_i a_i\rangle$, $\langle \sigma_z\rangle$, or correlators, $\langle a_i^\dagger a_j\rangle$. The third operation that we need to perform is to apply operators on to the state, $O\ket{\psi}$, such as introducing or removing excitations $a_i^\dagger\ket{\psi}$. We do this in an efficient fashion by interpreting the operator $O$ as a Matrix Product Operator (MPO) \cite{Pirvu2010}. A MPO is a matrix product representation of an operator:
 
 \begin{equation}
 O = \sum_{s_{i}^{},s_{i}^\prime \in \{1,d_i\}} \mathrm{tr}\left[\prod B_i^{s_i^{},s_i^\prime}\right]\ket{s_1^{},s_2^{},\ldots,s_L^{}}\bra{s_1^\prime,s_2^\prime,\ldots,s_L^\prime}
