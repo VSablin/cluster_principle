@@ -1,4 +1,4 @@
-\documentclass[aps,pra,preprint,amsmath,amssymb]{revtex4-1}
+\documentclass[notitlepage, prx, preprint, amsmath,superscriptaddress,amssymb]{revtex4-1}
 
 \usepackage{subfigure,dcolumn}
 \usepackage[T2A,T1]{fontenc}
@@ -8,57 +8,196 @@
 \usepackage{graphicx}
 \usepackage[colorinlistoftodos]{todonotes}
 \usepackage[utf8]{inputenc}
+\usepackage{amsthm}
 
-% The following package will be used to typeset the LaTeX codes and is not a necessity to this template
-\usepackage{listings}
-\lstloadlanguages{[LaTeX]TeX}
-\lstset{language=[LaTeX]TeX,keywordstyle=\color{red},showspaces=true,breaklines=true,breakatwhitespace=true,basicstyle=\small\tt,commentstyle=\color{white},frame=single,framerule=0pt,backgroundcolor=\color{yellow}}
+%%%%% to show the label in the Eqs.
+\usepackage[notref,notcite]{showkeys}
+
+%%%%%% theorems
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[section]
 
 
+
+
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 
 
 \title{Causality and the N-photon Scattering matrix in waveguide QED}
 
-\author{...}
-\affiliation{...}
-\email[Corresponding author, ]{The name, complete address, telephone number, and e-mail address of the author to whom correspondence and proofs should be sent.}
+\author{E. S\'anchez-Burillo}
+\affiliation{Instituto de Ciencia de Materiales de Aragon and Departamento de Fisica de la Materia Condensada, CSIC-Universidad de Zaragoza, E-50012 Zaragoza, Spain}
+
+\author{A. Cadarso}
+\affiliation{Instituto de Fisica Fundamental, IFF-CSIC, Calle Serrano
+  113b, Madrid E-28006, Spain}
+
+\author{L. Mart\'in-Moreno}
+\affiliation{Instituto de Ciencia de Materiales de Aragon and
+  Departamento de Fisica de la Materia Condensada, CSIC-Universidad de
+  Zaragoza, E-50012 Zaragoza, Spain}
+
+\author{J. J. Garc\'ia-Ripoll}
+\affiliation{Instituto de Fisica Fundamental, IFF-CSIC, Calle Serrano
+  113b, Madrid E-28006, Spain}
+
+\author{D. Zueco}
+\affiliation{Instituto de Ciencia de Materiales de Aragon and Departamento de Fisica de la Materia Condensada, CSIC-Universidad de Zaragoza, E-50012 Zaragoza, Spain}
+\affiliation{Fundacion ARAID, Paseo Maria Agustin 36, E-50004 Zaragoza, Spain}
+
 
 
 \begin{abstract}
-
-
-
-The scattering matrix $S$ is one of the most fundamental objects for
-describing particle processes. It connects the far past state with the
-far future one for interacting particles, provided the particles are well described by a free
-Hamiltonian before and after interacting. Recently, it has proved to be a very useful object to study scattering of photons propagating through a one-dimensional waveguide interacting with few-level atoms \cite{Fan2010}. Here, we study the conditions under the $S$ matrix is well defined in this context. We show the ground state of the system must be essentially equal to the vacuum state far enough from the scatterers. Besides, we propose an ansatz in position space for the structure of the scattering matrix for $N$ photons impinging on a local system with several stable states. Our ansatz ensures causality is fulfilled. It is equivalent to the structure recently found in \cite{Xu2016}.
+$S^0$ under general conditions.
 \end{abstract}
 
 
-\keywords{Quantum optics, scattering matrix, and few-photon photonics.}
 
 \maketitle
 
 
 \section{Introduction}
 
-Causality is  expected to hold in every circumstance.    In words of Weinberg, two uncorrelated experiments must provide uncorrelated results \cite[Chap. 4]{weinberg1995}.     In Quantum Field Theory, causality imposes that all spacelike separated operators conmute.   In non-relativistic quantum mechanics, however, we should abandon such an stringent condition which, obviously, does not implies any causality violation.  In local Hamiltonians\footnote{interactions decay sufficiently fast with the distance} there is a  maximum but finite group velocity in which the information can travel.   Although operators do not conmute,  their conmutator  (its norm) is arbitrarily small at distances large enough compared to this maximum velocity and bounded by Lieb and Robinson \cite{Lieb1972}.  
+Causality is  expected to hold in every circumstance.    In words of Weinberg, two uncorrelated experiments must provide uncorrelated results \cite[Chap. 4]{weinberg1995}.     In Quantum Field Theory, causality imposes that  spacelike separated operators conmute.   In non-relativistic quantum mechanics, however, we should abandon such an stringent condition which  does not implies any causality violation.  In local Hamiltonians~\footnote{interactions decay sufficiently fast with the distance} there is a finite maximum  group velocity at which the information can travel.   Although operators do not conmute,  their conmutator  (its norm) is arbitrarily small at distances large enough compared to this maximum velocity  bounded by Lieb and Robinson \cite{Lieb1972}.  
 
-Lieb-Robinson bounds  brought about that several results, rigorous in QFT, were verified in many body quantum mechanics such as the exponential decay of correlations (at equilibrium)  in gapped models or  the area law \cite{Nachtergaele2006, Hastings2007}.   Another key object  to look is the $S$-matrix.  Scattering experiments  are the way of probing system.  Thus, the postulates in the theory are reflected in the properties  of the $S$-matrix.   In a  more strong way, experiments dictate the acceptable form of the latter.  At the most fundamental level, causality imposes that the output of uncorrelated inputs is a sum of each of them in a convenient way.   Under some conditions (to discuss below) it reduced to a  cluster decomposition for the $S$-matrix \cite{Wichmann1963}.  Well behaved interactions in QFT  can be argued by imposing such a decomposition for the scattering \cite{weinberg1995}.  
+Lieb-Robinson bounds  brought about that several rigorous results in QFT  were verified in many body quantum mechanics such as the exponential decay of correlations (at equilibrium)  in gapped models or  the area law \cite{Nachtergaele2006, Hastings2007}.   Another key object  to look is the $S$-matrix.  Scattering experiments  are the way we probe systems.  Thus, the postulates in the theory are reflected in the properties  of the scattering  $S$-matrix.   In other words, experiments dictate the acceptable form for the $S$-matrix.  At the most fundamental level, causality imposes that the output for  uncorrelated inputs must be the sum of each of them in a convenient way.   Under some conditions (discussed below) the sum it is reduced to a  cluster decomposition \cite{Wichmann1963}.   
+In fact,  acceptable QFT interactions  can be argued by imposing such a decomposition   \cite{weinberg1995}.   
 It would be desirable to proof such a decomposition in non-relativistic many body systems.  In fact, it should not be a surprise that such a thing occurs, knowing as we have just reviewed, that causality is guaranteed existing a maximuum velocity for transfer quantum information.  Checking this expected result is the purpose of this paper.
 
-In this work, we are going to considered the situation occurring in waveguide QED.  There, travelling photons interact with local quantum systems.   The photonic medium, in general, will be dispersive
-{\color{red} dispersive = absorving?} and the coupling with the quantum systems may be non-perturbative.  In this sense, the problem we cast here is a many body one.  Besides, typical assumptions as Lorentz or Translational invariance can not be done here.  Although theoretically motivated, it is worth recallying that the scenario discussed here is experimentally relevant nowadays.   On the other hand,   waveguide QED experiments can test such causality restrictions for the $S$-matrix.  
-We argue the  form for $N$-photon $S$-matrix acceptable under causality conditions, also fully developed here.   We emphasize that our results do not rely in typical approximations as Markovian and/or weak scatterer-photonic medium coupling.  Our results are also independent of the scatterer.    Our results are accompanied with several theorems and tested in two examples where, either analytically (the case of  a non-dispersive medium interacting with a lambda atom) or numerically (scattering in the ultrastrong limit) has been recently discussed in the literature.   Both models share the property of  presenting Raman scattering which introduces several subtitles. 
+In this work, we consider the situation  occurring in  waveguide QED,  where travelling photons interact with local quantum systems.   In general, the photonic medium will be dispersive
+{\color{red} dispersive = absorving?} and the coupling with the quantum systems may be non-perturbative.  In this sense, the problem we tackle is a many body one.  Besides,  typical (QFT) assumptions as Lorentz or Translational invariance can not be done here.  Although  motivated from a fundamental perspective, it is worth recallying that our work is experimentally  and technologically relevant nowadays \cite{lodahl15review}.
+Physical implementations based on dielectric \cite{Mitsch2014, Yu2014}, cavity arrays \cite{Vuckovic2003}, metals  \cite{Lukin2007} or superconductors \cite{astafiev10, hoi11, Liu2016, Forn-Diaz2016} interacting with atoms, molecules,  q-dots or superconducting qubits constitute already an extense zoo to investigate the few photon scattering in the quantum domain. 
+Thus,  waveguide QED experiments can test such causality restrictions for the $S$-matrix. 
+Maybe driven by  the experimental interest, it exists already a large  theoretical literature for  waveguide QED systems \cite{Roy2016}  and in  computing the $N$-photon $S$-matrix in particular {\color{red} relevant citations}.  Our work is also of interest there, since derives from the most fundamental level the actual form for the $S$-matrix in all these platforms.
+
+
+Our main result is the form for  the $N$-photon $S$-matrix  fixed by causality.   The result needs for intermediate  theorems stating what causality means  in the photonic medium  and the conditions for the existence for the $S$-matrix.  Our results do not rely in  approximations as Markovian and/or weak scatterer-photonic medium coupling. Thet are also independent of the scatterer.   Thus, we believe them to be rather general.    
+Finally, our theory is applied to  two examples where, either analytically (the case of  a non-dispersive medium interacting with a lambda atom \cite{Xu2016}) or numerically (scattering in the ultrastrong limit \cite{Sanchez-Burillo2014, Sanchez-Burillo2015}) has been recently discussed in the literature.   Both models share the property of  presenting Raman scattering which introduces several subtitles that we will discuss. 
 
 
 The rest of the paper...
 
-{\color{blue}Blablabla on waveguide QED (wQED), scattering matrix as a fundamental object, and causality \cite{weinberg1995,Xu2016}.}
 
 
-\section{Model in quantum photonics} 
+
+\section{Model, $S$-matrix and main results} 
+
+
+In waveguide QED the relevant model is the  light-matter interaction $(\hbar=1)$, 
+\begin{equation}
+H = \sum_k \omega_k a_k^\dagger a_k + H_{sys} + \sum_k g_k (S^\dagger a_k + S a_k^\dagger).
+\label{H-full}
+\end{equation}
+We have chosen to write a discretised version (with steps $\delta_k$) rather than a continuum one for the photonic medium in momentum space   In the Hamiltonian, $\omega_k$ are the photon frequencies and $[a_k, a_k^\prime]= \delta_{k, k^\prime}$ bosonic operators.  We assume a single band photons, though multiband systems should give the same conclusions here.  Thus, $\omega_k \in [\omega_-, \omega_+]$ wich will be referred as the band limits.  In a field theory nomenclature they are the Infrarred and Ultraviolet cutoffs.  The system-bosonic medium is via the operator $S$ with coupling constants $g_k$.    The system Hamiltonian  can be  any.  
+Through the paper we will fix to one quantum system.  The extension to several scatterers  is trivial and do not change our conclusions.  When transforming to real space,
+\begin{equation}
+a_x = \frac{1}{\sqrt{L} }\sum_k  \, e^{i k x} a_k  
+\end{equation}
+with $L$ the number of latice sites, $\delta_k= \pi /L$, the punctual scatterer is assumed to occupy a finite number of sites, \emph{i.e.} $g_x = 1/\sqrt{L} \sum_k e^{i k x} g_k$ is different from zero only sites $x=0, 1, ..., m$ with $m$ the ``size'' of the scatterer.  No more assumptions on the model  will  invoked to prove our results, making our statements rather general.
+
+
+We are interested in discussing the scattering.  Therefore, we need the the $S$-matrix, defined as,
+\begin{equation}
+( S_{y_1 ...y_n x_1...x_N} )_{\mu \nu} = \langle \lambda_\nu | \langle y_1, ..., y_N | \lim_{t_\mp  \to \mp \infty} U(t_-, t_+) | x_1, ..., x_N \rangle | \lambda_\nu \rangle
+\end{equation}
+Here, $|x_1, ...,x_N\rangle$ ( $|y_1, ...,y_N\rangle$)  are  elements of the position basis in the $N$-photon subspace,  $\\nu \rangle$  ($|\mu\rangle$)  states of the scatterer and $U (t_-, t_+) = e^{-i H t}$ is the evolution operator. What we show here is that in the light-matter Hamiltonian \eqref{H-full} it is possible to show that whenever $|x_i -x_j| \to \infty$ and $|y_i -y_j| \to \infty$ we have
+\begin{equation}
+\label{S0-main}
+( S_{y_1 ...y_n x_1...x_N} )_{\mu \nu} \to
+\sum_{\lambda_1\dots \lambda_{N-1}=1}^M\prod_{n=1}^N (S_{y_nx_n})_{\lambda_{n-1}\lambda_n}\nonumber\\
+\prod_{m=1}^{N-1}\theta(y_{m+1}-y_m) + \text{permutations},
+\end{equation}
+with $\lambda_0\equiv \mu$ and $\lambda_N\equiv\nu$.  The symmetrisation imposes permutations in $y_n/x_n\leftrightarrow y_m/x_m$ for all $n$ and $m$.
+We should emphasise that the above formula is written for chiral waveguides, where only right (left) moving photons are considered.  The calculations,  formulas  and processes visualisation are much more simpler.  The general case of non-chiral waveguides are easily done as we explain section \ref{sec:}.   Even with the simplification given by chirality the formula seems cumbersome.  However is rather simple in words.   Think in two input localized in space wavepackets (see figure ).  Imagine that they are well separated ( fig ), Eventually they are infinitely separated.  The above formula says that the output will consists on the sum of single wavepacket events (as they are so separated that they do interact with the scatterer one after the other).  Since the scatterer, after the interaction with each wave packet is left in some state $\lambda_n$ we should sum over all these intermediate states.  Finally, the Heaviside is there because of causality.   If the scatterer after each scattering event relax to its ground state  \eqref{S0-main} reduces to:
+\begin{equation}
+----
+\end{equation}
+wich is the case of the known cluster decomposition for the $S$-matrix derived rigorously in QFT for translational invariant models.  Quite recently, an analytical calculation for the lambda atom has found the above form.
+
+
+To find the above result we have shown some intermediate theorems.  We believe them important, even beyond the motivation in the $S$-matrix.  We enumerate the two main ones here.
+
+
+OLD STUFF .............
+
+ introduce the $N$-photon  input and output states:
+\begin{align}
+| \Psi_{\rm in} (x_1, ..., x_N, t; \nu) \rangle &= \prod_n^N  \xi^\dagger_{n, \text{in}} |vac \rangle  \; |g_\nu \rangle
+\\
+| \Psi_{\rm out} (y_1, ..., y_N, t; \mu) \rangle &= \prod_{n}^N \xi^\dagger_{n, \text{out}} |vac \rangle  \; |g_\mu \rangle
+\end{align} 
+where the input and output operators are defined as
+\begin{align}
+\xi_{n,\text{in}}^\dagger & \equiv e^{iHt_-} e^{-iH_0t_-}\xi_n^\dagger e^{iH_0 t_-} e^{-iHt_-},\\
+\xi_{n',\text{out}}^\dagger & \equiv e^{iHt_+} e^{-iH_0t_+}\xi_{n'}^\dagger e^{iH_0 t_+} e^{-iHt_+},
+\end{align}
+with $t_\pm \to\pm\infty$ and
+\begin{equation}
+\xi_n^\dagger = \sum_x  \phi_n(x) a_x^\dagger.
+\end{equation}
+The wave functions $\phi_n(x)$ are centered arround $x_n$ and  have support only on sites far away the scatterer (similarly with $\xi_n (y)$) and  $g_\nu$  ($g_\mu$) are system states.  With this at hand, the $S$-matrix, wich connect input and output states is simply the amplitude:
+\begin{equation}
+( S_{y_1 ...y_n x_1...x_N} )_{\mu \nu} =  \langle \Psi_{\rm out} (y_1, ..., y_N, t; \mu) | \Psi_{\rm in} (x_1, ..., x_N, t; \nu) \rangle
+\end{equation}
+whenever 
+Once the basic elements are introduced, we can introduce the main results of this paper.  
+
+\begin{theorem}
+ddfd
+\end{theorem}
+
+The Scatterin matrix 
+
+Nice enough we can proof an important (for us) result characterising the ground state of \eqref{H-full}.
+
+
+\begin{theorem}
+\label{th:bound-a}
+Given the spin-boson model\ \eqref{eq:H-full}, we have the following bounds for the expectation values on the ground state $\ket{\Omega}$,
+\begin{equation}
+\braket{\Omega|a_k^{\dagger\,n}a_k^n|\Omega} \leq \left|\frac{g_k}{\omega_k}\right|^{2n}.
+\end{equation}
+These bounds, which are saturated for $\Delta=0$, can be interpreted in terms of establishing that $\ket{\Omega}$ is a very good vacuum at high energies, because $\Vert{a_k\ket{\Omega}}\Vert \leq |g_k/\omega_k|\to 0$ as $\omega_k\to\infty$.
+\end{theorem}
+
+\begin{proof}
+Let us assume that $\ket{\Omega}$ is the ground state of $H$ as given by Eq.\ \eqref{eq:H-full}, and thus $(H-E_0)\ket{\Omega} = 0$. We are going to create another state which is arbitrarily close to it by adding a small perturbation
+\begin{equation}
+\ket{\psi_\epsilon} = \ket{\Omega} + \epsilon O \ket{\omega}.
+\end{equation}
+We can now compute the energy of this state
+\begin{equation}
+f(\epsilon) = \frac{\braket{\psi_\epsilon|H|\psi_\epsilon}}{\braket{\psi_\epsilon|\psi_\epsilon}} = \frac{E_0+\epsilon E_0 \braket{\Omega| O + O^\dagger |\Omega} + \epsilon^2\braket{\Omega|O^\dagger H O|\Omega}}{1+\epsilon \braket{\Omega|O+O^\dagger|\Omega} + \epsilon^2\braket{\Omega|O^\dagger O|\Omega}}.
+\end{equation}
+Because $\ket{\Omega}$ is a stationary state, we immediately get
+\begin{align}
+\left.\partial_\epsilon f(\epsilon)\right|_{\epsilon=0} = 0,
+\end{align}
+but because it is also a unique ground state, we also have
+\begin{align}
+\left.\partial^2_\epsilon f(\epsilon)\right|_{\epsilon=0} &= 2(\braket{O^\dagger H O}-E_0\braket{O^\dagger O}) \\
+&= 2(\braket{O^\dagger [H,O]+O^\dagger O H}-E_0\braket{O^\dagger O}) \nonumber\\
+&= 2\braket{O^\dagger [H,O]}\geq 0.\nonumber
+\end{align}
+Let us now take for instance $O=a_k^n$. The previous statement leads to
+\begin{align}
+\braket{a_k^{\dagger\,n} (-n\omega_n a_k^{n} -n g_k \sigma^x a_k^{n-1}}\geq 0,
+\end{align}
+or equivalently
+\begin{equation}
+0 \leq \braket{a_k^{\dagger\,n}a_k^n} \leq -\frac{g_k}{\omega_k}\braket{a_k^{\dagger\,n}\sigma^x a^{n-1}}.
+\end{equation}
+If we introduce $C_n := |\braket{a_k^{\dagger\,n}a_k^n}|$, with $C_0=1$, Cauchy-Schwatz translates this into the upper bound
+\begin{equation}
+0\leq C_n \leq \frac{|g_k|}{\omega_k} \sqrt{C_n C_{n-1}}.
+\end{equation}
+In other words, $C_n \leq C_{n-1}|g_k/\omega_k|^2$.
+\end{proof}
+
 
 {\color{blue}Hamiltonian and Fig. \ref{fig:input}. Mention it is a chiral model but the generalization to a nonchiral one is trivial \cite{Fan2010}. Notation: according to the rest of the text, the number of stable states should be $M$; if the stable states are $\ket{g_1}$, $\ket{g_2}$, \dots, $\ket{g_M}$, then $E_1\leq E_2\leq \dots E_M$.}
 
@@ -67,6 +206,7 @@ The rest of the paper...
 \caption{Two-photon input state impinging on a $\lambda$ atom. The state $\ket{e}$ is an unstable state which decays to the stable ones, $|g_1\rangle$ and $|g_2\rangle$. The distance $L$ between both wave packets, $\phi_a$ and $\phi_b$, will eventually tend to $\infty$.}
 \label{fig:input}
 \end{figure}
+
 
 \section{Free-field causality}
 
