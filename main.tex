@@ -92,35 +92,45 @@ In waveguide QED the relevant model is the  light-matter interaction $(\hbar=1)$
 H = \sum_k \omega_k a_k^\dagger a_k + H_{sys} + \sum_k g_k (S^\dagger a_k + S a_k^\dagger).
 \label{H-full}
 \end{equation}
-We have chosen to write a discretised version (with steps $\delta_k$) rather than a continuum one for the photonic medium in momentum space   In the Hamiltonian, $\omega_k$ are the photon frequencies and $[a_k, a_k^\prime]= \delta_{k, k^\prime}$ bosonic operators.  We assume a single band photons, though multiband systems should give the same conclusions here.  Thus, $\omega_k \in [\omega_-, \omega_+]$ wich will be referred as the band limits.  In a field theory nomenclature they are the Infrarred and Ultraviolet cutoffs.  The system-bosonic medium is via the operator $S$ with coupling constants $g_k$.    The system Hamiltonian  can be  any.  
-Through the paper we will fix to one quantum system.  The extension to several scatterers  is trivial and do not change our conclusions.  When transforming to real space,
+  In the Hamiltonian, $\omega_k$ are the photon frequencies and $[a_k, a_k^\prime]= \delta_{k, k^\prime}$ are bosonic operators.  We assume a single band photons (multiband systems do not modify our conclusions)  $\omega_k \in [\omega_-, \omega_+]$ wich will be referred as the band limits. ,
+Besides,  $k = \pi /L n$ with $n=-L/2, ..., 0, ... L/2$, \emph{i.e.} with momentum spacing $\delta_k = \pi / L$.  The system-bosonic medium is via the operator $S$ with coupling constants $g_k$.    The system Hamiltonian  can be  any. 
+We fix to one quantum system.  The extension to several scatterers  is trivial and do not change our findings.   If necessary,  the continuum limit of the model can be done with the replacements $\sum_k \to \int  dk$ via $a_k \to \sqrt{\delta_k} a(k)$ ($[a (k), a^\dagger (k^\prime)]= \delta(k-k^\prime)$) and $g_k \to \sqrt{\delta_k} g(k)$.
+Besides, when transforming to real space,
 \begin{equation}
 a_x = \frac{1}{\sqrt{L} }\sum_k  \, e^{i k x} a_k  
 \end{equation}
-with $L$ the number of latice sites, $\delta_k= \pi /L$, the punctual scatterer is assumed to occupy a finite number of sites, \emph{i.e.} $g_x = 1/\sqrt{L} \sum_k e^{i k x} g_k$ is different from zero only sites $x=0, 1, ..., m$ with $m$ the ``size'' of the scatterer.  No more assumptions on the model  will  invoked to prove our results, making our statements rather general.
+the punctual scatterer is assumed to occupy a finite number of sites, \emph{i.e.} $g_x = 1/\sqrt{L} \sum_k e^{i k x} g_k$ is different from zero only sites $x=0, 1, ..., m$ with $m$ the ``size'' of the scatterer.  No more assumptions on the model  will  invoked to prove our results, making our statements rather general. Finally, \eqref{H-full} models all the experimental implementation enumerated in the introduction.
 
 
-We are interested in discussing the scattering.  Therefore, we need the the $S$-matrix, defined as,
+We are interested in discussing the scattering wich is characterised by the $S$-matrix, relating the input and the output, defined as,
 \begin{equation}
-( S_{y_1 ...y_n x_1...x_N} )_{\mu \nu} = \langle \lambda_\nu | \langle y_1, ..., y_N | \lim_{t_\mp  \to \mp \infty} U(t_-, t_+) | x_1, ..., x_N \rangle | \lambda_\nu \rangle
+( S_{y_1 ...y_n x_1...x_N} )_{\mu \nu} = \langle \mu | \langle y_1, ..., y_N | \lim_{t_\mp  \to \mp \infty} U(t_-, t_+) | x_1, ..., x_N \rangle | \nu \rangle
 \end{equation}
-Here, $|x_1, ...,x_N\rangle$ ( $|y_1, ...,y_N\rangle$)  are  elements of the position basis in the $N$-photon subspace,  $\\nu \rangle$  ($|\mu\rangle$)  states of the scatterer and $U (t_-, t_+) = e^{-i H t}$ is the evolution operator. What we show here is that in the light-matter Hamiltonian \eqref{H-full} it is possible to show that whenever $|x_i -x_j| \to \infty$ and $|y_i -y_j| \to \infty$ we have
+Here, $|x_1, ...,x_N\rangle$ ( $|y_1, ...,y_N\rangle$)  are  elements of the position basis in the $N$-photon subspace,  $|\nu \rangle$  ($|\mu\rangle$)  states of the scatterer and $U (t_-, t_+) = e^{-i H (t_+-t_-)}$ is the evolution operator.  
+It is clear that being \eqref{H-full} an inherent quantum many body problem, its evolution and thus the $S$-matrix is only solvable in some instances for it.  
+
+Even, in cases where analytical tools are available the actual computation is quite cumbersome.  However, as we show below, it is possible to show that within the light-matter Hamiltonian \eqref{H-full} whenever $|x_i -x_j| \to \infty$ and $|y_i -y_j| \to \infty$, then
 \begin{equation}
 \label{S0-main}
 ( S_{y_1 ...y_n x_1...x_N} )_{\mu \nu} \to
-\sum_{\lambda_1\dots \lambda_{N-1}=1}^M\prod_{n=1}^N (S_{y_nx_n})_{\lambda_{n-1}\lambda_n}\nonumber\\
+\sum_{\lambda_1\dots \lambda_{N-1}=1}^M\prod_{n=1}^N (S_{y_nx_n})_{\lambda_{n-1}\lambda_n}
 \prod_{m=1}^{N-1}\theta(y_{m+1}-y_m) + \text{permutations},
 \end{equation}
 with $\lambda_0\equiv \mu$ and $\lambda_N\equiv\nu$.  The symmetrisation imposes permutations in $y_n/x_n\leftrightarrow y_m/x_m$ for all $n$ and $m$.
 We should emphasise that the above formula is written for chiral waveguides, where only right (left) moving photons are considered.  The calculations,  formulas  and processes visualisation are much more simpler.  The general case of non-chiral waveguides are easily done as we explain section \ref{sec:}.   Even with the simplification given by chirality the formula seems cumbersome.  However is rather simple in words.   Think in two input localized in space wavepackets (see figure ).  Imagine that they are well separated ( fig ), Eventually they are infinitely separated.  The above formula says that the output will consists on the sum of single wavepacket events (as they are so separated that they do interact with the scatterer one after the other).  Since the scatterer, after the interaction with each wave packet is left in some state $\lambda_n$ we should sum over all these intermediate states.  Finally, the Heaviside is there because of causality.   If the scatterer after each scattering event relax to its ground state  \eqref{S0-main} reduces to:
 \begin{equation}
-----
+ S_{y_1 ...y_n x_1...x_N}  \to \prod_{n=1}^N S_{y_nx_n}
++ \text{permutations},
 \end{equation}
 wich is the case of the known cluster decomposition for the $S$-matrix derived rigorously in QFT for translational invariant models.  Quite recently, an analytical calculation for the lambda atom has found the above form.
 
 
-To find the above result we have shown some intermediate theorems.  We believe them important, even beyond the motivation in the $S$-matrix.  We enumerate the two main ones here.
-
+In finding \eqref{S0-main} several  properties for \eqref{H-full} has been showed.  We believe them important by themselves.    The first property is that far away the scaterer the ground state of \eqref{H-full} approximates the trivial vacuum, \emph{i.e.}  $\langle a_j^\dagger a_j \rangle \to 0$ as $j \to \pm \infty$.  This is important since it may provide routes to simulate efficiently the ground state of models like \eqref{H-full}.  Related to this, quite recently a similar result has been showed for impurity fermionic models.  Finally, we also need to quantify what causality is non relativistic theories.  Here we shown that 
+\begin{equation}
+\Vert[\psi_{k_0}(x,t),\psi_{p_0}(y,t')^\dagger]\Vert \to 0  \quad
+\text{as} \;  (x-y)^2 -c (t-t^\prime) \to \infty
+\end{equation}
+with $c= {\text max} ( \partial_k \omega_k )$, \emph{i.e} the maximuum group velocity.
 
 OLD STUFF .............
 
