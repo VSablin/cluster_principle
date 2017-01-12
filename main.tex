@@ -67,7 +67,7 @@ Lieb-Robinson bounds  brought about that several rigorous results in QFT  were v
 In fact,  acceptable QFT interactions  can be argued by imposing such a decomposition   \cite[Chap. 4]{weinberg1995}.   
 It would be desirable to proof such a decomposition in non-relativistic many body systems.  In fact, it should not be a surprise that such a thing occurs, knowing as we have just reviewed, that causality is guaranteed existing a maximuum velocity for transfer quantum information.  Checking this expected result is the purpose of this paper.
 
-In this work, we consider the situation  occurring in  waveguide QED,  where travelling photons interact with local quantum systems.   In general, the photonic medium will be dispersive
+In particular, we consider the situation  occurring in  waveguide QED,  where travelling photons interact with local quantum systems.   In general, the photonic medium will be dispersive
 {\color{red} dispersive = absorving?} and the coupling with the quantum systems may be non-perturbative.  In this sense, the problem we tackle is a many body one.  Besides,  typical (QFT) assumptions as Lorentz or Translational invariance can not be done here.  Although  motivated from a fundamental perspective, it is worth recallying that our work is experimentally  and technologically relevant nowadays \cite{lodahl15review}.
 Physical implementations based on dielectric \cite{Mitsch2014, Yu2014}, cavity arrays \cite{Vuckovic2003}, metals  \cite{Lukin2007} or superconductors \cite{astafiev10, hoi11, Liu2016, Forn-Diaz2016} interacting with atoms, molecules,  q-dots or superconducting qubits constitute already an extense zoo to investigate the few photon scattering in the quantum domain. 
 Thus,  waveguide QED experiments can test such causality restrictions for the $S$-matrix. 
@@ -130,6 +130,10 @@ It is clear that being \eqref{H-full} an inherent quantum many body problem, its
 
 
 
+{\color{blue}Hamiltonian and Fig. \ref{fig:input}. Mention it is a chiral model but the generalization to a nonchiral one is trivial \cite{Fan2010}. Notation: according to the rest of the text, the number of stable states should be $M$; if the stable states are $\ket{g_1}$, $\ket{g_2}$, \dots, $\ket{g_M}$, then $E_1\leq E_2\leq \dots E_M$.}
+
+
+
 \subsection{Main results}
 
  Irrespective of the  model details  we show here that  it is possible to \emph{show} that within the light-matter Hamiltonian \eqref{H-full} whenever $|x_i -x_j| \to \infty$ and $|y_i -y_j| \to \infty$, then
@@ -164,10 +168,11 @@ In  a non relativitic bosonic medium (first term in \eqref{H0-full}) there is no
 \end{equation}
 with $c= {\text max} ( \partial_k \omega_k )$, \emph{i.e} the maximuum group velocity.  where,
 \begin{equation}
+\label{wp}
 \psi_{k_0}(x,t) = \int  e^{ikx-i\omega_kt} \phi_{k_0}(k) a_k\mathrm{d}k,
 \end{equation}
 where $\phi_{k_0} (k)$ is some smooth function with compact support and it is understand localized in space (see Fig. \ref{fig:input} ).   
-Eq. \eqref{cas-main} is crucial to show \eqref{S0-main} and it is the relation of what causality means in non relativistic quantum mechanics.  Notice that it is a weaker condition than LR bounds because we do not impose any exponential decay.  However is sufficient to show the limit for the $S$-matrix.  As with the ground state property discussed above,  the scope of  Eq. \ref{cas-main} goes beyond  our particular interest here.
+Eq. \eqref{cas-main} is crucial to show \eqref{S0-main} and it is the relation of what causality means in non relativistic quantum mechanics.  Notice that it is a weaker condition than LR bounds because we do not impose any exponential decay.  However is sufficient to show the limit for the $S$-matrix.  As with the ground state property discussed above,  the scope of  Eq. \ref{cas-main} goes beyond  our particular interest because establishes that correlations decay in free bosonic models with finite group velocity.
 
 
 
@@ -204,14 +209,11 @@ Once the basic elements are introduced, we can introduce the main results of thi
 \section{The ground state of the light-matter interaction}
 
 
-The Scatterin matrix 
-
-Nice enough we can proof an important (for us) result characterising the ground state of \eqref{H-full}.
-
+In this section we establish an important feature of the ground state of \eqref{H-full}.  In plain words, we show that  the expected values for local observables acting over a   region  away from the scatterer are arbitrarily well approximated by averages done within the free field vacuum (the ground state for $H= \sum_k \omega_k a_k^\dagger a_k$).  This statement needs of two theorems that we enunciate and demonstrate here.
 
 \begin{theorem}
 \label{th:bound-a}
-Given the spin-boson model\ \eqref{eq:H-full}, we have the following bounds for the expectation values on the ground state $\ket{\Omega}$,
+Given the spin-boson model\ \eqref{H-full}, we have the following bounds for the expectation values on its ground state $\ket{\Omega}$,
 \begin{equation}
 \braket{\Omega|a_k^{\dagger\,n}a_k^n|\Omega} \leq \left|\frac{g_k}{\omega_k}\right|^{2n}.
 \end{equation}
@@ -219,24 +221,25 @@ These bounds, which are saturated for $\Delta=0$, can be interpreted in terms of
 \end{theorem}
 
 \begin{proof}
-Let us assume that $\ket{\Omega}$ is the ground state of $H$ as given by Eq.\ \eqref{eq:H-full}, and thus $(H-E_0)\ket{\Omega} = 0$. We are going to create another state which is arbitrarily close to it by adding a small perturbation
+Let us assume that $\ket{\Omega}$ is the ground state (g.s.) of $H$ as given by Eq.\ \eqref{H-full}, and thus $(H-E_0)\ket{\Omega} = 0$.   Consider now the unnormalized state built from the g.s. as 
+\begin{equation}
+| \chi \rangle = O \ket{\Omega}
+%\frac{ O \ket{\Omega}}{\bra{\Omega}\ket{\Omega}}
+\end{equation}
+with $O$ an operator.   Noticing that
+\begin{align}
+\bra{\chi} H -E_0 \ket{\chi}  
+&= (\braket{O^\dagger H O}-E_0\braket{O^\dagger O}) \\
+&= (\braket{O^\dagger [H,O]+O^\dagger O H}-E_0\braket{O^\dagger O}) \nonumber\\
+&= \braket{O^\dagger [H,O]}\geq 0.\nonumber
+\end{align}
+where we have used that $H \geq 0$.  
+
+
+We are going to create another state which is arbitrarily close to it by adding a small perturbationqq
 \begin{equation}
 \ket{\psi_\epsilon} = \ket{\Omega} + \epsilon O \ket{\omega}.
 \end{equation}
-We can now compute the energy of this state
-\begin{equation}
-f(\epsilon) = \frac{\braket{\psi_\epsilon|H|\psi_\epsilon}}{\braket{\psi_\epsilon|\psi_\epsilon}} = \frac{E_0+\epsilon E_0 \braket{\Omega| O + O^\dagger |\Omega} + \epsilon^2\braket{\Omega|O^\dagger H O|\Omega}}{1+\epsilon \braket{\Omega|O+O^\dagger|\Omega} + \epsilon^2\braket{\Omega|O^\dagger O|\Omega}}.
-\end{equation}
-Because $\ket{\Omega}$ is a stationary state, we immediately get
-\begin{align}
-\left.\partial_\epsilon f(\epsilon)\right|_{\epsilon=0} = 0,
-\end{align}
-but because it is also a unique ground state, we also have
-\begin{align}
-\left.\partial^2_\epsilon f(\epsilon)\right|_{\epsilon=0} &= 2(\braket{O^\dagger H O}-E_0\braket{O^\dagger O}) \\
-&= 2(\braket{O^\dagger [H,O]+O^\dagger O H}-E_0\braket{O^\dagger O}) \nonumber\\
-&= 2\braket{O^\dagger [H,O]}\geq 0.\nonumber
-\end{align}
 Let us now take for instance $O=a_k^n$. The previous statement leads to
 \begin{align}
 \braket{a_k^{\dagger\,n} (-n\omega_n a_k^{n} -n g_k \sigma^x a_k^{n-1}}\geq 0,
@@ -253,13 +256,215 @@ In other words, $C_n \leq C_{n-1}|g_k/\omega_k|^2$.
 \end{proof}
 
 
-{\color{blue}Hamiltonian and Fig. \ref{fig:input}. Mention it is a chiral model but the generalization to a nonchiral one is trivial \cite{Fan2010}. Notation: according to the rest of the text, the number of stable states should be $M$; if the stable states are $\ket{g_1}$, $\ket{g_2}$, \dots, $\ket{g_M}$, then $E_1\leq E_2\leq \dots E_M$.}
+As a consequence, we get what we want encapsulated in the following theorem.
+
+\begin{theorem}
+\label{eq:bound-x}
+Let us define $\psi_{k_0}(x)$ as the wavepacket\ \eqref{eq:wavepacket} where $\phi_{k_0}(k)=\xi(k-k_0)$ is a test function, infinitely differentiable with a finite support $K$ centered around $k_0$. Let us assume that $|g_k/\omega_k|$ remains finite within that support. Then
+\begin{equation}
+\braket{\psi_{k_0}(x)^\dagger \psi_{k_0}(x)} \to 0,~|x|\to\infty.
+\end{equation}
+Once more this testifies that $\ket{\Omega}$ is a good vacuum, now far from the interaction region, because $\Vert{\psi_{k_0}(x)\ket{\Omega}}\Vert \to0$ as $x\to\pm\infty$. Moreover, if we can assume that $\braket{a_k^\dagger a_p}$ is an $n$-times differentiable function of $k$ and $p$, the bound will be improved
+\begin{equation}
+\braket{\psi_{k_0}(x)^\dagger \psi_{k_0}(x)} \leq  \mathcal{O}(|x|^{-n}), ~|x|\to\infty.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Let us compute the expectation value of the number operator for a wavepacket
+\begin{equation}
+N := \braket{\Omega|\psi_{k_0}(x)^\dagger\psi_{k_0}(x)|\Omega}
+= \int\int\braket{a_k^\dagger a_p} e^{i(k-p)x} \phi_{k_0}(k)\phi_{k_0}(p)\,\mathrm{d}k\mathrm{d}p.
+\end{equation}
+We can rewrite $N$ as the Fourier transform of another function
+\begin{equation}
+N = \int e^{i u x} F(u) \mathrm{d}u,
+\end{equation}
+where
+\begin{equation}
+F(u) := \frac{1}{2} \int \phi_{k_0}\left(\frac{u+v}{2}\right)\phi_{k_0}\left(\frac{u-v}{2}\right)
+\braket{a_{(u+v)/2}^\dagger a_{(u-v)/2}}\mathrm{d}v.
+\end{equation}
+We are now going to assume that $\phi_{k_0}(k)$ is a test function with compact support $K$ of size $|K|$ centered around $k_0$, and infinitely differentiable. We will also assume that within its support $|g_k/\omega_k|\leq C_\phi$ for some constant $C_\phi$. Then we can bound
+\begin{equation}
+\int |F(u)|\mathrm{d}u \leq |K|^2 C_\phi.
+\end{equation}
+Using the Riemann-Lebesgue theorem, we have then that
+\begin{equation}
+\left|\int e^{i u p} F(u)\mathrm{d}u\right| \leq \mathcal{O}\left(|x|^{-1}\right)
+\end{equation}
+at long distances. 
+{\color{red} If we can ensure that the expectation values of the $\braket{a^\dagger_k a_p}$ operators is $n$-times differentiable, then we have that $F(u)$ is also $n$-times differentiable and we can reuse the ideas from Lemma\ \ref{lemma:bounds} to achieve a better decay.}
+\end{proof}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Free-field causality}
 
-{\color{blue}Bounds for the commutators of the free theory.}
+Let us move to dynamics and discuss what causal relations mean in a dispersive media.  For that, we will work with localized wavepackets $\psi_{k_0}(x,t)$ as defined in \eqref{wp}.  Actual calculations are done with gaussian wavepackets:
+\begin{equation}
+\phi_{k_0}(k) = \frac{1}{\sqrt[4]{\pi}\sqrt{\sigma}}
+\exp\left[-(k-k_0)^2/2\sigma^2\right].
+\label{eq:gaussian}
+\end{equation}
+wich means that \eqref{wp} can explicitely written in real space as,
+\begin{equation}
+---
+\end{equation}
+\emph{i.e.} a state localised arround ...
+
+
+\begin{lemma}
+\label{lemma:cones}
+Let the dispersion relation $\omega_k$ have a non-negative, but upper bounded group velocity
+\begin{equation}
+0 \leq v_k = \partial_k \omega_k \leq c.
+\end{equation}
+Then, the function $f(k) = k x - \omega_k t$ only has a stationary points if the distance to the light-cone is non-negative. In other words
+\begin{equation}
+d_c(x,t) = \sgn(x)(x - c t) > 0 \Rightarrow \vert f'(k) \vert > 0,\: \forall k.\label{eq:distance}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Solving the equation $f'(k)=x - \partial_k \omega_k t = 0$ leads to the condition $\frac{x}{t} = \partial_k \omega_k$. Since we are assuming that $\partial_k \omega_k \geq 0$ it follows that $0 \leq \frac{x}{t} \leq c,$ which implies that $x$ and $t$ must have the same sign. If $x > 0$, it immediately follows that $x \leq c t$ and $d \leq 0$. If $x < 0$, the sign of the inequality is inverted, $x \geq c t$, or $x - ct \geq 0$ implying once more $d \leq 0$.
+\end{proof}
+
+\begin{lemma}
+\label{lemma:bounds}
+Assume that $\omega_k$ is $n$-times differentiable and  that every derivative $|\omega_k^{(r\leq n)}|$ is upper bounded by an $m$-th order polynomial in $|k|$. Then the following integral bound applies
+\begin{equation}
+\left|\int e^{i k x - \frac{1}{\sigma^2}{(k-k_0)^2} - i \omega_k t} p(k)\mathrm{d}k\right|
+=\max(\sigma^{m+n + r},1) \max(t^n,1) \mathcal{O}\left(\frac{1}{|x|^n}\right).
+\end{equation} where $p(k)$ is a polynomial of degree $r.$
+\end{lemma}
+
+\begin{proof}
+Result 5.1 from\ \cite{Olver} states that the integral $I(x) = \int e^{i k x} q(k) \mathrm{d}k$ may be integrated by parts $n$ times, obtaining
+\begin{eqnarray*}
+I(x) &=& \int_a^b e^{i k x} q(k) \mathrm{d}k \\
+&=&\sum_{s=0}^{n-1} \left(\frac{i}{x}\right)^{s+1} \left[e^{iax} q^{(s)}(a) - e^{ibx} q^{(s)}(b) \right] + \left(\frac{i}{x}\right)^n \int_a^b  e^{ikx} q^{(n)}(k)\mathrm{d}k,
+\end{eqnarray*} Here, the error term satisfies that
+$$ \epsilon_n(x) =  \left(\frac{i}{x}\right)^n\int e^{ikx} q^{(n)}(k)\mathrm{d}k = o(x^{-n})$$
+provided that $q(k)$ is $n$-times differentiable and that $q^{(n)} \in L^1$. Based on the conditions of the lemma, this is satisfied since $q(k)=e^{- \frac{1}{\sigma^2}{(k-k_0)^2} - i \omega_k t} p(k)$. The limits of the integral may be easily extended to $\infty,$ as explained in Result 5.2 from \cite{Olver}. Since $\frac{q^{(s)}(a)}{x^s} \to 0,  \frac{q^{(s)}(b)}{x^s} \to 0$ when $a\to -\infty, b\to \infty, \, \forall x, $ we obtain
+
+\begin{eqnarray*}
+I(x) &=& \int e^{i k x} q(k) \mathrm{d}k = \left(\frac{i}{x}\right)^n \int e^{ikx} q^{(n)}(k)\mathrm{d}k,
+\end{eqnarray*}
+Moreover, $q^{(n)}$, resulting from a product of derivatives of $\omega_k t, -k^2/\sigma^2$ and the polynomial $p(k)$ of degree $r$, then it is bounded by a polynomial of at mosth $m+n + r$-th order in $|k|.$ Such a polynomial is integrable together with the Gaussian wavepacket giving a constant prefactor. In estimating this factor, we can take the worst-case scenario for the terms in $t$, wich appears at most $n$ times together with $(\omega_k')^n$. Regarding the monomials in $|k|$, they appear at most in $m+n + r$-th order, producing another prefactor $\sigma^{m+n+ r}$.
+
+Note that it would suffice to consider $q(k)$ as a test function or even a Schwartz function since in this case all the differentiability requisities are fullfilled and  $\frac{q^{(s)}(a)}{x^s} \to 0,  \frac{q^{(s)}(b)}{x^s} \to 0$ when $a\to -\infty, b\to \infty, \, \forall x $ still holds, because these functions and their derivatives are rapidly decreasing.
+
+\end{proof}
+
+\begin{theorem}
+\label{th:free-causality}
+Let $\psi_{k_0}(x,t)$ and $\psi_{p_0}(y,t')$ denote two localized wavepackets of the form\ \eqref{eq:gaussian}. We will assume (i) that the group velocity of these wavepackets is non-negative and upper-bounded by a constant $c$ within the domain of the wavepackets ($0 \leq v_k = \partial_k \omega_k \leq c$), and (ii) that the dispersion relation is $n$-times differentiable and that each derivative is upper-bounded by a polynomial of at most order $m$:
+\begin{equation}
+c \geq \partial_k\omega_k \geq 0, \mbox{ and } |\partial^{(r\leq n)}_k\omega_k|\leq a_r + (|k|/b_r)^m,~0< a_r,b_r<+\infty.
+\end{equation}
+The commutator between these wavepackets is small whenever these wavepackets are outside of their respective light-cones, that is, whenever $d=d_c(y-x,t'-t)\gg 0$, 
+\begin{equation}
+|\mathcal{I}|=\Vert[\psi_{k_0}(x,t),\psi_{p_0}(y,t')^\dagger]\Vert =
+\mathcal{O}\left(\frac{1}{|d|^n}\right),~d_c\to\infty.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Let us assume that the model evolves freely according to the Hamiltonian\ \eqref{eq:H-free}. In this case, our wavepacket operators have the simple form
+\begin{equation}
+\psi_{k_0}(x,t) = \int  e^{ikx-i\omega_kt} \phi_{k_0}(k) a_k(0) \mathrm{d}k,
+\end{equation}
+and analogously for $\psi_{p_0}(y,t')$. The commutator between operators reads
+\begin{align}
+I:=[\psi_{k_0}(x,t),\psi_{p_0}(y,t')^\dagger] =
+\int e^{ik(x-y)-i\omega_k(t-t')} \phi_{k_0}(k)\phi_{p_0}(k)^*\mathrm{d}k.
+\label{eq:free-com}
+\end{align}
+If $d_c= d_c(x-y,t-t')  = d_c(y-x,t'-t) = \sgn(x-y)(x-y -c(t-t')) > 0$, using Lemma\ \ref{lemma:cones} we know that the exponent has no stationary point. We use this fact and the notation  $\tilde\omega_k = \omega_k -c k,$ and we rewrite
+\begin{eqnarray*}
+I&=& \int  e^{ik(x-y)-i\omega_k(t-t')}  \phi_{k_0}(k)\phi_{p_0}(k)^*\mathrm{d}k\\
+&=& \int  e^{ik(x-y)-i\tilde\omega_k(t-t') - ick(t-t')}  \phi_{k_0}(k)\phi_{p_0}(k)^*\mathrm{d}k\\
+&=& \int  e^{ik(x-y-c(t-t'))-i\tilde\omega_k(t-t')}  \phi_{k_0}(k)\phi_{p_0}(k)^*\mathrm{d}k\\
+&=& \int  e^{ik(x-y-c(t-t'))-i\tilde\omega_k(t-t')}  \phi_{k_0}(k)\phi_{p_0}(k)^*\mathrm{d}k\\
+&=&\int e^{ik\, \sgn(x-y) d_c(x-y, t-t')-i\tilde\omega_k(t-t')} \phi_{k_0}(k)\phi_{p_0}(k)^*\mathrm{d}k
+\end{eqnarray*}
+The exponent $\tilde\omega_k = \omega_k -c k$ is $n$-times differentiable and is upper-bounded in modulus by a polynomial of degree $m\geq 1$. Lemma\ \ref{lemma:bounds} therefore allows us to bound the commutator by a term $\mathcal{O}(d^{-n})$.
+\end{proof}
+
+Note that for a linear dispersion, $\omega_k=c k$, we can rewrite this integral as a function of the distance between world lines from Eq.\ \eqref{eq:distance}, $d=(x-y)-c(t-t')$.
+Introducing $k_{\pm}=(k_0 \pm p_0)/2$ and using our Gaussian wavepackets\ \eqref{eq:gaussian}, we obtain
+\begin{equation}
+|I| = \exp\left[-\frac{k_-^2}{\sigma^2}-\frac{d^2\sigma^2}{4}\right].
+\label{eq:free-commutator}
+\end{equation}
+This bound is better than the one we have found but it is compatible with the Lemma.
+
+\subsection{Free dynamics of asymptotic wavepackets}
+
+We are now going to study a full Hamiltonian that includes freely propagating photons together with the interaction with a small, few-level system:
+\begin{equation}
+H = H_0 + H_{sys} + \sum_k g_k (S^\dagger a_k + S a_k^\dagger).
+\label{eq:H-full}
+\end{equation}
+The evolution with $H$ and $H_0$ will be given by the unitary operators
+\begin{align}
+U(t_1,t_0) = e^{-iH(t_1-t_0)},~\mbox{and}~ U_0(t_1,t_0)= e^{-iH_0(t_1-t_0)}.
+\end{align}
+Our goal is to show that wavepackets that are far from the scatterer evolve approximately as if they were free particles.
+
+\begin{theorem}
+Let $H$ denote the Hamiltonian describing the interaction between a propagating wavepacket and a localized few-level system. This Hamiltonian will be given by Eq.\ \ref{eq:H-full}, where the bounded operators $H_{sys},c\in \mathbb{R}^{d\times d}$ describe a few-level scatterer sitting at $x_{sys}=0$. We will assume the conditions of Theorem\ \ref{th:free-causality}: (i) non-negative, finite group velocity, and (ii) differentiable, polynomially bound functions $\omega_k$ and $g_k$, with degrees $n\geq 2$. Then all wavepackets outside the light-cone of the scatterer $c$ evolve approximately with the free Hamiltonian, $H_0$. More precisely, if $(x,t_1)$ and $(x,t_0)$ are two points outside the light cone
+\begin{equation}
+\psi(x,t_1) \simeq U_0(t_1,t_0)^\dagger\psi_{k_0}(x,t_0)U(t_1,t_0)
++\mathcal{O}\left(\frac{1}{|d_{min}|^{n-1}}\right),
+\end{equation}
+where $d_{min} = \min \{d_{min}(x,t_1),d_{min}(x,t_0)\}\gg 0$ and
+\begin{equation}
+U_0(t,t_0) = \exp\left[-i(t-t_0)\sum_k\omega_k a_k(t_0)^\dagger a_k(t_0)\right]
+\end{equation}
+is the free evolution operator for the photons as defined at time $t_0$.
+\end{theorem}
+
+\begin{proof}
+We start by building the Heisenberg equations for the operators
+\begin{equation}
+\partial_t a_k(t) = -i\omega_k a_k - i g_k S.
+\end{equation}
+Making the change of variables $a_k(t) = \exp(-i\omega_k t)b_k(t)$, we have
+\begin{equation}
+\partial_t b_k(t) = -ig_k S(t) e^{+i\omega_k t},
+\end{equation}
+so that the wavepacket operators evolved from some initial time $t_{s}$ are
+\begin{align}
+\psi_{k_0}(x,t) &= \int e^{ik x - i \omega_k t} \left[b_k(t_s)
+-i\int_{t_{s}}^t g_k S(\tau)e^{+i\omega_k \tau}\mathrm{d}\tau\right]\phi_{k_0}(k)\mathrm{d}k\\
+&=U_0(t,t_s)\psi^{\dagger}_{k_0}(x,t_s)U_0(t,t_s)^\dagger - 
+i\int_{t_{s}}^t \left[\int e^{ikx-ic(t-\tau)}g_k\phi_{k_0}(k)\mathrm{d}k
+\right]\,S(\tau)\mathrm{d}\tau\\
+&=U_0(t,t_s)\psi^{\dagger}_{k_0}(x,t_s)U_0(t,t_s)^\dagger- 
+i\int_{0}^{t-t_s} \left[\int e^{ikx-ic\tau'}g_k\phi_{k_0}(k)\mathrm{d}k
+\right]\,S(\tau)\mathrm{d}\tau'.
+\end{align}
+The first part corresponds to free evolution, while the second part is an error term $\varepsilon(t)$ which can be bounded. We will assume without loss of generality $\Vert{S}\Vert=1$ and $|t_1|>|t_0|$. We have to choose the integration limits $t$ and $t_s$ so that $\sgn(\tau')=\sgn(x)$. If $x>0$ then $t_1>t_0>0$ and $(t,t_s)=(t_1,t_0)$ is a good choice. If $x<0$ then $0>t_0>t_1$ and again $(t,t_s)=(t_1,t_0)$ is also a valid choice ($\tau'<0$). This means we can introduce $\tau''=\sgn(x)\tau'\geq 0$ and bound
+\begin{align}
+|\varepsilon(t_1)|
+&\leq \int_{0}^{|t_1-t_0|} \left|\int e^{i\sgn(x)kd_c(|x|,\tau'')}q(k)\mathrm{d}k\right|\mathrm{d}\tau''
+\leq \int_{0}^{|t_1-t_0|} \mathcal{O}\left(\frac{1}{d_c(|x|,\tau'')^{n}}\right)\mathrm{d}\tau''\\
+&\leq \mathcal{O}\left(
+\left. \frac{1}{c(n-1)} \frac{1}{(|x|-c\tau)^{n-1}}\right|_{\tau=0}^{\tau=|t_1-t_0|}\right)\
+\leq \mathcal{O}\left(\frac{1}{d_c(|x|,|t_1-t_0|)^{n-1}}\right).
+\end{align}
+Here we have used the fact that $d_c(|x|,\tau'')\geq d_c(|x|,|t_1-t_0|)> 0$ in the domain of integration. We can now use the fact that $d_c(|x|,|t_1-t_0|)\geq d_c(|x|,|t_1|)\geq \min\{d_c(x,t_1),d_c(x,t_0)\}$, obtaining the expression in the theorem.
+\end{proof}
+
+\section{Asymptotic states}
+
+One important limitation of the previous discussion is that it is centered on the operators, not on the states themselves. We intuitively expect to be able to create single-photon wavepackets by acting with the previous operators on top of the ground state, $\psi_{k_0}(x,t)^\dagger\ket{\Omega}$, where $\ket{\Omega}$ is the lowest energy state of the interacting Hamiltonian. Our physical intuition is such that we expect to recover the notion of single-photon wavepackets provided that $(x,t)$ are far enough from the light-cone of the scatterer, but the problem is to understand how to formalize this notion and use them in practical situations. The following discussion tries to address this issue.
+
 
 \section{Well-defined scattering}
 
