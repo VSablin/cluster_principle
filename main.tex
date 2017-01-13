@@ -325,7 +325,7 @@ Let the dispersion relation $\omega_k$ have a non-negative, but upper bounded gr
 \end{equation}
 Then, the function $f(k) = k x - \omega_k t$ only has a stationary points if the distance to the light-cone is non-negative. In other words
 \begin{equation}
-d_c(x,t) = \sgn(x)(x - c t) > 0 \Rightarrow \vert f'(k) \vert > 0,\: \forall k.\label{eq:distance}
+d_c(x,t) = \rm{sign}(x)(x - c t) > 0 \Rightarrow \vert f'(k) \vert > 0,\: \forall k.\label{eq:distance}
 \end{equation}
 \end{lemma}
 
@@ -384,13 +384,13 @@ I:=[\psi_{k_0}(x,t),\psi_{p_0}(y,t')^\dagger] =
 \int e^{ik(x-y)-i\omega_k(t-t')} \phi_{k_0}(k)\phi_{p_0}(k)^*\mathrm{d}k.
 \label{eq:free-com}
 \end{align}
-If $d_c= d_c(x-y,t-t')  = d_c(y-x,t'-t) = \sgn(x-y)(x-y -c(t-t')) > 0$, using Lemma\ \ref{lemma:cones} we know that the exponent has no stationary point. We use this fact and the notation  $\tilde\omega_k = \omega_k -c k,$ and we rewrite
+If $d_c= d_c(x-y,t-t')  = d_c(y-x,t'-t) = \rm{sign}(x-y)(x-y -c(t-t')) > 0$, using Lemma\ \ref{lemma:cones} we know that the exponent has no stationary point. We use this fact and the notation  $\tilde\omega_k = \omega_k -c k,$ and we rewrite
 \begin{eqnarray*}
 I&=& \int  e^{ik(x-y)-i\omega_k(t-t')}  \phi_{k_0}(k)\phi_{p_0}(k)^*\mathrm{d}k\\
 &=& \int  e^{ik(x-y)-i\tilde\omega_k(t-t') - ick(t-t')}  \phi_{k_0}(k)\phi_{p_0}(k)^*\mathrm{d}k\\
 &=& \int  e^{ik(x-y-c(t-t'))-i\tilde\omega_k(t-t')}  \phi_{k_0}(k)\phi_{p_0}(k)^*\mathrm{d}k\\
 &=& \int  e^{ik(x-y-c(t-t'))-i\tilde\omega_k(t-t')}  \phi_{k_0}(k)\phi_{p_0}(k)^*\mathrm{d}k\\
-&=&\int e^{ik\, \sgn(x-y) d_c(x-y, t-t')-i\tilde\omega_k(t-t')} \phi_{k_0}(k)\phi_{p_0}(k)^*\mathrm{d}k
+&=&\int e^{ik\, \rm{sign}(x-y) d_c(x-y, t-t')-i\tilde\omega_k(t-t')} \phi_{k_0}(k)\phi_{p_0}(k)^*\mathrm{d}k
 \end{eqnarray*}
 The exponent $\tilde\omega_k = \omega_k -c k$ is $n$-times differentiable and is upper-bounded in modulus by a polynomial of degree $m\geq 1$. Lemma\ \ref{lemma:bounds} therefore allows us to bound the commutator by a term $\mathcal{O}(d^{-n})$.
 \end{proof}
@@ -449,10 +449,10 @@ i\int_{t_{s}}^t \left[\int e^{ikx-ic(t-\tau)}g_k\phi_{k_0}(k)\mathrm{d}k
 i\int_{0}^{t-t_s} \left[\int e^{ikx-ic\tau'}g_k\phi_{k_0}(k)\mathrm{d}k
 \right]\,S(\tau)\mathrm{d}\tau'.
 \end{align}
-The first part corresponds to free evolution, while the second part is an error term $\varepsilon(t)$ which can be bounded. We will assume without loss of generality $\Vert{S}\Vert=1$ and $|t_1|>|t_0|$. We have to choose the integration limits $t$ and $t_s$ so that $\sgn(\tau')=\sgn(x)$. If $x>0$ then $t_1>t_0>0$ and $(t,t_s)=(t_1,t_0)$ is a good choice. If $x<0$ then $0>t_0>t_1$ and again $(t,t_s)=(t_1,t_0)$ is also a valid choice ($\tau'<0$). This means we can introduce $\tau''=\sgn(x)\tau'\geq 0$ and bound
+The first part corresponds to free evolution, while the second part is an error term $\varepsilon(t)$ which can be bounded. We will assume without loss of generality $\Vert{S}\Vert=1$ and $|t_1|>|t_0|$. We have to choose the integration limits $t$ and $t_s$ so that $\rm{sign}(\tau')=\rm{sign}(x)$. If $x>0$ then $t_1>t_0>0$ and $(t,t_s)=(t_1,t_0)$ is a good choice. If $x<0$ then $0>t_0>t_1$ and again $(t,t_s)=(t_1,t_0)$ is also a valid choice ($\tau'<0$). This means we can introduce $\tau''=\rm{sign}(x)\tau'\geq 0$ and bound
 \begin{align}
 |\varepsilon(t_1)|
-&\leq \int_{0}^{|t_1-t_0|} \left|\int e^{i\sgn(x)kd_c(|x|,\tau'')}q(k)\mathrm{d}k\right|\mathrm{d}\tau''
+&\leq \int_{0}^{|t_1-t_0|} \left|\int e^{i\rm{sign}(x)kd_c(|x|,\tau'')}q(k)\mathrm{d}k\right|\mathrm{d}\tau''
 \leq \int_{0}^{|t_1-t_0|} \mathcal{O}\left(\frac{1}{d_c(|x|,\tau'')^{n}}\right)\mathrm{d}\tau''\\
 &\leq \mathcal{O}\left(
 \left. \frac{1}{c(n-1)} \frac{1}{(|x|-c\tau)^{n-1}}\right|_{\tau=0}^{\tau=|t_1-t_0|}\right)\
@@ -478,6 +478,13 @@ One important limitation of the previous discussion is that it is centered on th
 }
 
 \section{Cluster revisited}
+
+{\color{red}
+i) Utilizando las cotas para los conmutadores, demostrar que $A_{ab\to a'b'}^{\nu\to\mu} =  \sum_{\lambda=1}^M A_{a\to a'}^{\nu\to\lambda} A_{b\to b'}^{\lambda\to\mu}$.
+
+ii) Demostrar que nuestra propuesta para $S^0$ implica que la anterior expresión se cumple.
+
+}
 
 In this section, we build the ansatz for $S^0$ {\color{blue}(I'm assuming we have already defined $S^0$ and $T$)} in position space. For the sake of simplicity, we first assume we have two photons. The ansatz is
 \begin{align}\label{eq:S0_2}
