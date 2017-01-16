@@ -65,7 +65,7 @@ Causality is  expected to hold in every circumstance.    In words of Weinberg, t
 
 Lieb-Robinson bounds  brought about that several rigorous results in QFT  were verified in many body quantum mechanics such as the exponential decay of correlations (at equilibrium)  in gapped models or  the area law \cite{Nachtergaele2006, Hastings2007}.   Another key object  to look at is the scattering matrix.  Scattering experiments  are the way we probe systems.  Experiments dictate the acceptable form for the $S$-matrix.  At the most fundamental level, causality imposes that the output for  uncorrelated inputs must be the sum of each of them in a convenient way.   Under some conditions (discussed below) the sum it is reduced to a  cluster decomposition \cite{Wichmann1963}.   
 In fact,  acceptable QFT interactions  can be argued by imposing such a decomposition   \cite[Chap. 4]{weinberg1995}.   
-It would be desirable to proof such a decomposition in non-relativistic many body systems.  It should not be  surprising that such a thing occurs, as we have just reviewed, a maximuum velocity for transfer quantum information guarantees causality.  Checking this expected result is the purpose of this paper.
+It may be desirable to proof such a decomposition in non-relativistic many body systems.  On the other hand, it should not be  surprising that such a thing occurs, as we have just reviewed, a maximum velocity for transfer quantum information guarantees causality.  Checking this expected result is the purpose of this paper.
 
 In particular, we consider the situation  occurring in  waveguide QED,  where travelling photons interact with local quantum systems.   In general, the photonic medium will be dispersive
 {\color{red} dispersive = absorving?} and the coupling with the quantum systems may be non-perturbative.  In this sense, the problem we tackle is a many body one.  Besides,  typical (QFT) assumptions as Lorentz or translational invariance cannot be done here.  Although  motivated from a fundamental perspective, it is worth recallying that our work is experimentally  and technologically relevant nowadays \cite{lodahl15review}.
@@ -94,8 +94,8 @@ Even it those cases where analytical tools are available the actual computation 
 
 \section{Model, $S$-matrix and main results} 
 
-{\color{blue} frase mal?}
-In waveguide QED the relevant model is the  quantised light-matter interaction $(\hbar=1)$, 
+
+In waveguide QED the relevant model is  $(\hbar=1)$, 
 \begin{equation}
 H = \int \; d k  \, \omega_k \, a_k^\dagger a_k + H_{sys} + \int \; dk  \,  g_k  \, (S^\dagger a_k + S a_k^\dagger).
 %H = \sum_k \omega_k a_k^\dagger a_k + H_{sys} + \sum_k g_k (S^\dagger a_k + %S a_k^\dagger).
@@ -175,7 +175,7 @@ with $c= {\text max} ( \partial_k \omega_k )$, \emph{i.e} the maximuum group vel
 \psi_{k_0}(x,t) = \int  e^{ikx-i\omega_kt} \phi_{k_0}(k) a_k\mathrm{d}k,
 \end{equation}
 where $\phi_{k_0} (k)$ is some smooth function with compact support and it is understand localized in space (see Fig. \ref{fig:input} ).   
-Eq. \eqref{cas-main} is crucial to show \eqref{S0-main} and it is the relation of what causality means in non relativistic quantum mechanics.  Notice that it is a weaker condition than LR bounds because we do not impose any exponential decay.  However is sufficient to show the limit for the $S$-matrix.  As with the ground state property discussed above,  the scope of  Eq. \ref{cas-main} goes beyond  our particular interest because establishes that correlations in free bosonic models decay with finite group velocity.
+Eq. \eqref{cas-main} is crucial to show \eqref{S0-main} and it is the relation of what causality means in non relativistic quantum mechanics.  Notice that it is a weaker condition than LR bounds because we do not impose any exponential decay.  However is sufficient to show the limit for the $S$-matrix.  As with the ground state property discussed above,  the scope of  Eq. \eqref{cas-main} goes beyond  our particular interest.
 
 
 
@@ -212,7 +212,8 @@ Once the basic elements are introduced, we can introduce the main results of thi
 \section{The ground state of the light-matter interaction}
 
 
-In this section, we establish an important property of the ground state, $|\Omega\rangle$,  of \eqref{H-full}.  We show that  the expected values for local observables acting over a   region  away from the scatterer are arbitrarily well approximated by averages done within the free field vacuum (the ground state for $H= \int \; dk \, \omega_k \, a_k^\dagger a_k$).  This statement needs of two theorems that we enunciate and demonstrate here.
+In this section we establish an important property for the ground state ($|\Omega\rangle$)   of \eqref{H-full}.  We show that  away from the scatterer,  $|\Omega\rangle$ is well approximated by the trivial vacuum  (the ground state for $H= \int \; dk \, \omega_k \, a_k^\dagger a_k$).  This statement needs of two theorems that we enunciate and demonstrate.
+
 
 \begin{theorem}
 \label{th:bound-a}
@@ -267,15 +268,16 @@ In other words, $C_n \leq C_{n-1}|g_k/\omega_k|^2\langle S^\dagger S \rangle $.
 \end{proof}
 
 
-This result allows to show what we announced at the beginning of the section.
+
+This theorem allows to show what we announced at the beginning of the section, wich is encapsulated in our second theorem.
 
 \begin{theorem}
 \label{eq:bound-x}
-Let us define $\psi_{k_0}(x)$ as the wavepacket\ \eqref{eq:wavepacket} where $\phi_{k_0}(k)=\xi(k-k_0)$ is a test function, infinitely differentiable with a finite support $K$ centered around $k_0$. Let us assume that $|g_k/\omega_k|$ remains finite within that support. Then
+Let us define $\psi_{k_0}(x)$ as the wavepacket\ \eqref{wp} where $\phi_{k_0}(k)=\xi(k-k_0)$ is a test function, infinitely differentiable with a finite support $K$ centered around $k_0$. Let us assume that $|g_k/\omega_k|^2\langle S^\dagger S \rangle$ remains finite within that support. Then
 \begin{equation}
 \braket{\psi_{k_0}(x)^\dagger \psi_{k_0}(x)} \to 0,~|x|\to\infty.
 \end{equation}
-Once more this testifies that $\ket{\Omega}$ is a good vacuum, now far from the interaction region, because $\Vert{\psi_{k_0}(x)\ket{\Omega}}\Vert \to0$ as $x\to\pm\infty$. Moreover, if we can assume that $\braket{a_k^\dagger a_p}$ is an $n$-times differentiable function of $k$ and $p$, the bound will be improved
+Moreover, if we can assume that $\braket{a_k^\dagger a_p}$ is an $n$-times differentiable function of $k$ and $p$, the bound will be improved
 \begin{equation}
 \braket{\psi_{k_0}(x)^\dagger \psi_{k_0}(x)} \leq  \mathcal{O}(|x|^{-n}), ~|x|\to\infty.
 \end{equation}
@@ -296,17 +298,21 @@ where
 F(u) := \frac{1}{2} \int \phi_{k_0}\left(\frac{u+v}{2}\right)\phi_{k_0}\left(\frac{u-v}{2}\right)
 \braket{a_{(u+v)/2}^\dagger a_{(u-v)/2}}\mathrm{d}v.
 \end{equation}
-We are now going to assume that $\phi_{k_0}(k)$ is a test function with compact support $K$ of size $|K|$ centered around $k_0$, and infinitely differentiable. We will also assume that within its support $|g_k/\omega_k|\leq C_\phi$ for some constant $C_\phi$. Then we can bound
+We are now going to assume that $\phi_{k_0}(k)$ is a test function with compact support $K$ of size $|K|$ centered around $k_0$, and infinitely differentiable. We will also assume that within its support $|g_k/\omega_k|^2 \langle S^\dagger S \rangle \leq C_\phi$ for some constant $C_\phi$. Then we can bound
 \begin{equation}
 \int |F(u)|\mathrm{d}u \leq |K|^2 C_\phi.
 \end{equation}
-Using the Riemann-Lebesgue theorem, we have then that
+Assuming that $\langle a_k^\rangle a_p$ is $n$-times differentiable and 
+using the Riemann-Lebesgue theorem, we have then that
 \begin{equation}
-\left|\int e^{i u p} F(u)\mathrm{d}u\right| \leq \mathcal{O}\left(|x|^{-1}\right)
+\left|\int e^{i u p} F(u)\mathrm{d}u\right| \leq \mathcal{O}\left(|x|^{-n}\right)
 \end{equation}
 at long distances. 
-{\color{red} If we can ensure that the expectation values of the $\braket{a^\dagger_k a_p}$ operators is $n$-times differentiable, then we have that $F(u)$ is also $n$-times differentiable and we can reuse the ideas from Lemma\ \ref{lemma:bounds} to achieve a better decay.}
 \end{proof}
+
+Summarising this section, we highlight that we have shown that far from the interaction region $\Vert{\psi_{k_0}(x)\ket{\Omega}}\Vert \to0$ as $x\to\pm\infty$.  This will be important soon.
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
