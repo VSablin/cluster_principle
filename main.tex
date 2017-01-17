@@ -219,8 +219,9 @@ In this section we establish an important property for the ground state ($|\Omeg
 \label{th:bound-a}
 Given the spin-boson model\ \eqref{H-full}, we have the following bounds for the expectation values on its ground state $\ket{\Omega}$,
 \begin{equation}
-\braket{\Omega|a_k^{\dagger\,n}a_k^n|\Omega} \leq \left|\frac{g_k}{\omega_k}\right|^{2n}
-\braket{\Omega|S^\dagger S|\Omega} .
+\label{bound-nk}
+\braket{\Omega|a_k^{\dagger}a_k|\Omega} \leq \left|\frac{g_k}{\omega_k}\right|^{2}
+\braket{\Omega|S S^\dagger |\Omega} .
 \end{equation}
 %These bounds, which are saturated for $\Delta=0$, can be interpreted in terms of establishing that $\ket{\Omega}$ is a very good vacuum at high energies, because $\Vert{a_k\ket{\Omega}}\Vert \leq |g_k/\omega_k|\to 0$ as $\omega_k\to\infty$.
 \end{theorem}
@@ -240,7 +241,7 @@ with $O$ an operator.  Therefore, $\langle \chi | H - E_0 | \chi \rangle \geq 0$
 %&= (\braket{O^\dagger [H,O]+O^\dagger O H}-E_0\braket{O^\dagger O}) \nonumber\\
 %&= \braket{O^\dagger [H,O]}\geq 0.\nonumber
 \end{align}
-(in the proof we are using $\langle \; ... \; \rangle \equiv \langle \omega | \, ... \, | \Omega \rangle$)
+(in the proof we are using $\langle \; ... \; \rangle \equiv \langle \Omega | \, ... \, | \Omega \rangle$)
 and 
 \begin{equation}
 O^\dagger [H, O] = O^\dagger H O - O^\dagger O H \; ,
@@ -252,19 +253,19 @@ we conclude the useful relation:
 \end{equation}
 
 
-Let us now take for instance $O=a_k^n$. The previous statement leads to
+Let us now take for instance $O=a_k$. The previous statement leads to
 \begin{align}
-\braket{a_k^{\dagger\,n} (-n\omega_n a_k^{n} -n g_k S a_k^{n-1}}\geq 0,
+\braket{a_k^{\dagger} (-\omega_k a_k - g_k S }\geq 0,
 \end{align}
 or equivalently
 \begin{equation}
-0 \leq \braket{a_k^{\dagger\,n}a_k^n} \leq -\frac{g_k}{\omega_k}\braket{ S a_k^{\dagger\,n}  a^{n-1}}.
+0 \leq \braket{a_k^{\dagger}a_k} \leq -\frac{g_k}{\omega_k}\braket{ S a_k^{\dagger} }.
 \end{equation}
-If we introduce $C_n := |\braket{a_k^{\dagger\,n}a_k^n}|$, with $C_0=1$, Cauchy-Schwatz translates this into the upper bound
+Using Cauchy-Schwatz translates this into the upper bound
 \begin{equation}
-0\leq C_n \leq \frac{|g_k|}{\omega_k} \sqrt{ \langle S^\dagger S \rangle C_n C_{n-1}}.
+\langle a_k^\dagger a_k \rangle \leq \frac{|g_k|}{\omega_k} \sqrt{ \langle S S^\dagger \rangle}.
 \end{equation}
-In other words, $C_n \leq C_{n-1}|g_k/\omega_k|^2\langle S^\dagger S \rangle $.
+which demonstrates \eqref{bound-nk}.
 \end{proof}
 
 
@@ -321,17 +322,31 @@ Summarising this section, we highlight that we have shown that far from the inte
 
 \section{Free-field causality}
 
-Let us move to dynamics and discuss what causal relations mean in a dispersive media.  For that, we will work with localized wavepackets $\psi_{k_0}(x,t)$ as defined in \eqref{wp}.  Actual calculations are done with gaussian wavepackets:
+Let us move to dynamics and discuss what causal relations mean in a dispersive media.   In the next lines we will show the announced result, Eq. \eqref{cas-main}, \emph{i.e.} that  the commutator   for sufficiently separated wavepackets can be approximated by zero.    
+In order to do so, we  work with localized wavepackets $\psi_{k_0}(x,t)$ as defined in \eqref{wp}.  Actual calculations are done with gaussian wavepackets:
 \begin{equation}
 \phi_{k_0}(k) = \frac{1}{\sqrt[4]{\pi}\sqrt{\sigma}}
 \exp\left[-(k-k_0)^2/2\sigma^2\right].
 \label{eq:gaussian}
 \end{equation}
-wich means that \eqref{wp} can explicitely written in real space as,
+where the pre-factors are written because of normalisation.   The gaussian envelope ensures that, initially ($t=0$), the wavepacket is localised in space with variance $\sigma$.   
+In addition to this, the following lemma is used afterwards.
+
+\begin{lemma}
+\label{lemma:cones}
+Let the dispersion relation $\omega_k$ (its absolute value) have an  upper bounded group velocity
 \begin{equation}
----
+\vert  v_k = \partial_k \omega_k  \vert \leq c.
 \end{equation}
-\emph{i.e.} a state localised arround ...
+Then, the function $f(k) = k x - \omega_k t$ only has a stationary points if the distance to the light-cone is non-negative. In other words
+\begin{equation}
+d_c(x,t) = ( | x | - c | t | ) > 0 \Rightarrow | f^\prime (k) | > 0,\: \forall k.\label{eq:distance}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Solving the equation $f'(k)=x - \partial_k \omega_k t = 0$ leads to the condition $\frac{x}{t} = \partial_k \omega_k$.  To fullfil this, If $\partial_k \omega_k \geq 0$:  $x/t >0$ and  $|x|/|t|=\partial_k \omega_k$.  It follows that $0 \leq |x|/|t| \leq c$ wich implies \eqref{eq:distance}.  On the other hand,  If $\partial_k \omega_k \leq 0$:  $x/t <0$ and  $|x|/|t|=-\partial_k \omega_k$.  Again, the same inequality follows $0 \leq |x|/|t| \leq c$,  showing   \eqref{eq:distance} in all cases.
+\end{proof}
 
 
 \begin{lemma}
@@ -342,13 +357,16 @@ Let the dispersion relation $\omega_k$ have a non-negative, but upper bounded gr
 \end{equation}
 Then, the function $f(k) = k x - \omega_k t$ only has a stationary points if the distance to the light-cone is non-negative. In other words
 \begin{equation}
-d_c(x,t) = \rm{sign}(x)(x - c t) > 0 \Rightarrow \vert f'(k) \vert > 0,\: \forall k.\label{eq:distance}
+d_c(x,t) = {\rm sign}(x)(x - c t) > 0 \Rightarrow | f^\prime (k) | > 0,\: \forall k.\label{eq:distance}
 \end{equation}
 \end{lemma}
 
 \begin{proof}
 Solving the equation $f'(k)=x - \partial_k \omega_k t = 0$ leads to the condition $\frac{x}{t} = \partial_k \omega_k$. Since we are assuming that $\partial_k \omega_k \geq 0$ it follows that $0 \leq \frac{x}{t} \leq c,$ which implies that $x$ and $t$ must have the same sign. If $x > 0$, it immediately follows that $x \leq c t$ and $d \leq 0$. If $x < 0$, the sign of the inequality is inverted, $x \geq c t$, or $x - ct \geq 0$ implying once more $d \leq 0$.
 \end{proof}
+
+
+With the lemma at hand, the following results ensures the bound for integrals that will be used in the main theorem.
 
 \begin{lemma}
 \label{lemma:bounds}
