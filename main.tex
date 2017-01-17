@@ -263,7 +263,7 @@ or equivalently
 \end{equation}
 Using Cauchy-Schwatz translates this into the upper bound
 \begin{equation}
-\langle a_k^\dagger a_k \rangle \leq \frac{|g_k|}{\omega_k} \sqrt{ \langle S S^\dagger \rangle}.
+\langle a_k^\dagger a_k \rangle \leq \frac{|g_k|}{\omega_k} \sqrt{ \langle S S^\dagger \rangle \langle a_k^\dagger a_k \rangle}.
 \end{equation}
 which demonstrates \eqref{bound-nk}.
 \end{proof}
@@ -274,7 +274,7 @@ This theorem allows to show what we announced at the beginning of the section, w
 
 \begin{theorem}
 \label{eq:bound-x}
-Let us define $\psi_{k_0}(x)$ as the wavepacket\ \eqref{wp} where $\phi_{k_0}(k)=\xi(k-k_0)$ is a test function, infinitely differentiable with a finite support $K$ centered around $k_0$. Let us assume that $|g_k/\omega_k|^2\langle S^\dagger S \rangle$ remains finite within that support. Then
+Let us define $\psi_{k_0}(x)$ as the wavepacket\ \eqref{wp} where $\phi_{k_0}(k)=\xi(k-k_0)$ is a test function, infinitely differentiable with a finite support $K$ centered around $k_0$. Let us assume that $|g_k/\omega_k|^2\langle S S^\dagger \rangle$ remains finite within that support. Then
 \begin{equation}
 \braket{\psi_{k_0}(x)^\dagger \psi_{k_0}(x)} \to 0,~|x|\to\infty.
 \end{equation}
