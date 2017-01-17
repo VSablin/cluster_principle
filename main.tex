@@ -330,7 +330,9 @@ In order to do so, we  work with localized wavepackets $\psi_{k_0}(x,t)$ as defi
 \label{eq:gaussian}
 \end{equation}
 where the pre-factors are written because of normalisation.   The gaussian envelope ensures that, initially ($t=0$), the wavepacket is localised in space with variance $\sigma$.   
-In addition to this, the following lemma is used afterwards.
+
+
+The following  two lemmas  are  used  in the demonstration for the main theorem of this section.
 
 \begin{lemma}
 \label{lemma:cones}
@@ -340,33 +342,14 @@ Let the dispersion relation $\omega_k$ have an upper bounded group velocity $v_k
 \end{equation}
 Then, the function $f(k) = k x - \omega_k t$ only has stationary points if the distance to the light-cone is non-negative. In other words
 \begin{equation}
-d_c(x,t) =  | x | - c | t |  > 0 \Leftrightarrow | f^\prime (k) | > 0,\: \forall k.\label{eq:distance1}
+d_c(x,t) =  | x | - c | t |  > 0 \Leftrightarrow | f^\prime (k) | > 0,\: \forall k.\label{eq:distance}
 \end{equation}
 \end{lemma}
 
 \begin{proof}
-Solving the equation $f'(k)=x - \partial_k \omega_k t = 0$ leads to the condition $\frac{x}{t} = v_k$.  Taking modules,  $|x/t|=|v_k|\leq c$. Then, provided $f'(k)=0$, it follows $|x|\leq c|t|\Rightarrow d_c(x,t)\leq 0$, which shows \eqref{eq:distance1}.
+Solving the equation $f'(k)=x - \partial_k \omega_k t = 0$ leads to the condition $\frac{x}{t} = v_k$ or  $|x/t|=|v_k|\leq c$. Then, provided $f'(k)=0$, it follows $|x|\leq c|t|\Rightarrow d_c(x,t)\leq 0$, which shows \eqref{eq:distance}.
 \end{proof}
 
-
-%\begin{lemma}
-%\label{lemma:cones}
-%Let the dispersion relation $\omega_k$ have a non-negative, but upper bounded group velocity
-%\begin{equation}
-%0 \leq v_k = \partial_k \omega_k \leq c.
-%\end{equation}
-%Then, the function $f(k) = k x - \omega_k t$ only has a stationary points if the distance to the light-cone is non-negative. In other words
-%\begin{equation}
-%d_c(x,t) = {\rm sign}(x)(x - c t) > 0 \Rightarrow | f^\prime (k) | > 0,\: \forall k.\label{eq:distance}
-%\end{equation}
-%\end{lemma}
-%
-%\begin{proof}
-%Solving the equation $f'(k)=x - \partial_k \omega_k t = 0$ leads to the condition $\frac{x}{t} = \partial_k \omega_k$. Since we are assuming that $\partial_k \omega_k \geq 0$ it follows that $0 \leq \frac{x}{t} \leq c,$ which implies that $x$ and $t$ must have the same sign. If $x > 0$, it immediately follows that $x \leq c t$ and $d \leq 0$. If $x < 0$, the sign of the inequality is inverted, $x \geq c t$, or $x - ct \geq 0$ implying once more $d \leq 0$.
-%\end{proof}
-
-
-With the lemma at hand, the following results ensures the bound for integrals that will be used in the main theorem.
 
 \begin{lemma}
 \label{lemma:bounds}
@@ -395,11 +378,17 @@ Note that it would suffice to consider $q(k)$ as a test function or even a Schwa
 
 \end{proof}
 
+With these lemmas at hand we can enunciate and demonstrate the main theorem.
+
 \begin{theorem}
 \label{th:free-causality}
-Let $\psi_{k_0}(x,t)$ and $\psi_{p_0}(y,t')$ denote two localized wavepackets of the form\ \eqref{eq:gaussian}. We will assume (i) that the group velocity of these wavepackets is non-negative and upper-bounded by a constant $c$ within the domain of the wavepackets ($0 \leq v_k = \partial_k \omega_k \leq c$), and (ii) that the dispersion relation is $n$-times differentiable and that each derivative is upper-bounded by a polynomial of at most order $m$:
+Let $\psi_{k_0}(x,t)$ and $\psi_{p_0}(y,t')$ denote two localized wavepackets of the form\ \eqref{eq:gaussian}. We will assume (i) that the  absolute value for the group velocity of these wavepackets is upper-bounded by a constant $c$ within the domain of the wavepackets ($\vert  v_k = \partial_k \omega_k \vert  \leq c$), and (ii) that the dispersion relation is $n$-times differentiable and that each derivative is upper-bounded by a polynomial of at most order $m$:
 \begin{equation}
+<<<<<<< HEAD
 c \geq |\partial_k\omega_k| \geq 0, \mbox{ and } |\partial^{(r\leq n)}_k\omega_k|\leq a_r + (|k|/b_r)^m,~0< a_r,b_r<+\infty.
+=======
+|\partial^{(r\leq n)}_k\omega_k|\leq a_r + (|k|/b_r)^m,~0< a_r,b_r<+\infty.
+>>>>>>> 280560dd770bbb079c9bf6a5d982d68273242335
 \end{equation}
 The commutator between these wavepackets is small whenever these wavepackets are outside of their respective light-cones, that is, whenever $d=d_c(y-x,t'-t)\gg 0$, 
 \begin{equation}
@@ -409,7 +398,9 @@ The commutator between these wavepackets is small whenever these wavepackets are
 \end{theorem}
 
 \begin{proof}
-Let us assume that the model evolves freely according to the Hamiltonian\ \eqref{eq:H-free}. In this case, our wavepacket operators have the simple form
+Let us assume that the model evolves freely according to the free Hamiltonian
+$\int d k \; \omega_k a_k^\dagger a_k$.
+In this case, our wavepacket operators have the simple form
 \begin{equation}
 \psi_{k_0}(x,t) = \int  e^{ikx-i\omega_kt} \phi_{k_0}(k) a_k(0) dk,
 \end{equation}
@@ -419,14 +410,14 @@ I:=[\psi_{k_0}(x,t),\psi_{p_0}(y,t')^\dagger] =
 \int e^{ik(x-y)-i\omega_k(t-t')} \phi_{k_0}(k)\phi_{p_0}(k)^*dk.
 \label{eq:free-com}
 \end{align}
-If $d_c= d_c(x-y,t-t')  = d_c(y-x,t'-t) = \rm{sign}(x-y)(x-y -c(t-t')) > 0$, using Lemma\ \ref{lemma:cones} we know that the exponent has no stationary point. We use this fact and the notation  $\tilde\omega_k = \omega_k -c k,$ and we rewrite
-\begin{eqnarray*}
-I&=& \int  e^{ik(x-y)-i\omega_k(t-t')}  \phi_{k_0}(k)\phi_{p_0}(k)^*dk\\
-&=& \int  e^{ik(x-y)-i\tilde\omega_k(t-t') - ick(t-t')}  \phi_{k_0}(k)\phi_{p_0}(k)^*dk\\
-&=& \int  e^{ik(x-y-c(t-t'))-i\tilde\omega_k(t-t')}  \phi_{k_0}(k)\phi_{p_0}(k)^*dk\\
-&=& \int  e^{ik(x-y-c(t-t'))-i\tilde\omega_k(t-t')}  \phi_{k_0}(k)\phi_{p_0}(k)^*dk\\
-&=&\int e^{ik\, \rm{sign}(x-y) d_c(x-y, t-t')-i\tilde\omega_k(t-t')} \phi_{k_0}(k)\phi_{p_0}(k)^*dk
-\end{eqnarray*}
+If $d_c= d_c(x-y,t-t')  = d_c(y-x,t'-t) = |x-y| -c|t-t'|   > 0$, using Lemma\ \ref{lemma:cones} we know that the exponent has no stationary point. We use this fact, assume w.l.o.g.  that $x>y$ and $t>t^\prime$ (other combinations are analogous) and the notation  $\tilde\omega_k = \omega_k -c k,$ and we rewrite
+\begin{align*}
+I&= \int  e^{ik(x-y)-i\omega_k(t-t')}  \phi_{k_0}(k)\phi_{p_0}(k)^*dk\\
+&= \int  e^{ik(x-y)-i\tilde\omega_k(t-t') - ick(t-t')}  \phi_{k_0}(k)\phi_{p_0}(k)^*dk\\
+&= \int  e^{ik(x-y-c(t-t'))-i\tilde\omega_k(t-t')}  \phi_{k_0}(k)\phi_{p_0}(k)^*dk\\
+&= \int  e^{ik(x-y-c(t-t'))-i\tilde\omega_k(t-t')}  \phi_{k_0}(k)\phi_{p_0}(k)^*dk\\
+&=\int e^{ik\,  d_c(x-y, t-t')-i\tilde\omega_k(t-t')} \phi_{k_0}(k)\phi_{p_0}(k)^*dk
+\end{align*}
 The exponent $\tilde\omega_k = \omega_k -c k$ is $n$-times differentiable and is upper-bounded in modulus by a polynomial of degree $m\geq 1$. Lemma\ \ref{lemma:bounds} therefore allows us to bound the commutator by a term $\mathcal{O}(d^{-n})$.
 \end{proof}
 
@@ -436,9 +427,12 @@ Introducing $k_{\pm}=(k_0 \pm p_0)/2$ and using our Gaussian wavepackets\ \eqref
 |I| = \exp\left[-\frac{k_-^2}{\sigma^2}-\frac{d^2\sigma^2}{4}\right].
 \label{eq:free-commutator}
 \end{equation}
-This bound is better than the one we have found but it is compatible with the Lemma.
+This bound is better than the one we have found but it is compatible with the Lemma \ref{lemma:bounds}.
+{\color{red} Besides, for localized wavepackets $\sigma \to \infty$: can we say more?}
 
-\subsection{Free dynamics of asymptotic wavepackets}
+
+
+\section{Free dynamics of asymptotic wavepackets / asymptotic states / well defined scattering matrix}
 
 We are now going to study a full Hamiltonian that includes freely propagating photons together with the interaction with a small, few-level system:
 \begin{equation}
