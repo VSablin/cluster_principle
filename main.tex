@@ -511,7 +511,7 @@ Let $\psi_{k_0}(x,t)$ and $\psi_{p_0}(y,t')$ denote two localized wavepackets of
 |\partial^{(r\leq n)}_k\omega_k|\leq a_r + (|k|/b_r)^m,~0< a_r,b_r<+\infty.
 \end{equation}
 The commutator between these wavepackets is small whenever these wavepackets are outside of their respective light-cones, that is, whenever $d=d_c(y-x,t'-t)\gg 0$, 
-\begin{equation}
+\begin{equation}\label{eq:th_free_causality}
 |\mathcal{I}|=\Vert[\psi_{k_0}(x,t),\psi_{p_0}(y,t')^\dagger]\Vert =
 \mathcal{O}\left(\frac{1}{|d|^n}\right),~d_c\to\infty.
 \end{equation}
@@ -632,30 +632,49 @@ One important limitation of the previous discussion is that it is centered on th
 
 \section{Cluster revisited}
 
-In this section, we show the form the scattering amplitude must have for a $N$-particle process in which the incident particles are very separated. The localized scatterer will have several stable states, so a scattering process can cause transitions between those states. We show an example of this process with $N=2$ input photons and an atom with just two stable states in Fig. \ref{fig:input}. In order to find the form of the amplitude, we will rely on some of the theorems we have presented in the previous sections.
+In this section, we first show the form the scattering amplitude must have for a $N$-particle process in which the incident particles are very separated. After that, we prove the scattering matrix Eq. \eqref{S0-main} ensures that form for the amplitudes.
+
+Our localized scatterer will have several stable states, so a scattering process can cause transitions between those states. We show an example of this process with $N=2$ input photons and an atom with just two stable states in Fig. \ref{fig:input}. In order to find the form of the amplitude, we will rely on some of the theorems we have presented in the previous sections.
 
 Our input state will read
 \begin{equation}
 |\Psi_\text{in}\rangle = \left(\prod_{n=1}^N \psi_{k_n}(x_n)^\dagger \right)|\nu\rangle,
 \end{equation}
-with $|x_n-x_m|\to\infty$ for all $n\neq m$ and $\ket{\nu}$ a stable (so localized) state of the scatterer, \emph{e.g.}, $\ket{\nu}$ could be the ground state $\ket{\Omega}$. Our output state will be also composed by separated wavepackets
+with $|x_n-x_m|\to\infty$ for all $n\neq m$ and $\ket{\nu}$ a stable (so localized) state of the scatterer, \emph{e.g.}, $\ket{\nu}$ could be the ground state $\ket{\Omega}$. We choose $x_1>x_2>\dots >x_N$. Our output state will be also composed by separated wavepackets
 \begin{equation}
 |\Psi_\text{out}\rangle = \left(\prod_{n=1}^N \psi'_{p_n}(y_n)^\dagger \right)|\mu\rangle,
 \end{equation}
-so $|y_n-y_m|\to\infty$ for $n\neq m$ and $\ket{\mu}$ a stable state too. The scattering amplitude of going to a general output will read
+so $|y_n-y_m|\to\infty$ for $n\neq m$ and $\ket{\mu}$ a stable state too. Again, $y_1>y_2>\dots > y_N$. The scattering amplitude will read
 \begin{equation}
-A_{\text{in}\to\text{out}}=\bra{\Psi_\text{out}}S\ket{\Psi_\text{in}}=\prod_{n,m=1}^N \bra{\mu}\psi'_{p_m}(y_m)\;S\;\psi_{k_n}(x_n)^\dagger\ket{\nu}.
+A_{\text{in}\to\text{out}}=\bra{\Psi_\text{out}}S\ket{\Psi_\text{in}}= \bra{\mu} \prod_{m=1}^N \psi'_{p_m}(y_m)\;S\;\prod_{n=1}^N\psi_{k_n}(x_n)^\dagger\ket{\nu}.
 \end{equation}
+Given a general operator $\mathcal{O}$, we introduce the input-output operators
+\begin{align}
+\label{eq:O_in}\mathcal{O}_\text{in} & \equiv e^{iHt_-}e^{-iH_0t_-} \mathcal{O}e^{iH_0t_-}e^{-iHt_-},\\
+\label{eq:O_out}\mathcal{O}_\text{out} & \equiv e^{iHt_+}e^{-iH_0t_+} \mathcal{O}e^{iH_0t_+}e^{-iHt_+},
+\end{align}
+with $t_\pm \to \pm \infty$, being $H$ the full Hamiltonian, Eq. \eqref{H-full}, and $H_0$ its photonic part. The scattering amplitude can be rewritten in terms of input-output operators for the wavepackets $\psi_{k_n}(x_n)$ and $\psi_{p_m}(y_m)$:
+\begin{equation}
+A_{\text{in}\to\text{out}}=\bra{\mu} \prod_{m=1}^N \left(\psi'_{p_m}(y_m)\right)_\text{out}\prod_{n=1}^N\left(\psi_{k_n}(x_n)^\dagger\right)_\text{in}\ket{\nu}.
+\end{equation}
+{\color{red}As shown in the previous section in Theorem X}, these operators fulfil the condition given by Theorem \ref{th:free-causality}, so their commutator will follow Eq. \eqref{eq:th_free_causality}; actually, their commutators will be zero, since they are infinitely separated. Then, the previous expression can be rearranged as
+\begin{align}
+A_{\text{in}\to\text{out}}=& \bra{\mu} \left(\psi'_{p_N}(y_N)\right)_\text{out}\left(\psi_{k_N}(x_N)^\dagger\right)_\text{in}\left(\psi'_{p_{N-1}}(y_{N-1})\right)_\text{out}\left(\psi_{k_{N-1}}(x_{N-1})^\dagger\right)_\text{in}\nonumber\\
+&\dots \left(\psi'_{p_1}(y_1)\right)_\text{out}\left(\psi_{k_1}(x_1)^\dagger\right)_\text{in}\ket{\nu}.
+\end{align}
+Inserting the identity between $\left(\psi_{k_n}(x_n)^\dagger\right)_\text{in}$ and $\left(\psi'_{p_{n-1}}(y_{n-1})\right)_\text{out}$ for all $n$ and assuming the process is number conserving, we get
+\begin{equation}\label{eq:Ainout}
+A_{\text{in}\to\text{out}}= \sum_{\lambda_1,\dots,\lambda_{N-1}=1}^M \prod_{n=1}^N \bra{\lambda_n} \left(\psi'_{p_n}(y_n)\right)_\text{out}\left(\psi_{k_n}(x_n)^\dagger\right)_\text{in}\ket{\lambda_{n-1}},
+\end{equation}
+1with $M$ the number of stable states of the scatterer, $\ket{\lambda_n}$ a general stable state of the scatterer, $\ket{\lambda_0}\equiv \ket{\nu}$, $\ket{\lambda_N}\equiv \ket{\mu}$. We can easily interpret this result. The quantity $A_{\psi_n\to\psi'_n}^{\lambda_{n-1}\to\lambda_n} \equiv \bra{\lambda_n} \left(\psi'_{p_n}(y_n)\right)_\text{out}\left(\psi_{k_n}(x_n)^\dagger\right)_\text{in}\ket{\lambda_{n-1}}$ is the single-photon scattering amplitude between the states $\psi_{k_n}(x_n)^\dagger\ket{\lambda_{n-1}}$ and $\psi'_{p_n}(y_n)^\dagger\ket{\lambda_n}$. With this in mind, we see Eq. \eqref{eq:Ainout} is the amplitude probability of going from $\psi_{k_1}(x_1)^\dagger\ket{\nu}$ to $\psi'_{p_1}(y_1)^\dagger\ket{\lambda_1}$, summing over all the possible stable states $\ket{\lambda_1}$, times the amplitude of going from $\psi_{k_2}(x_2)^\dagger\ket{\lambda_1}$ to $\psi'_{p_2}(y_2)^\dagger\ket{\lambda_2}$, taking the sum for all the intermediate states $\ket{\lambda_2}$, and so on.
 
-Relying on Theorems \ref{th:free-causality} and \ref{th:int_evol}...
+Physically, this result makes perfectly sense. The first photon impinging on the scatterer, that at $x_1$ with momentum $k_1$, induces a transition between the initial state of the scatterer $\ket{\nu}$ and some intermediate state $\ket{\lambda_1}$, then, the second photon causes a new transition between the actual state for the scatterer, $\ket{\lambda_1}$, and another stable state $\ket{\lambda_2}$, and, finally, the last photon, impinging from $x_N$ with momentum $k_N$, switches the scatterer from $\ket{\lambda_{N-1}}$ and the final state $\ket{\mu}$.
 
-{\color{red}Final result:}
-
+We know prove the scattering matrix \eqref{S0-main} gives the amplitude \eqref{eq:Ainout}. For the sake of simplicity and without loss of generality, we consider the case with $N=2$ photons, so Eq. \eqref{eq:Ainout} becomes
 \begin{equation}\label{eq:A}
-A_{ab\to a'b'}^{\nu\to\mu} =  \sum_{\lambda=1}^M A_{a\to a'}^{\nu\to\lambda} A_{b\to b'}^{\lambda\to\mu}.
+A_{\text{in}\to\text{out}} =  \sum_{\lambda=1}^M A_{\psi_1\to \psi'_1}^{\nu\to\lambda} A_{\psi_2\to \psi'_2}^{\lambda\to\mu}.
 \end{equation}
-
-In the following, we show the scattering matrix \eqref{S0-main} fulfils the previous condition, Eq. \eqref{eq:A}. The $S^0$ matrix for two photons is
+The $S^0$ matrix \eqref{S0-main} for two photons is
 \begin{equation}\label{eq:S0_2}
 (S^0_{y_1y_2x_1x_2})_{\mu\nu} = \sum_{\lambda=1}^M (S_{y_1x_1})_{\mu\lambda}(S_{y_2x_2})_{\lambda\nu}\;\theta(y_2-y_1) + [x_1\leftrightarrow x_2,y_1\leftrightarrow y_2].
 \end{equation}
@@ -666,11 +685,7 @@ In the following, we show the scattering matrix \eqref{S0-main} fulfils the prev
 %\end{align}
 %with $\lambda_0\equiv \mu$ and $\lambda_N\equiv\nu$. We add all the permutations in $y_n/x_n\leftrightarrow y_m/x_m$ for all $n$ and $m$ in order to symmetrize $S^0$.
 
-Naively, one could build the ansatz \eqref{eq:S0_2} without the step functions. This is valid for scatterers with a unique stable state \cite{Xu2013}. In fact, if we take $M=1$ in Eq. \eqref{eq:S0_2}, we recover this structure without step function
-\begin{equation}\label{eq:S0_2_1}
-S^0_{y_1y_2x_1x_2} = S_{y_1x_1}S_{y_2x_2} + S_{y_1x_2}S_{y_2x_1}.
-\end{equation}
-However, the step functions are essential if $M>1$. Otherwise, we would break causality. We consider a two-photon input state
+We consider a two-photon input state
 \begin{equation}\label{eq:input}
 |\Psi_\text{in}\rangle = \frac{1}{\sqrt{2}}(|\phi_a\rangle |\phi_b\rangle + |\phi_b\rangle |\phi_a\rangle)|g_\nu\rangle,
 \end{equation}
@@ -682,7 +697,13 @@ which is defined as
 \begin{equation}\label{eq:A_def}
 A_{ab\to a'b'}^{\nu\to\mu} \equiv \langle \Psi_\text{out}|S|\Psi_\text{in}\rangle.
 \end{equation}
-We just need the linear part of the $S$ matrix, $S^0$, since both incident wave packets are highly separated. As shown in Appendix \ref{app:A}, taking the ansatz given by Eq. \eqref{eq:S0_2}, this probability amplitude is that given by Eq. \eqref{eq:A}. If we did not have included the step function in our ansatz, Eq. \eqref{eq:S0_2}, we would have obtained an unphysical term $A_{b\to b'}^{\nu\to\lambda} A_{a\to a'}^{\lambda\to\mu}$, which says $|\phi_b\rangle$ impinges on the scatterer before $|\phi_a\rangle$, breaking causality.% Details on the computation can be found in the Appendix.
+We just need the linear part of the $S$ matrix, $S^0$, since both incident wave packets are highly separated. As shown in Appendix \ref{app:A}, taking the ansatz given by Eq. \eqref{eq:S0_2}, this probability amplitude is that given by Eq. \eqref{eq:A}. % Details on the computation can be found in the Appendix.
+
+Naively, one could build the ansatz \eqref{eq:S0_2} without the step functions. This is valid for scatterers with a unique stable state \cite{Xu2013}. In fact, if we take $M=1$ in Eq. \eqref{eq:S0_2}, we recover this structure without step function
+\begin{equation}\label{eq:S0_2_1}
+S^0_{y_1y_2x_1x_2} = S_{y_1x_1}S_{y_2x_2} + S_{y_1x_2}S_{y_2x_1}.
+\end{equation}
+However, the step functions are essential if $M>1$. If we did not have included the step function in our matrix, Eq. \eqref{eq:S0_2}, we would have obtained an unphysical term $A_{\psi_2\to \psi'_2}^{\nu\to\lambda} A_{\psi_1\to \psi'_1}^{\lambda\to\mu}$, which says $|\phi_2\rangle$ impinges on the scatterer before $|\phi_1\rangle$, breaking causality.
 
 {\color{blue}What about writing this in a different section?} Taking the Fourier transform of Eq. \eqref{eq:S0_2}, we can compute $S^0$ in momentum space. Before doing so, the single-photon $S$ matrix in momentum space is
 \begin{equation}\label{eq:S01_p}
