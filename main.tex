@@ -204,6 +204,128 @@ The wave functions $\phi_n(x)$ are centered arround $x_n$ and  have support only
 whenever 
 Once the basic elements are introduced, we can introduce the main results of this paper.  
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Free-field causality}
+
+In QFT, causal theories must require that \emph{all} spacelike separated operators, $A(x,t)$,  commute, see \emph{e.g.} \cite[Sect. 2.6.1]{tong2006}:
+\begin{equation}
+[ A (x, t), A (y,t^\prime)]= 0  \qquad \forall \quad  (x-y)^2 -c^2 (t-t^\prime) <0 \, .
+\end{equation}
+In non relativistic theories we have not such strict local relations but the fact that group velocities are upper bounded and the Lieb-Robinson bounds are expected to hold.  They are weaker, in the sense that they do not say about the commutator but their norm.  In particular they say that below the \emph{effective} light cone emerged by the maximuum group velocity the norm for the conmutator of two operators decay exponentially.   To show the bounds, several assumptions on the model are needed.  For example, finite dimensional systems or coupled harmonic oscillators \cite{}.  
+Here we take a different but related route and show, even a weaker condition that is easily to show and serves for our purposes.  
+In the next lines we will show the announced result, Eq. \eqref{cas-main}, \emph{i.e.} that  the commutator   for sufficiently separated wavepackets can be approximated by zero.    
+In this section we will focus on the free bosonic model $H = \int dk \omega_k a_k^\dagger a_k$. The inclusion of the scatterer will be done in the succeeding sections.
+
+In order to do so, we  work with localized wavepackets $\psi_{k_0}(x,t)$ as defined in \eqref{wp}.  Actual calculations are done with gaussian wavepackets:
+\begin{equation}
+\phi_{k_0}(k) = \frac{1}{\sqrt[4]{\pi}\sqrt{\sigma}}
+\exp\left[-(k-k_0)^2/2\sigma^2\right].
+\label{eq:gaussian}
+\end{equation}
+where the pre-factors are written because of normalisation.   The gaussian envelope ensures that, initially ($t=0$), the wavepacket is localised in space with variance $\sigma$.   
+
+
+The following  two lemmas  are  used  in the demonstration for the main theorem of this section.
+
+\begin{lemma}
+\label{lemma:cones}
+Let the dispersion relation $\omega_k$ have an upper bounded group velocity $v_k=\partial_k \omega_k$:
+\begin{equation}
+\vert  v_k \vert \leq c.
+\end{equation}
+Then, the function $f(k) = k x - \omega_k t$ only has stationary points if the distance to the light-cone is non-negative. In other words
+\begin{equation}
+d_c(x,t) =  | x | - c | t |  > 0 \Leftrightarrow | f^\prime (k) | > 0,\: \forall k.\label{eq:distance}
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Solving the equation $f'(k)=x - \partial_k \omega_k t = 0$ leads to the condition $\frac{x}{t} = v_k$ or  $|x/t|=|v_k|\leq c$. Then, provided $f'(k)=0$, it follows $|x|\leq c|t|\Rightarrow d_c(x,t)\leq 0$, which shows \eqref{eq:distance}.
+\end{proof}
+
+
+\begin{lemma}
+\label{lemma:bounds}
+Assume that $\omega_k$ is $n$-times differentiable and  that every derivative $|\omega_k^{(r\leq n)}|$ is upper bounded by an $m$-th order polynomial in $|k|$. Then the following integral bound applies
+\begin{equation}
+\left|\int e^{i k x - \frac{1}{\sigma^2}{(k-k_0)^2} - i \omega_k t} p(k)dk\right|
+=\max(\sigma^{m+n + r},1) \max(t^n,1) \mathcal{O}\left(\frac{1}{|x|^n}\right).
+\end{equation} where $p(k)$ is a polynomial of degree $r.$
+\end{lemma}
+
+\begin{proof}
+Result 5.1 from\ \cite{Olver} states that the integral $I(x) = \int e^{i k x} q(k) dk$ may be integrated by parts $n$ times, obtaining
+\begin{eqnarray*}
+I(x) &=& \int_a^b e^{i k x} q(k) dk \\
+&=&\sum_{s=0}^{n-1} \left(\frac{i}{x}\right)^{s+1} \left[e^{iax} q^{(s)}(a) - e^{ibx} q^{(s)}(b) \right] + \left(\frac{i}{x}\right)^n \int_a^b  e^{ikx} q^{(n)}(k)dk,
+\end{eqnarray*} Here, the error term satisfies that
+$$ \epsilon_n(x) =  \left(\frac{i}{x}\right)^n\int e^{ikx} q^{(n)}(k)dk = o(x^{-n})$$
+provided that $q(k)$ is $n$-times differentiable and that $q^{(n)} \in L^1$. Based on the conditions of the lemma, this is satisfied since $q(k)=e^{- \frac{1}{\sigma^2}{(k-k_0)^2} - i \omega_k t} p(k)$. The limits of the integral may be easily extended to $\infty,$ as explained in Result 5.2 from \cite{Olver}. Since $\frac{q^{(s)}(a)}{x^s} \to 0,  \frac{q^{(s)}(b)}{x^s} \to 0$ when $a\to -\infty, b\to \infty, \, \forall x, $ we obtain
+
+\begin{eqnarray*}
+I(x) &=& \int e^{i k x} q(k) dk = \left(\frac{i}{x}\right)^n \int e^{ikx} q^{(n)}(k)dk,
+\end{eqnarray*}
+Moreover, $q^{(n)}$, resulting from a product of derivatives of $\omega_k t, -k^2/\sigma^2$ and the polynomial $p(k)$ of degree $r$, then it is bounded by a polynomial of at mosth $m+n + r$-th order in $|k|.$ Such a polynomial is integrable together with the Gaussian wavepacket giving a constant prefactor. In estimating this factor, we can take the worst-case scenario for the terms in $t$, wich appears at most $n$ times together with $(\omega_k')^n$. Regarding the monomials in $|k|$, they appear at most in $m+n + r$-th order, producing another prefactor $\sigma^{m+n+ r}$.
+
+Note that it would suffice to consider $q(k)$ as a test function or even a Schwartz function since in this case all the differentiability requisities are fullfilled and  $\frac{q^{(s)}(a)}{x^s} \to 0,  \frac{q^{(s)}(b)}{x^s} \to 0$ when $a\to -\infty, b\to \infty, \, \forall x $ still holds, because these functions and their derivatives are rapidly decreasing.
+
+\end{proof}
+
+With these lemmas at hand we can enunciate and demonstrate the  theorem of this section.
+
+
+\begin{theorem}
+\label{th:free-causality}
+Let $\psi_{k_0}(x,t)$ and $\psi_{p_0}(y,t')$ denote two localized wavepackets of the form\ \eqref{eq:gaussian}. We will assume (i) that the  absolute value for the group velocity of these wavepackets is upper-bounded by a constant $c$ within the domain of the wavepackets ($\vert  v_k = \partial_k \omega_k \vert  \leq c$), and (ii) that the dispersion relation is $n$-times differentiable and that each derivative is upper-bounded by a polynomial of at most order $m$:
+\begin{equation}
+|\partial^{(r\leq n)}_k\omega_k|\leq a_r + (|k|/b_r)^m,~0< a_r,b_r<+\infty.
+\end{equation}
+The commutator between these wavepackets is small whenever these wavepackets are outside of their respective light-cones, that is, whenever $d=d_c(y-x,t'-t)\gg 0$, 
+\begin{equation}
+|\mathcal{I}|=\Vert[\psi_{k_0}(x,t),\psi_{p_0}(y,t')^\dagger]\Vert =
+\mathcal{O}\left(\frac{1}{|d|^n}\right),~d_c\to\infty.
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Let us assume that the model evolves freely according to the free Hamiltonian
+$\int d k \; \omega_k a_k^\dagger a_k$.
+In this case, our wavepacket operators have the simple form
+\begin{equation}
+\psi_{k_0}(x,t) = \int  e^{ikx-i\omega_kt} \phi_{k_0}(k) a_k(0) dk,
+\end{equation}
+and analogously for $\psi_{p_0}(y,t')$. The commutator between operators reads
+\begin{align}
+I:=[\psi_{k_0}(x,t),\psi_{p_0}(y,t')^\dagger] =
+\int e^{ik(x-y)-i\omega_k(t-t')} \phi_{k_0}(k)\phi_{p_0}(k)^*dk.
+\label{eq:free-com}
+\end{align}
+If $d_c= d_c(x-y,t-t')  = d_c(y-x,t'-t) = |x-y| -c|t-t'|   > 0$, using Lemma\ \ref{lemma:cones} we know that the exponent has no stationary point. We use this fact, assume w.l.o.g.  that $x>y$ and $t>t^\prime$ (other combinations are analogous) and the notation  $\tilde\omega_k = \omega_k -c k,$ and we rewrite
+\begin{align*}
+I&= \int  e^{ik(x-y)-i\omega_k(t-t')}  \phi_{k_0}(k)\phi_{p_0}(k)^*dk\\
+&= \int  e^{ik(x-y)-i\tilde\omega_k(t-t') - ick(t-t')}  \phi_{k_0}(k)\phi_{p_0}(k)^*dk\\
+&= \int  e^{ik(x-y-c(t-t'))-i\tilde\omega_k(t-t')}  \phi_{k_0}(k)\phi_{p_0}(k)^*dk\\
+&= \int  e^{ik(x-y-c(t-t'))-i\tilde\omega_k(t-t')}  \phi_{k_0}(k)\phi_{p_0}(k)^*dk\\
+&=\int e^{ik\,  d_c(x-y, t-t')-i\tilde\omega_k(t-t')} \phi_{k_0}(k)\phi_{p_0}(k)^*dk
+\end{align*}
+The exponent $\tilde\omega_k = \omega_k -c k$ is $n$-times differentiable and is upper-bounded in modulus by a polynomial of degree $m\geq 1$. Lemma\ \ref{lemma:bounds} therefore allows us to bound the commutator by a term $\mathcal{O}(d^{-n})$.
+\end{proof}
+
+Note that for a linear dispersion, $\omega_k=c k$, we can rewrite this integral as a function of the distance between world lines from Eq.\ \eqref{eq:distance}, $d=(x-y)-c(t-t')$.
+Introducing $k_{\pm}=(k_0 \pm p_0)/2$ and using our Gaussian wavepackets\ \eqref{eq:gaussian}, we obtain
+\begin{equation}
+|I| = \exp\left[-\frac{k_-^2}{\sigma^2}-\frac{d^2\sigma^2}{4}\right].
+\label{eq:free-commutator}
+\end{equation}
+This bound is better than the one we have found but it is compatible with the Lemma \ref{lemma:bounds}.
+{\color{red} Besides, for localized wavepackets $\sigma \to \infty$: can we say more?}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -315,120 +437,17 @@ Summarising this section, we highlight that we have shown that far from the inte
 
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Free-field causality}
-
-Let us move to dynamics and discuss what causal relations mean in a dispersive media.   In the next lines we will show the announced result, Eq. \eqref{cas-main}, \emph{i.e.} that  the commutator   for sufficiently separated wavepackets can be approximated by zero.    
-In order to do so, we  work with localized wavepackets $\psi_{k_0}(x,t)$ as defined in \eqref{wp}.  Actual calculations are done with gaussian wavepackets:
-\begin{equation}
-\phi_{k_0}(k) = \frac{1}{\sqrt[4]{\pi}\sqrt{\sigma}}
-\exp\left[-(k-k_0)^2/2\sigma^2\right].
-\label{eq:gaussian}
-\end{equation}
-where the pre-factors are written because of normalisation.   The gaussian envelope ensures that, initially ($t=0$), the wavepacket is localised in space with variance $\sigma$.   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-The following  two lemmas  are  used  in the demonstration for the main theorem of this section.
+\section{Asymptotic states and scattering theory}
 
-\begin{lemma}
-\label{lemma:cones}
-Let the dispersion relation $\omega_k$ have an upper bounded group velocity $v_k=\partial_k \omega_k$:
-\begin{equation}
-\vert  v_k \vert \leq c.
-\end{equation}
-Then, the function $f(k) = k x - \omega_k t$ only has stationary points if the distance to the light-cone is non-negative. In other words
-\begin{equation}
-d_c(x,t) =  | x | - c | t |  > 0 \Leftrightarrow | f^\prime (k) | > 0,\: \forall k.\label{eq:distance}
-\end{equation}
-\end{lemma}
+Now, we merge the two previous sections to check that  the $S$-matrix can be defined in the   light-matter Hamiltonian \eqref{H-full}.   
+A  condition to talk on scattering is the so-called asymptotic condition wich states that a wavepacket localized far away the scatterer behaves like a free wave packet.  Here free means that its dynamics is governed by the free Hamiltonian $H = \int dk \omega_k a_k^\dagger a_k$.
 
-\begin{proof}
-Solving the equation $f'(k)=x - \partial_k \omega_k t = 0$ leads to the condition $\frac{x}{t} = v_k$ or  $|x/t|=|v_k|\leq c$. Then, provided $f'(k)=0$, it follows $|x|\leq c|t|\Rightarrow d_c(x,t)\leq 0$, which shows \eqref{eq:distance}.
-\end{proof}
-
-
-\begin{lemma}
-\label{lemma:bounds}
-Assume that $\omega_k$ is $n$-times differentiable and  that every derivative $|\omega_k^{(r\leq n)}|$ is upper bounded by an $m$-th order polynomial in $|k|$. Then the following integral bound applies
-\begin{equation}
-\left|\int e^{i k x - \frac{1}{\sigma^2}{(k-k_0)^2} - i \omega_k t} p(k)dk\right|
-=\max(\sigma^{m+n + r},1) \max(t^n,1) \mathcal{O}\left(\frac{1}{|x|^n}\right).
-\end{equation} where $p(k)$ is a polynomial of degree $r.$
-\end{lemma}
-
-\begin{proof}
-Result 5.1 from\ \cite{Olver} states that the integral $I(x) = \int e^{i k x} q(k) dk$ may be integrated by parts $n$ times, obtaining
-\begin{eqnarray*}
-I(x) &=& \int_a^b e^{i k x} q(k) dk \\
-&=&\sum_{s=0}^{n-1} \left(\frac{i}{x}\right)^{s+1} \left[e^{iax} q^{(s)}(a) - e^{ibx} q^{(s)}(b) \right] + \left(\frac{i}{x}\right)^n \int_a^b  e^{ikx} q^{(n)}(k)dk,
-\end{eqnarray*} Here, the error term satisfies that
-$$ \epsilon_n(x) =  \left(\frac{i}{x}\right)^n\int e^{ikx} q^{(n)}(k)dk = o(x^{-n})$$
-provided that $q(k)$ is $n$-times differentiable and that $q^{(n)} \in L^1$. Based on the conditions of the lemma, this is satisfied since $q(k)=e^{- \frac{1}{\sigma^2}{(k-k_0)^2} - i \omega_k t} p(k)$. The limits of the integral may be easily extended to $\infty,$ as explained in Result 5.2 from \cite{Olver}. Since $\frac{q^{(s)}(a)}{x^s} \to 0,  \frac{q^{(s)}(b)}{x^s} \to 0$ when $a\to -\infty, b\to \infty, \, \forall x, $ we obtain
-
-\begin{eqnarray*}
-I(x) &=& \int e^{i k x} q(k) dk = \left(\frac{i}{x}\right)^n \int e^{ikx} q^{(n)}(k)dk,
-\end{eqnarray*}
-Moreover, $q^{(n)}$, resulting from a product of derivatives of $\omega_k t, -k^2/\sigma^2$ and the polynomial $p(k)$ of degree $r$, then it is bounded by a polynomial of at mosth $m+n + r$-th order in $|k|.$ Such a polynomial is integrable together with the Gaussian wavepacket giving a constant prefactor. In estimating this factor, we can take the worst-case scenario for the terms in $t$, wich appears at most $n$ times together with $(\omega_k')^n$. Regarding the monomials in $|k|$, they appear at most in $m+n + r$-th order, producing another prefactor $\sigma^{m+n+ r}$.
-
-Note that it would suffice to consider $q(k)$ as a test function or even a Schwartz function since in this case all the differentiability requisities are fullfilled and  $\frac{q^{(s)}(a)}{x^s} \to 0,  \frac{q^{(s)}(b)}{x^s} \to 0$ when $a\to -\infty, b\to \infty, \, \forall x $ still holds, because these functions and their derivatives are rapidly decreasing.
-
-\end{proof}
-
-With these lemmas at hand we can enunciate and demonstrate the main theorem.
-
-\begin{theorem}
-\label{th:free-causality}
-Let $\psi_{k_0}(x,t)$ and $\psi_{p_0}(y,t')$ denote two localized wavepackets of the form\ \eqref{eq:gaussian}. We will assume (i) that the  absolute value for the group velocity of these wavepackets is upper-bounded by a constant $c$ within the domain of the wavepackets ($\vert  v_k = \partial_k \omega_k \vert  \leq c$), and (ii) that the dispersion relation is $n$-times differentiable and that each derivative is upper-bounded by a polynomial of at most order $m$:
-\begin{equation}
-|\partial^{(r\leq n)}_k\omega_k|\leq a_r + (|k|/b_r)^m,~0< a_r,b_r<+\infty.
-\end{equation}
-The commutator between these wavepackets is small whenever these wavepackets are outside of their respective light-cones, that is, whenever $d=d_c(y-x,t'-t)\gg 0$, 
-\begin{equation}
-|\mathcal{I}|=\Vert[\psi_{k_0}(x,t),\psi_{p_0}(y,t')^\dagger]\Vert =
-\mathcal{O}\left(\frac{1}{|d|^n}\right),~d_c\to\infty.
-\end{equation}
-\end{theorem}
-
-\begin{proof}
-Let us assume that the model evolves freely according to the free Hamiltonian
-$\int d k \; \omega_k a_k^\dagger a_k$.
-In this case, our wavepacket operators have the simple form
-\begin{equation}
-\psi_{k_0}(x,t) = \int  e^{ikx-i\omega_kt} \phi_{k_0}(k) a_k(0) dk,
-\end{equation}
-and analogously for $\psi_{p_0}(y,t')$. The commutator between operators reads
-\begin{align}
-I:=[\psi_{k_0}(x,t),\psi_{p_0}(y,t')^\dagger] =
-\int e^{ik(x-y)-i\omega_k(t-t')} \phi_{k_0}(k)\phi_{p_0}(k)^*dk.
-\label{eq:free-com}
-\end{align}
-If $d_c= d_c(x-y,t-t')  = d_c(y-x,t'-t) = |x-y| -c|t-t'|   > 0$, using Lemma\ \ref{lemma:cones} we know that the exponent has no stationary point. We use this fact, assume w.l.o.g.  that $x>y$ and $t>t^\prime$ (other combinations are analogous) and the notation  $\tilde\omega_k = \omega_k -c k,$ and we rewrite
-\begin{align*}
-I&= \int  e^{ik(x-y)-i\omega_k(t-t')}  \phi_{k_0}(k)\phi_{p_0}(k)^*dk\\
-&= \int  e^{ik(x-y)-i\tilde\omega_k(t-t') - ick(t-t')}  \phi_{k_0}(k)\phi_{p_0}(k)^*dk\\
-&= \int  e^{ik(x-y-c(t-t'))-i\tilde\omega_k(t-t')}  \phi_{k_0}(k)\phi_{p_0}(k)^*dk\\
-&= \int  e^{ik(x-y-c(t-t'))-i\tilde\omega_k(t-t')}  \phi_{k_0}(k)\phi_{p_0}(k)^*dk\\
-&=\int e^{ik\,  d_c(x-y, t-t')-i\tilde\omega_k(t-t')} \phi_{k_0}(k)\phi_{p_0}(k)^*dk
-\end{align*}
-The exponent $\tilde\omega_k = \omega_k -c k$ is $n$-times differentiable and is upper-bounded in modulus by a polynomial of degree $m\geq 1$. Lemma\ \ref{lemma:bounds} therefore allows us to bound the commutator by a term $\mathcal{O}(d^{-n})$.
-\end{proof}
-
-Note that for a linear dispersion, $\omega_k=c k$, we can rewrite this integral as a function of the distance between world lines from Eq.\ \eqref{eq:distance}, $d=(x-y)-c(t-t')$.
-Introducing $k_{\pm}=(k_0 \pm p_0)/2$ and using our Gaussian wavepackets\ \eqref{eq:gaussian}, we obtain
-\begin{equation}
-|I| = \exp\left[-\frac{k_-^2}{\sigma^2}-\frac{d^2\sigma^2}{4}\right].
-\label{eq:free-commutator}
-\end{equation}
-This bound is better than the one we have found but it is compatible with the Lemma \ref{lemma:bounds}.
-{\color{red} Besides, for localized wavepackets $\sigma \to \infty$: can we say more?}
-
-
-
-\section{Free dynamics of asymptotic wavepackets / asymptotic states / well defined scattering matrix}
+In a first theorem we prove the existence os asymptotic 
 
 We are now going to study a full Hamiltonian that includes freely propagating photons together with the interaction with a small, few-level system:
 \begin{equation}
