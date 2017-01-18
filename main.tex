@@ -52,6 +52,7 @@
 
 \begin{abstract}
 $S^0$ under general conditions.
+
 \end{abstract}
 
 
@@ -59,6 +60,13 @@ $S^0$ under general conditions.
 \maketitle
 
 \section{Introduction}
+
+{\color{red}
+To say:
+
+decimos explictamente algo sobre que con RWA el g.s. es trivial y todo sale igual que aqui?
+}
+
 
 Causality is  expected to hold in every circumstance.    In words of Weinberg, two uncorrelated experiments must provide uncorrelated results \cite{Weinberg1996}.     In Quantum Field Theory, causality imposes that  spacelike-separated operators conmute.   In non-relativistic quantum mechanics, however, we should abandon such an stringent condition which  does not imply causality violation.  In local Hamiltonians~\footnote{interactions decay sufficiently fast with the distance}, there is a finite maximum  group velocity at which the information can travel.   Although operators do not conmute,  their conmutator  (its norm) is arbitrarily small at distances large enough compared to this maximum velocity  bounded by Lieb and Robinson \cite{Lieb1972}.  
 
@@ -212,14 +220,15 @@ Once the basic elements are introduced, we can introduce the main results of thi
 
 In QFT, causal theories must require that \emph{all} spacelike separated operators, $A(x,t)$,  commute, see \emph{e.g.} \cite[Sect. 2.6.1]{tong2006}:
 \begin{equation}
+\label{c-QFT}
 [ A (x, t), A (y,t^\prime)]= 0  \qquad \forall \quad  (x-y)^2 -c^2 (t-t^\prime) <0 \, .
 \end{equation}
-In non relativistic theories we have not such strict local relations but the fact that group velocities are upper bounded and the Lieb-Robinson bounds are expected to hold.  They are weaker, in the sense that they do not say about the commutator but their norm.  In particular they say that below the \emph{effective} light cone emerged by the maximuum group velocity the norm for the conmutator of two operators decay exponentially.   To show the bounds, several assumptions on the model are needed.  For example, finite dimensional systems or coupled harmonic oscillators \cite{}.  
-Here we take a different but related route and show, even a weaker condition that is easily to show and serves for our purposes.  
-In the next lines we will show the announced result, Eq. \eqref{cas-main}, \emph{i.e.} that  the commutator   for sufficiently separated wavepackets can be approximated by zero.    
+In non relativistic theories we have not such strict local relations but the fact that group velocities are upper bounded suggest to expect  the Lieb-Robinson bounds to hold.  They are weaker than \eqref{c-QFT}, in the sense that they do not say anything about the commutator but on their norm.  In particular they say that beyond the \emph{effective} light cone emerged by the maximuum group velocity the norm for the conmutator of two operators decay exponentially.   To show the bounds, several assumptions on the model are needed.  For example, finite dimensional systems or coupled harmonic oscillators \cite{}.  
+Here we take a different but related route and show a weaker condition but sufficient for our purposes.  
+We will demonstrate the announced result, Eq. \eqref{cas-main}, \emph{i.e.} that  the commutator   for sufficiently separated wavepackets can be approximated by zero.    
 In this section we will focus on the free bosonic model $H = \int dk \omega_k a_k^\dagger a_k$. The inclusion of the scatterer will be done in the succeeding sections.
 
-In order to do so, we  work with localized wavepackets $\psi_{k_0}(x,t)$ as defined in \eqref{wp}.  Actual calculations are done with gaussian wavepackets:
+We  work with localized wavepackets $\psi_{k_0}(x,t)$ as defined in \eqref{wp}.  Actual calculations are done with gaussian wavepackets:
 \begin{equation}
 \phi_{k_0}(k) = \frac{1}{\sqrt[4]{\pi}\sqrt{\sigma}}
 \exp\left[-(k-k_0)^2/2\sigma^2\right].
@@ -554,23 +563,22 @@ This bound is better than the one we have found but it is compatible with the Le
 \section{Asymptotic states and scattering theory}
 
 Now, we merge the two previous sections to check that  the $S$-matrix can be defined in the   light-matter Hamiltonian \eqref{H-full}.   
-A  condition to talk on scattering is the so-called asymptotic condition wich states that a wavepacket localized far away the scatterer behaves like a free wave packet.  Here free means that its dynamics is governed by the free Hamiltonian $H = \int dk \omega_k a_k^\dagger a_k$.
-
-In a first theorem we prove the existence os asymptotic 
-
-We are now going to study a full Hamiltonian that includes freely propagating photons together with the interaction with a small, few-level system:
+A  condition of the model to give a physically reasonable scattering theory is the so-called \emph{asymptotic condition} \cite{Taylor1972}.  This   states that a wavepacket localized far away the scatterer behaves like a free wave packet.  Here free means that its dynamics is governed by the free Hamiltonian $H_0 = \int dk \omega_k a_k^\dagger a_k$. To be precise, the asymptotic condition can be enunciated as follows.  For every states $| \Psi_{\rm in} \rangle$ and $|\Psi_{\rm out} \rangle$ there is $\psi\rangle$ that
 \begin{equation}
-H = H_0 + H_{sys} + \sum_k g_k (S^\dagger a_k + S a_k^\dagger).
-\label{eq:H-full}
+\Vert U(t) | \psi \rangle - U^0 |\Phi_{in /out} \rangle \Vert \stackrel{t\to \pm \infty}{\longrightarrow} 0
 \end{equation}
-The evolution with $H$ and $H_0$ will be given by the unitary operators
+with 
 \begin{align}
-U(t_1,t_0) = e^{-iH(t_1-t_0)},~\mbox{and}~ U_0(t_1,t_0)= e^{-iH_0(t_1-t_0)}.
+U(t_1,t_0) = e^{-iH t },~\mbox{and}~ U_0(t_1,t_0)= e^{-iH_0 t }.
 \end{align}
-Our goal is to show that wavepackets that are far from the scatterer evolve approximately as if they were free particles.
-
+If the latter holds, the $S$ operator  is defined as:
+\begin{equation}
+\vert \Psi_{\rm out} \rangle = S \,  \vert \Psi_{\rm in} \rangle  \;.
+\end{equation}
+It can be shown that, $S = \Omega_-^\dagger \Omega_+$ where $\Omega_\pm := \lim_{t \mp \infty} U^{-1} (t) U_0 (t)$ are the M\"  olmer isometries, see again \cite{Taylor1972}. The $S$-matrix, as defined here \eqref{Sdef}, are its matrix elements. 
+ 
 \begin{theorem}\label{th:int_evol}
-Let $H$ denote the Hamiltonian describing the interaction between a propagating wavepacket and a localized few-level system. This Hamiltonian will be given by Eq.\ \ref{eq:H-full}, where the bounded operators $H_{sys},c\in \mathbb{R}^{d\times d}$ describe a few-level scatterer sitting at $x_{sys}=0$. We will assume the conditions of Theorem\ \ref{th:free-causality}: (i) {\color{red}non-negative}, finite group velocity, and (ii) differentiable, polynomially bound functions $\omega_k$ and $g_k$, with degrees $n\geq 2$. Then all wavepackets outside the light-cone of the scatterer $c$ evolve approximately with the free Hamiltonian, $H_0$. More precisely, if $(x,t_1)$ and $(x,t_0)$ are two points outside the light cone
+Let $H$  given by Eq.\ \ref{H-full}, where the bounded operators  We will assume the conditions of Theorem\ \ref{th:free-causality}: (i)  finite group velocity wich absolute value is upper bounded by $c$,  (ii) differentiable, polynomially bound functions $\omega_k$ and $g_k$, with degrees $n\geq 2$ and (iii) the scatterer sitting at $x =0$ and occupying a finite region of size $m$ . Then all wavepackets outside the light-cone of the scatterer $c$ evolve approximately with the free Hamiltonian, $H_0$. More precisely, if $(x,t_1)$ and $(x,t_0)$ are two points outside the light cone
 \begin{equation}
 \psi(x,t_1) \simeq U_0(t_1,t_0)^\dagger\psi_{k_0}(x,t_0)U(t_1,t_0)
 +\mathcal{O}\left(\frac{1}{|d_{min}|^{n-1}}\right),
