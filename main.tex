@@ -508,16 +508,17 @@ In this section, we show the form the scattering amplitude must have for a $N$-p
 
 Our input state will read
 \begin{equation}
-|\Psi_\text{in}\rangle = \left(\prod_{n=1}^N \psi_{k_n}(x_n)^\dagger \right)|\Omega\rangle,
+|\Psi_\text{in}\rangle = \left(\prod_{n=1}^N \psi_{k_n}(x_n)^\dagger \right)|\nu\rangle,
 \end{equation}
-with $|x_n-x_m|\to\infty$ for all $n\neq m$. The scattering amplitude of going to a general output state will be
+with $|x_n-x_m|\to\infty$ for all $n\neq m$ and $\ket{\nu}$ a stable (so localized) state of the scatterer, \emph{e.g.}, $\ket{\nu}$ could be the ground state $\ket{\Omega}$. Our output state will be also composed by separated wavepackets
 \begin{equation}
-A_{\text{in}\to\text{out}}=\bra{\Psi_\text{out}}S\ket{\Psi_\text{in}}.
+|\Psi_\text{out}\rangle = \left(\prod_{n=1}^N \psi'_{p_n}(y_n)^\dagger \right)|\mu\rangle,
 \end{equation}
-Our output state will be also composed by separated wavepackets
+so $|y_n-y_m|\to\infty$ for $n\neq m$ and $\ket{\mu}$ a stable state too. The scattering amplitude of going to a general output will read
 \begin{equation}
-|\Psi_\text{out}\rangle = \left(\prod_{n=1}^N \psi'_{p_n}(y_n)^\dagger \right)|\Omega\rangle,
+A_{\text{in}\to\text{out}}=\bra{\Psi_\text{out}}S\ket{\Psi_\text{in}}=\prod_{n,m=1}^N \bra{\mu}\psi'_{p_m}(y_m)\;S\;\psi_{k_n}(x_n)^\dagger\ket{\nu}.
 \end{equation}
+
 Relying on Theorems \ref{th:free-causality} and \ref{th:int_evol}...
 
 {\color{red}Final result:}
