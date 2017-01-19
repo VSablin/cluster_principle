@@ -410,10 +410,12 @@ This theorem allows to show what we announced at the beginning of the section, w
 \label{theo:bound-x}
 Let us define $\psi_{k_0}(x)$ as the wavepacket\ \eqref{wp} where $\phi_{k_0}(k)=\xi(k-k_0)$ is a test function, infinitely differentiable with a finite support $K$ centered around $k_0$. Let us assume that $|g_k/\omega_k|^2\langle S S^\dagger \rangle$ remains finite within that support. Then
 \begin{equation}
+\label{nx}
 \braket{\psi_{k_0}(x)^\dagger \psi_{k_0}(x)} \to 0,~|x|\to\infty.
 \end{equation}
 Moreover, if we can assume that $\braket{a_k^\dagger a_p}$ is an $n$-times differentiable function of $k$ and $p$, the bound will be improved
 \begin{equation}
+\label{nx-imp}
 \braket{\psi_{k_0}(x)^\dagger \psi_{k_0}(x)} \leq  \mathcal{O}(|x|^{-n}), ~|x|\to\infty.
 \end{equation}
 \end{theorem}
@@ -445,20 +447,22 @@ using the Riemann-Lebesgue theorem, we have then that
 at long distances. 
 \end{proof}
 
-A little of notation is needed to formulate a corollary of this theorem.  The Hilbert space of the system is $\mathcal H_{sys}$,  $\mathcal H_{|x^\prime | < |x|} $ the Hilbert space for the bosonic field in the region $ |x^\prime | < |x|$ and analogously $\mathcal H_{|x^\prime| \geq  |x| }$. 
-With this conventions, the following corollary follows,
+Some notation is needed to formulate a corollary of this theorem.  The Hilbert space of the system is $\mathcal H_{sys}$,  $\mathcal H_{|x^\prime | < |x|} $ for the bosonic field in the region $ |x^\prime | < |x|$ and analogously $\mathcal H_{|x^\prime| \geq  |x| }$ for the region $  |x^\prime | \geq |x|$. 
+Now, we state the corollary (with follows automatically from \eqref{nx} and \eqref{nx-imp}.
 
 \begin{corollary}
 \label{coro:gs}
-Taking a point sufficiently far away the scatterer, $|x| \to \infty$, 
-the ground state of \eqref{H-full} can be arbitrarily well approximated by the state
+If  $|x| \to \infty$, 
+the ground state of \eqref{H-full} is  well approximated by the state
 \begin{equation}
 \label{gs-ansatz}
 |\Omega \rangle \cong | \widetilde \Omega \rangle | {\rm vac} (x) \rangle 
 \end{equation}
-where $\mu \rangle$ a normalized  state living  on $\mathcal H_{|x^\prime| < |x|}  \otimes \mathcal H_{sys}$ and $|{\rm vac} (x) \rangle$ is  the trivial vacuum $a_{x^\prime} | {\rm vac} (x) \rangle=0 \; \forall |x^\prime| > |x|$ in the subspace $\mathcal H_{|x^\prime| \geq |x| }$.
+where $\vert \widetilde \Omega \rangle$  is a normalized  state   on $\mathcal H_{|x^\prime| < |x|}  \otimes \mathcal H_{sys}$ and $|{\rm vac} (x) \rangle$ is  the trivial vacuum $a_{x^\prime} | {\rm vac} (x) \rangle=0 \; \forall |x^\prime| > |x|$ in the subspace $\mathcal H_{|x^\prime| \geq |x| }$.
 \end{corollary}
 
+Therefore, we have shown that the scatterer can create some excitations in its vicinity, but at distances sufficiently far away the ground state can be approximated locally by the vacuum of $H_0$.
+{\color{red} take care: $a_k |vac\rangle \to 0 \to a_x  | vac \rangle =0$}.
 
 %Summarising this section, we highlight that we have shown that far from the interaction region $\Vert{\psi_{k_0}(x)\ket{\Omega}}\Vert \to0$ as $x\to\pm\infty$.  This will be important soon.
 
@@ -470,12 +474,14 @@ where $\mu \rangle$ a normalized  state living  on $\mathcal H_{|x^\prime| < |x|
 
 \subsection{Bound states}
 
-We have shown that the ground state can be understood as a localized state, in the sense that there are only excitations ($\braket{a_x^\dagger a_x} > 0)$  around the scatterer.   For some instances of \eqref{H-full}  there are excited bound states \cite{}.  In the construction for the general form for the $S$-matrix (see below) we will also take into account   this possibility.  Being concrete, we will assume that the light-matter model may contain excited states that can be well approximated by,
+We have shown that the ground state can be understood as a localized state, in the sense that there are only excitations ($\braket{a_x^\dagger a_x} > 0)$  around the scatterer.   For some instances of \eqref{H-full}  there are excited bound states \cite{}.  In the construction for the general form for the $S$-matrix (see below) we will also take into account   this possibility.  Being localised we can always approximate bound states by 
 \begin{equation}
 \label{bound}
 | \Omega_\nu \rangle = | \widetilde \Omega_\nu  \; \rangle | {\rm vac}(x) \rangle
 \end{equation}
-with $\nu = 1, 2, ...$. With this notation we can identify $| \Omega_0 \rangle \equiv | \Omega \rangle$.
+where $|x|\to \infty$ (in a similar fashion that for the ground state) and 
+ $\nu = 1, 2, ...$. With this notation we can identify $| \Omega_0 \rangle \equiv | \Omega \rangle$.
+It is important to notice that the existence of bound states implies that the output after a scattering event can relax to an excited state rather to the ground state, wich is nothing but Raman scattering.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -486,12 +492,7 @@ with $\nu = 1, 2, ...$. With this notation we can identify $| \Omega_0 \rangle \
 
 \section{Asymptotic states and scattering theory}
 
-Now, we merge the two previous sections to check that  the $S$-matrix can be defined in the   light-matter Hamiltonian \eqref{H-full}.   
-A  condition to talk on scattering is the so-called asymptotic condition wich states that a wavepacket localized far away the scatterer behaves like a free wave packet.  Here free means that its dynamics is governed by the free Hamiltonian $H = \int dk \omega_k a_k^\dagger a_k$.
-
-In a first theorem we prove the existence os asymptotic 
-
-We are now going to study a full Hamiltonian that includes freely propagating photons together with the interaction with a small, few-level system:
+It is time to discuss if \eqref{H-full} gives a physically reasonable scattering theory, \emph{i.e.} it fullfils the  asymptotic condition wich states that a wavepacket localized far away the scatterer behaves like a free wave packet.  Here free means that its dynamics is governed by the free Hamiltonian $H_0 = \int dk \omega_k a_k^\dagger a_k$ \cite{Taylor1972}.  The condition can be written as,
 \begin{equation}
 \label{asymptotic}
 \Vert U(t) | \psi \rangle - U^0 |\Psi_{\rm in /out} \rangle \Vert \stackrel{t\to \pm \infty}{\longrightarrow} 0
@@ -506,10 +507,10 @@ If the latter holds, the $S$ operator  is defined as:
 \label{Sinout}
 \vert \Psi_{\rm out} \rangle = S \,  \vert \Psi_{\rm in} \rangle  \;.
 \end{equation}
-It can be shown that, $S = \Omega_-^\dagger \Omega_+$ where $\Omega_\pm := \lim_{t \mp \infty} U^{-1} (t) U_0 (t)$ are the M\"  olmer isometries, see again \cite{Taylor1972}. The $S$-matrix, as defined here \eqref{Sdef}, are its matrix elements.  The  states $| \Psi_{\rm in} \rangle$ and $|\Psi_{\rm out} \rangle$ are naturally named input and output states.
+It can be shown that, $S = \Omega_-^\dagger \Omega_+$ where $\Omega_\pm := \lim_{t \mp \infty} U^{-1} (t) U_0 (t)$ are the M\"  olmer isometries, see again \cite{Taylor1972}. The $S$-matrix, as defined in  \eqref{Sdef}, is its matrix elements.  The  states $| \Psi_{\rm in} \rangle$ and $|\Psi_{\rm out} \rangle$ are  named input and output states.
  
 
-Our goal is to show that wavepackets that are far from the scatterer evolve approximately as if they were free particles.
+To show that \eqref{H-full} satisfies \eqref{asymptotic} we first prove a theorem stating that far away the scatter field operators evolve under the free hamiltonian.
 
 \begin{theorem}\label{th:int_evol}
 Let $H$ denote the Hamiltonian describing the interaction between a propagating wavepacket and a localized few-level system. This Hamiltonian will be given by Eq.\ \ref{eq:H-full}, where the bounded operators $H_{sys},c\in \mathbb{R}^{d\times d}$ describe a few-level scatterer sitting at $x_{sys}=0$. We will assume the conditions of Theorem\ \ref{th:free-causality}: (i) {\color{red}non-negative}, finite group velocity, and (ii) differentiable, polynomially bound functions $\omega_k$ and $g_k$, with degrees $n\geq 2$. Then all wavepackets outside the light-cone of the scatterer $c$ evolve approximately with the free Hamiltonian, $H_0$. More precisely, if $(x,t_1)$ and $(x,t_0)$ are two points outside the light cone
@@ -559,7 +560,7 @@ Here we have used the fact that $d_c(|x|,\tau'')\geq d_c(|x|,|t_1-t_0|)> 0$ in t
 
 
 
-One important limitation of the previous discussion is that it is centered on the operators, not on the states themselves, wich is what we need to prove the asymptotic condition.  
+One important limitation of the previous discussion is that it is centered on the operators, not on the states themselves, needed to prove the asymptotic condition.  
 In order to do so,  we still need to introduce  single photon input and output states appearing in \eqref{Sinout}.
 \begin{equation}
 \label{inoutdef}
@@ -567,7 +568,7 @@ In order to do so,  we still need to introduce  single photon input and output s
 \psi_n^\dagger (t_\mp) | \Omega_\nu  \rangle
 \qquad  \vert \bar x_n \vert \to \infty \; \wedge \;  t_\mp \to \mp \infty \, .
 \end{equation}
-with $\vert \Omega_\nu$ are bound states. The ground state and possible excited ones,  Cf. Eqs. \eqref{gs-ansatz} , \eqref{bound} and corollary \ref{coro:gs}.  
+with $\vert \Omega_\nu \rangle$ are bound states including the ground state and the excited ones,  Cf. Eqs. \eqref{gs-ansatz} , \eqref{bound} and corollary \ref{coro:gs}.  
 Now, using  the   theorems \ref{th:int_evol}  and  \ref{theo:bound-x} and  corollary \ref{coro:gs},  the asymptotic condition, Eq. \eqref{asymptotic}, follows.  Thus, we can enunciate the corollary,
 
 \begin{corollary}
@@ -576,8 +577,7 @@ Hamiltonian \eqref{H-full}, with the properties used to proof all the previous r
 \end{corollary}
 
 
-
-In a physical picture what we have done here is to argue that the $S$-matrix has sense in the light matter interaction because far away the scatterer the wavepackets evolve freely (under $H_0$) and that they are fly photons because they can be  created over the vacuum of $H_0$.
+Therefore, under rather general conditions, we have shown that the light matter Hamiltonian gives a physical scattering theory.  In the next section, we show what restrictions must satisfy the $S$-matrix.
 
 
 \section{Cluster revisited}
