@@ -655,18 +655,16 @@ Given a general operator $\mathcal{O}$, we introduce the input-output operators
 \end{align}
 with $t_\pm \to \pm \infty$, being $H$ the full Hamiltonian, Eq. \eqref{H-full}, and $H_0$ its photonic part. The scattering amplitude can be rewritten in terms of input-output operators for the wavepackets $\psi_{k_n}(x_n)$ and $\psi_{p_m}(y_m)$:
 \begin{equation}
-A_{\text{in}\to\text{out}}=\bra{\mu} \prod_{m=1}^N \left(\psi'_{p_m}(y_m)\right)_\text{out}\prod_{n=1}^N\left(\psi_{k_n}(x_n)^\dagger\right)_\text{in}\ket{\nu}.
+A_{\text{in}\to\text{out}}=\bra{\mu} \prod_{m=1}^N (\psi'_{p_m}(y_m))_\text{out}\prod_{n=1}^N(\psi_{k_n}(x_n)^\dagger)_\text{in}\ket{\nu}.
 \end{equation}
 {\color{red}As shown in the previous section in Theorem X}, these operators fulfil the condition given by Theorem \ref{th:free-causality}, so their commutator will follow Eq. \eqref{eq:th_free_causality}; actually, their commutators will be zero, since they are infinitely separated. Then, the previous expression can be rearranged as
 \begin{align}
 A_{\text{in}\to\text{out}}  =
  \bra{\mu} 
-\left 
 ( \psi^\prime_{p_N} (y_N)
-\right
  )_{\text{out}}
-\left(\psi_{k_N}(x_N)^\dagger\right)_{\text{in}}
-%\left(\psi'_{p_{N-1}}(y_{N-1})\right)_{\text{out}}\left(\psi_{k_{N-1}}(x_{N-1})^\dagger\right)_{\text{in}}
+(\psi_{k_N}(x_N)^\dagger)_{\text{in}}
+%\psi'_{p_{N-1}}(y_{N-1}))_{\text{out}}(\psi_{k_{N-1}}(x_{N-1})^\dagger)_{\text{in}}
 %\nonumber
 %\\
  \dots 
@@ -679,9 +677,9 @@ _{\text{out}}
 \end{align}
 Inserting the identity between $\left(\psi_{k_n}(x_n)^\dagger\right)_\text{in}$ and $\left(\psi'_{p_{n-1}}(y_{n-1})\right)_\text{out}$ for all $n$ and assuming the process is number conserving, we get
 \begin{equation}\label{eq:Ainout}
-A_{\text{in}\to\text{out}}= \sum_{\lambda_1,\dots,\lambda_{N-1}=1}^M \prod_{n=1}^N \bra{\lambda_n} \left(\psi'_{p_n}(y_n)\right)_\text{out}\left(\psi_{k_n}(x_n)^\dagger\right)_\text{in}\ket{\lambda_{n-1}},
+A_{\text{in}\to\text{out}}= \sum_{\lambda_1,\dots,\lambda_{N-1}=1}^M \prod_{n=1}^N \bra{\lambda_n} (\psi'_{p_n}(y_n))_\text{out}(\psi_{k_n}(x_n)^\dagger)_\text{in}\ket{\lambda_{n-1}},
 \end{equation}
-1with $M$ the number of stable states of the scatterer, $\ket{\lambda_n}$ a general stable state of the scatterer, $\ket{\lambda_0}\equiv \ket{\nu}$, $\ket{\lambda_N}\equiv \ket{\mu}$. We can easily interpret this result. The quantity $A_{\psi_n\to\psi'_n}^{\lambda_{n-1}\to\lambda_n} \equiv \bra{\lambda_n} \left(\psi'_{p_n}(y_n)\right)_\text{out}\left(\psi_{k_n}(x_n)^\dagger\right)_\text{in}\ket{\lambda_{n-1}}$ is the single-photon scattering amplitude between the states $\psi_{k_n}(x_n)^\dagger\ket{\lambda_{n-1}}$ and $\psi'_{p_n}(y_n)^\dagger\ket{\lambda_n}$. With this in mind, we see Eq. \eqref{eq:Ainout} is the amplitude probability of going from $\psi_{k_1}(x_1)^\dagger\ket{\nu}$ to $\psi'_{p_1}(y_1)^\dagger\ket{\lambda_1}$, summing over all the possible stable states $\ket{\lambda_1}$, times the amplitude of going from $\psi_{k_2}(x_2)^\dagger\ket{\lambda_1}$ to $\psi'_{p_2}(y_2)^\dagger\ket{\lambda_2}$, taking the sum for all the intermediate states $\ket{\lambda_2}$, and so on.
+with $M$ the number of stable states of the scatterer, $\ket{\lambda_n}$ a general stable state of the scatterer, $\ket{\lambda_0}\equiv \ket{\nu}$, $\ket{\lambda_N}\equiv \ket{\mu}$. We can easily interpret this result. The quantity $A_{\psi_n\to\psi'_n}^{\lambda_{n-1}\to\lambda_n} \equiv \bra{\lambda_n} (\psi'_{p_n}(y_n))_\text{out}\left(\psi_{k_n}(x_n)^\dagger\right)_\text{in}\ket{\lambda_{n-1}}$ is the single-photon scattering amplitude between the states $\psi_{k_n}(x_n)^\dagger\ket{\lambda_{n-1}}$ and $\psi'_{p_n}(y_n)^\dagger\ket{\lambda_n}$. With this in mind, we see Eq. \eqref{eq:Ainout} is the amplitude probability of going from $\psi_{k_1}(x_1)^\dagger\ket{\nu}$ to $\psi'_{p_1}(y_1)^\dagger\ket{\lambda_1}$, summing over all the possible stable states $\ket{\lambda_1}$, times the amplitude of going from $\psi_{k_2}(x_2)^\dagger\ket{\lambda_1}$ to $\psi'_{p_2}(y_2)^\dagger\ket{\lambda_2}$, taking the sum for all the intermediate states $\ket{\lambda_2}$, and so on.
 
 Physically, this result makes perfectly sense. The first photon impinging on the scatterer, that at $x_1$ with momentum $k_1$, induces a transition between the initial state of the scatterer $\ket{\nu}$ and some intermediate state $\ket{\lambda_1}$, then, the second photon causes a new transition between the actual state for the scatterer, $\ket{\lambda_1}$, and another stable state $\ket{\lambda_2}$, and, finally, the last photon, impinging from $x_N$ with momentum $k_N$, switches the scatterer from $\ket{\lambda_{N-1}}$ and the final state $\ket{\mu}$.
 
