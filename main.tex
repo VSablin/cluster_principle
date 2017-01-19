@@ -52,7 +52,6 @@
 
 \begin{abstract}
 $S^0$ under general conditions.
-
 \end{abstract}
 
 
@@ -60,6 +59,7 @@ $S^0$ under general conditions.
 \maketitle
 
 \section{Introduction}
+
 
 {\color{red}
 To say:
@@ -70,7 +70,6 @@ decimos explictamente algo sobre que con RWA el g.s. es trivial y todo sale igua
 creo que alguna cita a Baranguer habria que poner (tiene seminal de two photon S-matrix? La de quantum computing en technological applications).
 
 }
-
 
 Causality is  expected to hold in every circumstance.    In words of Weinberg, two uncorrelated experiments must provide uncorrelated results \cite{Weinberg1996}.     In Quantum Field Theory, causality imposes that  spacelike-separated operators conmute.   In non-relativistic quantum mechanics, however, we should abandon such an stringent condition which  does not imply causality violation.  In local Hamiltonians~\footnote{interactions decay sufficiently fast with the distance}, there is a finite maximum  group velocity at which the information can travel.   Although operators do not conmute,  their conmutator  (its norm) is arbitrarily small at distances large enough compared to this maximum velocity  bounded by Lieb and Robinson \cite{Lieb1972}.  
 
@@ -225,15 +224,14 @@ Once the basic elements are introduced, we can introduce the main results of thi
 
 In QFT, causal theories must require that \emph{all} spacelike separated operators, $A(x,t)$,  commute, see \emph{e.g.} \cite[Sect. 2.6.1]{tong2006}:
 \begin{equation}
-\label{c-QFT}
 [ A (x, t), A (y,t^\prime)]= 0  \qquad \forall \quad  (x-y)^2 -c^2 (t-t^\prime) <0 \, .
 \end{equation}
-In non relativistic theories we have not such strict local relations but the fact that group velocities are upper bounded suggest to expect  the Lieb-Robinson bounds to hold.  They are weaker than \eqref{c-QFT}, in the sense that they do not say anything about the commutator but on their norm.  In particular they say that beyond the \emph{effective} light cone emerged by the maximuum group velocity the norm for the conmutator of two operators decay exponentially.   To show the bounds, several assumptions on the model are needed.  For example, finite dimensional systems or coupled harmonic oscillators \cite{}.  
-Here we take a different but related route and show a weaker condition but sufficient for our purposes.  
-We will demonstrate the announced result, Eq. \eqref{cas-main}, \emph{i.e.} that  the commutator   for sufficiently separated wavepackets can be approximated by zero.    
+In non relativistic theories we have not such strict local relations but the fact that group velocities are upper bounded and the Lieb-Robinson bounds are expected to hold.  They are weaker, in the sense that they do not say about the commutator but their norm.  In particular they say that below the \emph{effective} light cone emerged by the maximuum group velocity the norm for the conmutator of two operators decay exponentially.   To show the bounds, several assumptions on the model are needed.  For example, finite dimensional systems or coupled harmonic oscillators \cite{}.  
+Here we take a different but related route and show, even a weaker condition that is easily to show and serves for our purposes.  
+In the next lines we will show the announced result, Eq. \eqref{cas-main}, \emph{i.e.} that  the commutator   for sufficiently separated wavepackets can be approximated by zero.    
 In this section we will focus on the free bosonic model $H = \int dk \omega_k a_k^\dagger a_k$. The inclusion of the scatterer will be done in the succeeding sections.
 
-We  work with localized wavepackets $\psi_{k_0}(x,t)$ as defined in \eqref{wp}.  Actual calculations are done with gaussian wavepackets:
+In order to do so, we  work with localized wavepackets $\psi_{k_0}(x,t)$ as defined in \eqref{wp}.  Actual calculations are done with gaussian wavepackets:
 \begin{equation}
 \phi_{k_0}(k) = \frac{1}{\sqrt[4]{\pi}\sqrt{\sigma}}
 \exp\left[-(k-k_0)^2/2\sigma^2\right].
@@ -489,15 +487,20 @@ with $\nu = 1, 2, ...$. With this notation we can identify $| \Omega_0 \rangle \
 \section{Asymptotic states and scattering theory}
 
 Now, we merge the two previous sections to check that  the $S$-matrix can be defined in the   light-matter Hamiltonian \eqref{H-full}.   
-A  condition of the model to give a physically reasonable scattering theory is the so-called \emph{asymptotic condition} \cite{Taylor1972}.  This   states that a wavepacket localized far away the scatterer behaves like a free wave packet.  Here free means that its dynamics is governed by the free Hamiltonian $H_0 = \int dk \omega_k a_k^\dagger a_k$. To be precise, the asymptotic condition can be enunciated as follows.  For every states $| \Psi_{\rm in} \rangle$ and $|\Psi_{\rm out} \rangle$ there is $\psi\rangle$ that
+A  condition to talk on scattering is the so-called asymptotic condition wich states that a wavepacket localized far away the scatterer behaves like a free wave packet.  Here free means that its dynamics is governed by the free Hamiltonian $H = \int dk \omega_k a_k^\dagger a_k$.
+
+In a first theorem we prove the existence os asymptotic 
+
+We are now going to study a full Hamiltonian that includes freely propagating photons together with the interaction with a small, few-level system:
 \begin{equation}
 \label{asymptotic}
 \Vert U(t) | \psi \rangle - U^0 |\Psi_{\rm in /out} \rangle \Vert \stackrel{t\to \pm \infty}{\longrightarrow} 0
 \end{equation}
-with 
+The evolution with $H$ and $H_0$ will be given by the unitary operators
 \begin{align}
-U(t_1,t_0) = e^{-iH t },~\mbox{and}~ U_0(t_1,t_0)= e^{-iH_0 t }.
+U(t_1,t_0) = e^{-iH(t_1-t_0)},~\mbox{and}~ U_0(t_1,t_0)= e^{-iH_0(t_1-t_0)}.
 \end{align}
+
 If the latter holds, the $S$ operator  is defined as:
 \begin{equation}
 \label{Sinout}
@@ -505,8 +508,11 @@ If the latter holds, the $S$ operator  is defined as:
 \end{equation}
 It can be shown that, $S = \Omega_-^\dagger \Omega_+$ where $\Omega_\pm := \lim_{t \mp \infty} U^{-1} (t) U_0 (t)$ are the M\"  olmer isometries, see again \cite{Taylor1972}. The $S$-matrix, as defined here \eqref{Sdef}, are its matrix elements.  The  states $| \Psi_{\rm in} \rangle$ and $|\Psi_{\rm out} \rangle$ are naturally named input and output states.
  
+
+Our goal is to show that wavepackets that are far from the scatterer evolve approximately as if they were free particles.
+
 \begin{theorem}\label{th:int_evol}
-Let $H$  given by Eq.\ \ref{H-full}, where the bounded operators  We will assume the conditions of Theorem\ \ref{th:free-causality}: (i)  finite group velocity wich absolute value is upper bounded by $c$,  (ii) differentiable, polynomially bound functions $\omega_k$ and $g_k$, with degrees $n\geq 2$ and (iii) the scatterer sitting at $x =0$ and occupying a finite region of size $m$ . Then all wavepackets outside the light-cone of the scatterer $c$ evolve approximately with the free Hamiltonian, $H_0$. More precisely, if $(x,t_1)$ and $(x,t_0)$ are two points outside the light cone
+Let $H$ denote the Hamiltonian describing the interaction between a propagating wavepacket and a localized few-level system. This Hamiltonian will be given by Eq.\ \ref{eq:H-full}, where the bounded operators $H_{sys},c\in \mathbb{R}^{d\times d}$ describe a few-level scatterer sitting at $x_{sys}=0$. We will assume the conditions of Theorem\ \ref{th:free-causality}: (i) {\color{red}non-negative}, finite group velocity, and (ii) differentiable, polynomially bound functions $\omega_k$ and $g_k$, with degrees $n\geq 2$. Then all wavepackets outside the light-cone of the scatterer $c$ evolve approximately with the free Hamiltonian, $H_0$. More precisely, if $(x,t_1)$ and $(x,t_0)$ are two points outside the light cone
 \begin{equation}
 \psi(x,t_1) \simeq U_0(t_1,t_0)^\dagger\psi_{k_0}(x,t_0)U(t_1,t_0)
 +\mathcal{O}\left(\frac{1}{|d_{min}|^{n-1}}\right),
@@ -599,18 +605,16 @@ Given a general operator $\mathcal{O}$, we introduce the input-output operators
 \end{align}
 with $t_\pm \to \pm \infty$, being $H$ the full Hamiltonian, Eq. \eqref{H-full}, and $H_0$ its photonic part. The scattering amplitude can be rewritten in terms of input-output operators for the wavepackets $\psi_{k_n}(x_n)$ and $\psi_{p_m}(y_m)$:
 \begin{equation}
-A_{\text{in}\to\text{out}}=\bra{\mu} \prod_{m=1}^N \left(\psi'_{p_m}(y_m)\right)_\text{out}\prod_{n=1}^N\left(\psi_{k_n}(x_n)^\dagger\right)_\text{in}\ket{\nu}.
+A_{\text{in}\to\text{out}}=\bra{\mu} \prod_{m=1}^N (\psi'_{p_m}(y_m))_\text{out}\prod_{n=1}^N(\psi_{k_n}(x_n)^\dagger)_\text{in}\ket{\nu}.
 \end{equation}
 {\color{red}As shown in the previous section in Theorem X}, these operators fulfil the condition given by Theorem \ref{th:free-causality}, so their commutator will follow Eq. \eqref{eq:th_free_causality}; actually, their commutators will be zero, since they are infinitely separated. Then, the previous expression can be rearranged as
 \begin{align}
 A_{\text{in}\to\text{out}}  =
  \bra{\mu} 
-\left 
 ( \psi^\prime_{p_N} (y_N)
-\right
  )_{\text{out}}
-\left(\psi_{k_N}(x_N)^\dagger\right)_{\text{in}}
-%\left(\psi'_{p_{N-1}}(y_{N-1})\right)_{\text{out}}\left(\psi_{k_{N-1}}(x_{N-1})^\dagger\right)_{\text{in}}
+(\psi_{k_N}(x_N)^\dagger)_{\text{in}}
+%\psi'_{p_{N-1}}(y_{N-1}))_{\text{out}}(\psi_{k_{N-1}}(x_{N-1})^\dagger)_{\text{in}}
 %\nonumber
 %\\
  \dots 
@@ -623,9 +627,9 @@ _{\text{out}}
 \end{align}
 Inserting the identity between $\left(\psi_{k_n}(x_n)^\dagger\right)_\text{in}$ and $\left(\psi'_{p_{n-1}}(y_{n-1})\right)_\text{out}$ for all $n$ and assuming the process is number conserving, we get
 \begin{equation}\label{eq:Ainout}
-A_{\text{in}\to\text{out}}= \sum_{\lambda_1,\dots,\lambda_{N-1}=1}^M \prod_{n=1}^N \bra{\lambda_n} \left(\psi'_{p_n}(y_n)\right)_\text{out}\left(\psi_{k_n}(x_n)^\dagger\right)_\text{in}\ket{\lambda_{n-1}},
+A_{\text{in}\to\text{out}}= \sum_{\lambda_1,\dots,\lambda_{N-1}=1}^M \prod_{n=1}^N \bra{\lambda_n} (\psi'_{p_n}(y_n))_\text{out}(\psi_{k_n}(x_n)^\dagger)_\text{in}\ket{\lambda_{n-1}},
 \end{equation}
-1with $M$ the number of stable states of the scatterer, $\ket{\lambda_n}$ a general stable state of the scatterer, $\ket{\lambda_0}\equiv \ket{\nu}$, $\ket{\lambda_N}\equiv \ket{\mu}$. We can easily interpret this result. The quantity $A_{\psi_n\to\psi'_n}^{\lambda_{n-1}\to\lambda_n} \equiv \bra{\lambda_n} \left(\psi'_{p_n}(y_n)\right)_\text{out}\left(\psi_{k_n}(x_n)^\dagger\right)_\text{in}\ket{\lambda_{n-1}}$ is the single-photon scattering amplitude between the states $\psi_{k_n}(x_n)^\dagger\ket{\lambda_{n-1}}$ and $\psi'_{p_n}(y_n)^\dagger\ket{\lambda_n}$. With this in mind, we see Eq. \eqref{eq:Ainout} is the amplitude probability of going from $\psi_{k_1}(x_1)^\dagger\ket{\nu}$ to $\psi'_{p_1}(y_1)^\dagger\ket{\lambda_1}$, summing over all the possible stable states $\ket{\lambda_1}$, times the amplitude of going from $\psi_{k_2}(x_2)^\dagger\ket{\lambda_1}$ to $\psi'_{p_2}(y_2)^\dagger\ket{\lambda_2}$, taking the sum for all the intermediate states $\ket{\lambda_2}$, and so on.
+with $M$ the number of stable states of the scatterer, $\ket{\lambda_n}$ a general stable state of the scatterer, $\ket{\lambda_0}\equiv \ket{\nu}$, $\ket{\lambda_N}\equiv \ket{\mu}$. We can easily interpret this result. The quantity $A_{\psi_n\to\psi'_n}^{\lambda_{n-1}\to\lambda_n} \equiv \bra{\lambda_n} (\psi'_{p_n}(y_n))_\text{out}(\psi_{k_n}(x_n)^\dagger)_\text{in}\ket{\lambda_{n-1}}$ is the single-photon scattering amplitude between the states $\psi_{k_n}(x_n)^\dagger\ket{\lambda_{n-1}}$ and $\psi'_{p_n}(y_n)^\dagger\ket{\lambda_n}$. With this in mind, we see Eq. \eqref{eq:Ainout} is the amplitude probability of going from $\psi_{k_1}(x_1)^\dagger\ket{\nu}$ to $\psi'_{p_1}(y_1)^\dagger\ket{\lambda_1}$, summing over all the possible stable states $\ket{\lambda_1}$, times the amplitude of going from $\psi_{k_2}(x_2)^\dagger\ket{\lambda_1}$ to $\psi'_{p_2}(y_2)^\dagger\ket{\lambda_2}$, taking the sum for all the intermediate states $\ket{\lambda_2}$, and so on.
 
 Physically, this result makes perfectly sense. The first photon impinging on the scatterer, that at $x_1$ with momentum $k_1$, induces a transition between the initial state of the scatterer $\ket{\nu}$ and some intermediate state $\ket{\lambda_1}$, then, the second photon causes a new transition between the actual state for the scatterer, $\ket{\lambda_1}$, and another stable state $\ket{\lambda_2}$, and, finally, the last photon, impinging from $x_N$ with momentum $k_N$, switches the scatterer from $\ket{\lambda_{N-1}}$ and the final state $\ket{\mu}$.
 
