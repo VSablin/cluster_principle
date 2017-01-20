@@ -130,7 +130,7 @@ No more assumptions on the model  will  invoked to prove our results, making our
 {\color{red}Problema: definir aquí $S$ sólo como operador y no a través de sus elementos de matriz es un jaleo, porque en las siguientes líneas hacemos referencia constantemente a los elementos de matriz}
 
 
-We are interested in discussing the scattering wich is characterised by the $S$-matrix, relating the input and the output, defined as,
+We are interested in discussing the scattering which is characterised by the $S$-matrix, relating the input and the output, defined as,
 \begin{equation}
 \label{Sdef}
 ( S_{y_1 ...y_n x_1...x_N} )_{\mu \nu} = \langle \mu | \langle y_1, ..., y_N | \lim_{t_\mp  \to \mp \infty} U_I(t_-, t_+) | x_1, ..., x_N \rangle | \nu \rangle
@@ -162,14 +162,14 @@ It is clear that being \eqref{H-full} an inherent quantum many body problem, its
 \prod_{m=1}^{N-1}\theta(y_{m+1}-y_m) + \text{permutations},
 \end{equation}
 with $\lambda_0\equiv \mu$ and $\lambda_N\equiv\nu$.  The symmetrisation imposes permutations in $y_n/x_n\leftrightarrow y_m/x_m$ for all $n$ and $m$.
-For simplicity, we have considered chiral waveguides with only right ( or left) moving photons.   The general case of non-chiral waveguides is easily done as we explain section Sect. \ref{sec:}.   Even with this simplification  the formula may appear obscure.  However, it  is rather simple in words.   Consider  two input  wavepackets (see figure \ref{fig:input} ).  They are  {\color{red} arbitrarily separated}.  Eq. \eqref{S0-main} says that, in this case,  the output will consists on the sum of single wavepacket events.  They are so separated that they do interact with the scatterer {\color{red}one by one}.  Since the scatterer, after the interaction with single photon wave packets, can be left in some state $\lambda_n$ we should sum over all these intermediate states.  Finally, the Heaviside is there because of causality (it orders the different single photon events).   If the system, after each scattering event, relaxes to its ground state  \eqref{S0-main} reduces to:
+For simplicity, we have considered chiral waveguides with only right ( or left) moving photons.   The general case of non-chiral waveguides is easily done as we explain section Sect. \ref{sec:}.   Even with this simplification  the formula may appear obscure.  However, it  is rather simple in words.   Consider  two input  wave packets (see figure \ref{fig:input} ).  They are  {\color{red} arbitrarily separated}.  Eq. \eqref{S0-main} says that, in this case,  the output will consists on the sum of single wave packet events.  They are so separated that they do interact with the scatterer {\color{red}one by one}.  Since the scatterer, after the interaction with single photon wave packets, can be left in some state $\lambda_n$ we should sum over all these intermediate states.  Finally, the Heaviside is there because of causality (it orders the different single photon events).   If the system, after each scattering event, relaxes to its ground state  \eqref{S0-main} reduces to:
 \begin{equation}
 \label{S-cluster-main}
  S_{y_1 ...y_n x_1...x_N}  \to \prod_{n=1}^N S_{y_nx_n}
 + \text{permutations},
 \end{equation}
 which is the usual limit  found within the cluster decomposition for the $S$-matrix that 
- can been  rigorously   derived in QFT  imposing momentum conservation \cite[Chap. 4]{weinberg1995}.  In fact, it is considered a basic requirement for $S$ to be causal and, it is so important, that in axiomatic field theories is postulated as principle.   In this work we derive it from a lattice, non-relativistic but local [footnote] Hamiltonian as \eqref{H-full}.  Comparing \eqref{S0-main} and \eqref{S-cluster-main} stands out the Heaviside and the sum over system states wich is a consequence of  having Raman processes \emph{i.e.} the system is left in a different state after the scattering.   
+ can been  rigorously   derived in QFT  imposing momentum conservation \cite[Chap. 4]{weinberg1995}.  In fact, it is considered a basic requirement for $S$ to be causal and, it is so important, that in axiomatic field theories is postulated as principle.   In this work we derive it from a lattice, non-relativistic but local [footnote] Hamiltonian as \eqref{H-full}.  Comparing \eqref{S0-main} and \eqref{S-cluster-main} stands out the Heaviside and the sum over system states which is a consequence of  having Raman processes \emph{i.e.} the system is left in a different state after the scattering.   
 Quite recently, an analytical calculation in a  $\Lambda$-atom  has found such a functional form for the two photon $S$-matrix highlighting how subtle are the causal consequences in actual waveguide QED architectures \cite{Xu2016} .    The fact that Eq. \eqref{S0-main} emerges from the lattice \eqref{H-full} is the main result of this paper.
 
 
@@ -178,7 +178,7 @@ They are important by themselves.    The first one is a property for the ground 
 In a fresh preprint it has been proven that the same holds for impurity models in lattice fermionic models.  Our demonstration and context is  different but, with that work in mind, we could expect that our findings can also be used to give hints about the complexity of finding the ground state in light-matter Hamiltonians.  In Sect. \ref{sect:} we state in a more rigourous way this result and explain the consequences for the $S$-matrix.
 
 
-In  a non relativitic bosonic medium (first term in \eqref{H0-full}) there is not strict locality, where commutators for space-like events are zero.  Thus, we need to explore what causality means now. In Sect. \ref{sect:}   we demonstrate that the norm of the  conmutator of two wavepackets sufficiently separated  is arbitrarily small:
+In  a non relativitic bosonic medium (first term in \eqref{H0-full}) there is not strict locality, where commutators for space-like events are zero.  Thus, we need to explore what causality means now. In Sect. \ref{sect:}   we demonstrate that the norm of the  conmutator of two wave packets sufficiently separated  is arbitrarily small:
 \begin{equation}
 \label{cas-main}
 \Vert[\psi(t),\psi'(t')^\dagger]\Vert \to 0  \quad
@@ -212,7 +212,7 @@ with $t_\pm \to\pm\infty$ and
 \begin{equation}
 \xi_n^\dagger = \sum_x  \phi_n(x) a_x^\dagger.
 \end{equation}
-The wave functions $\phi_n(x)$ are centered arround $x_n$ and  have support only on sites far away the scatterer (similarly with $\xi_n (y)$) and  $g_\nu$  ($g_\mu$) are system states.  With this at hand, the $S$-matrix, wich connect input and output states is simply the amplitude:
+The wave functions $\phi_n(x)$ are centered arround $x_n$ and  have support only on sites far away the scatterer (similarly with $\xi_n (y)$) and  $g_\nu$  ($g_\mu$) are system states.  With this at hand, the $S$-matrix, which connect input and output states is simply the amplitude:
 \begin{equation}
 ( S_{y_1 ...y_n x_1...x_N} )_{\mu \nu} =  \langle \Psi_{\rm out} (y_1, ..., y_N, t; \mu) | \Psi_{\rm in} (x_1, ..., x_N, t; \nu) \rangle
 \end{equation}
@@ -231,16 +231,16 @@ In QFT, causal theories must require that \emph{all} spacelike separated operato
 \end{equation}
 In non relativistic theories we have not such strict local relations but the fact that group velocities are upper bounded and the Lieb-Robinson bounds are expected to hold.  They are weaker, in the sense that they do not say about the commutator but their norm.  In particular they say that below the \emph{effective} light cone emerged by the maximuum group velocity the norm for the conmutator of two operators decay exponentially.   To show the bounds, several assumptions on the model are needed.  For example, finite dimensional systems or coupled harmonic oscillators \cite{}.  
 Here we take a different but related route and show, even a weaker condition that is easily to show and serves for our purposes.  
-In the next lines we will show the announced result, Eq. \eqref{cas-main}, \emph{i.e.} that  the commutator   for sufficiently separated wavepackets can be approximated by zero.    
+In the next lines we will show the announced result, Eq. \eqref{cas-main}, \emph{i.e.} that  the commutator   for sufficiently separated wave packets can be approximated by zero.    
 In this section we will focus on the free bosonic model $H = \int dk \omega_k a_k^\dagger a_k$. The inclusion of the scatterer will be done in the succeeding sections.
 
-In order to do so, we  work with localized wavepackets $\psi(t)$ as defined in \eqref{wp}.  Actual calculations are done with gaussian wavepackets:
+In order to do so, we  work with localized wave packets $\psi(t)$ as defined in \eqref{wp}.  Actual calculations are done with gaussian wave packets:
 \begin{equation}
 \phi(k) = \frac{1}{\sqrt[4]{\pi}\sqrt{\sigma}}
 \exp\left[-(k-k_0)^2/2\sigma^2\right].
 \label{eq:gaussian}
 \end{equation}
-where the pre-factors are written because of normalisation.   The gaussian envelope ensures that, initially ($t=0$), the wavepacket is localised in space with variance $\sigma$.   
+where the pre-factors are written because of normalisation.   The gaussian envelope ensures that, initially ($t=0$), the wave packet is localised in space with variance $\sigma$.   
 
 
 The following  two lemmas  are  used  in the demonstration for the main theorem of this section.
@@ -283,7 +283,7 @@ provided that $q(k)$ is $n$-times differentiable and that $q^{(n)} \in L^1$. Bas
 \begin{eqnarray*}
 I(x) &=& \int e^{i k x} q(k) dk = \left(\frac{i}{x}\right)^n \int e^{ikx} q^{(n)}(k)dk,
 \end{eqnarray*}
-Moreover, $q^{(n)}$, resulting from a product of derivatives of $\omega_k t, -k^2/\sigma^2$ and the polynomial $p(k)$ of degree $r$, then it is bounded by a polynomial of at mosth $m+n + r$-th order in $|k|.$ Such a polynomial is integrable together with the Gaussian wavepacket giving a constant prefactor. In estimating this factor, we can take the worst-case scenario for the terms in $t$, wich appears at most $n$ times together with $(\omega_k')^n$. Regarding the monomials in $|k|$, they appear at most in $m+n + r$-th order, producing another prefactor $\sigma^{m+n+ r}$.
+Moreover, $q^{(n)}$, resulting from a product of derivatives of $\omega_k t, -k^2/\sigma^2$ and the polynomial $p(k)$ of degree $r$, then it is bounded by a polynomial of at mosth $m+n + r$-th order in $|k|.$ Such a polynomial is integrable together with the Gaussian wave packet giving a constant prefactor. In estimating this factor, we can take the worst-case scenario for the terms in $t$, which appears at most $n$ times together with $(\omega_k')^n$. Regarding the monomials in $|k|$, they appear at most in $m+n + r$-th order, producing another prefactor $\sigma^{m+n+ r}$.
 
 Note that it would suffice to consider $q(k)$ as a test function or even a Schwartz function since in this case all the differentiability requisities are fullfilled and  $\frac{q^{(s)}(a)}{x^s} \to 0,  \frac{q^{(s)}(b)}{x^s} \to 0$ when $a\to -\infty, b\to \infty, \, \forall x $ still holds, because these functions and their derivatives are rapidly decreasing.
 
@@ -294,11 +294,11 @@ With these lemmas at hand we can enunciate and demonstrate the  theorem of this 
 
 \begin{theorem}
 \label{th:free-causality}
-Let $\psi(t)$ and $\psi'(t')$ denote two localized wavepackets of the form\ \eqref{eq:gaussian}, whose mean positions and momenta are $\bar x,\bar k$ and $\bar y,\bar p$, respectively. We will assume (i) that the  absolute value for the group velocity of these wavepackets is upper-bounded by a constant $c$ within the domain of the wavepackets ($\vert  v_k = \partial_k \omega_k \vert  \leq c$), and (ii) that the dispersion relation is $n$-times differentiable and that each derivative is upper-bounded by a polynomial of at most order $m$:
+Let $\psi(t)$ and $\psi'(t')$ denote two localized wave packets of the form\ \eqref{eq:gaussian}, whose mean positions and momenta are $\bar x,\bar k$ and $\bar y,\bar p$, respectively. We will assume (i) that the  absolute value for the group velocity of these wave packets is upper-bounded by a constant $c$ within the domain of the wave packets ($\vert  v_k = \partial_k \omega_k \vert  \leq c$), and (ii) that the dispersion relation is $n$-times differentiable and that each derivative is upper-bounded by a polynomial of at most order $m$:
 \begin{equation}
 |\partial^{(r\leq n)}_k\omega_k|\leq a_r + (|k|/b_r)^m,~0< a_r,b_r<+\infty.
 \end{equation}
-The commutator between these wavepackets is small whenever these wavepackets are outside of their respective light-cones, that is, whenever $d=d_c(\bar y-\bar x,t'-t)\gg 0$, 
+The commutator between these wave packets is small whenever these wave packets are outside of their respective light-cones, that is, whenever $d=d_c(\bar y-\bar x,t'-t)\gg 0$, 
 \begin{equation}
 |\mathcal{I}|=\Vert[\psi(t),\psi(t')^\dagger]\Vert =
 \mathcal{O}\left(\frac{1}{|d|^n}\right),~d_c\to\infty.
@@ -308,7 +308,7 @@ The commutator between these wavepackets is small whenever these wavepackets are
 \begin{proof}
 Let us assume that the model evolves freely according to the free Hamiltonian
 $\int d k \; \omega_k a_k^\dagger a_k$.
-In this case, our wavepacket operators have the simple form
+In this case, our wave packet operators have the simple form
 \begin{equation}
 \psi(t) = \int  e^{ik\bar x-i\omega_kt} \phi(k) a_k(0) dk,
 \end{equation}
@@ -330,13 +330,13 @@ The exponent $\tilde\omega_k = \omega_k -c k$ is $n$-times differentiable and is
 \end{proof}
 
 Note that for a linear dispersion, $\omega_k=c k$, we can rewrite this integral as a function of the distance between world lines from Eq.\ \eqref{eq:distance}, $d=(\bar x-\bar y)-c(t-t')$.
-Introducing $k_{\pm}=(\bar k \pm \bar p)/2$ and using our Gaussian wavepackets\ \eqref{eq:gaussian}, we obtain
+Introducing $k_{\pm}=(\bar k \pm \bar p)/2$ and using our Gaussian wave packets\ \eqref{eq:gaussian}, we obtain
 \begin{equation}
 |I| = \exp\left[-\frac{k_-^2}{\sigma^2}-\frac{d^2\sigma^2}{4}\right].
 \label{eq:free-commutator}
 \end{equation}
 This bound is better than the one we have found but it is compatible with the Lemma \ref{lemma:bounds}.
-{\color{red} Besides, for localized wavepackets $\sigma \to \infty$: can we say more?}
+{\color{red} Besides, for localized wave packets $\sigma \to \infty$: can we say more?}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -407,11 +407,11 @@ which demonstrates \eqref{bound-nk}.
 
 
 
-This theorem allows to show what we announced at the beginning of the section, wich is encapsulated in our second theorem.
+This theorem allows to show what we announced at the beginning of the section, which is encapsulated in our second theorem.
 
 \begin{theorem}
 \label{theo:bound-x}
-Let us define $\psi_{k_0}(x)$ as the wavepacket\ \eqref{wp} where $\phi_{k_0}(k)=\xi(k-k_0)$ is a test function, infinitely differentiable with a finite support $K$ centered around $k_0$. Let us assume that $|g_k/\omega_k|^2\langle S S^\dagger \rangle$ remains finite within that support. Then
+Let us define $\psi_{k_0}(x)$ as the wave packet\ \eqref{wp} where $\phi_{k_0}(k)=\xi(k-k_0)$ is a test function, infinitely differentiable with a finite support $K$ centered around $k_0$. Let us assume that $|g_k/\omega_k|^2\langle S S^\dagger \rangle$ remains finite within that support. Then
 \begin{equation}
 \label{nx}
 \braket{\psi^\dagger \psi} \to 0,~|\bar x|\to\infty.
@@ -424,7 +424,7 @@ Moreover, if we can assume that $\braket{a_k^\dagger a_p}$ is an $n$-times diffe
 \end{theorem}
 
 \begin{proof}
-Let us compute the expectation value of the number operator for a wavepacket
+Let us compute the expectation value of the number operator for a wave packet
 \begin{equation}
 N := \braket{\Omega|\psi^\dagger\psi|\Omega}
 = \int\int\braket{a_k^\dagger a_p} e^{i(k-p)\bar x} \phi(k)^*\phi(p)\,dk dp.
@@ -484,7 +484,7 @@ We have shown that the ground state can be understood as a localized state, in t
 \end{equation}
 where $|x|\to \infty$ (in a similar fashion that for the ground state) and 
  $\nu = 1, 2, ...$. With this notation we can identify $| \Omega_0 \rangle \equiv | \Omega \rangle$.
-It is important to notice that the existence of bound states implies that the output after a scattering event can relax to an excited state rather to the ground state, wich is nothing but Raman scattering.
+It is important to notice that the existence of bound states implies that the output after a scattering event can relax to an excited state rather to the ground state, which is nothing but Raman scattering.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -495,33 +495,32 @@ It is important to notice that the existence of bound states implies that the ou
 
 \section{Asymptotic states and scattering theory}
 
-It is time to discuss if \eqref{H-full} gives a physically reasonable scattering theory, \emph{i.e.} it fullfils the  asymptotic condition wich states that a wavepacket localized far away the scatterer behaves like a free wave packet.  Here free means that its dynamics is governed by the free Hamiltonian $H_0 = \int dk \omega_k a_k^\dagger a_k$ \cite{Taylor1972}.  The condition can be written as,
+It is time to discuss if \eqref{H-full} gives a physically reasonable scattering theory, \emph{i.e.} it fullfils the  asymptotic condition which states that a wave packet localized far away the scatterer behaves like a free wave packet.  Here free means that its dynamics is governed by the free Hamiltonian $H_0 = \int dk \omega_k a_k^\dagger a_k$ \cite{Taylor1972}.  The condition can be written as,
 \begin{equation}
 \label{asymptotic}
-\Vert U(t) | \psi \rangle - U^0 |\Psi_{\rm in /out} \rangle \Vert \stackrel{t\to \pm \infty}{\longrightarrow} 0
+\Vert U(t) | \psi \rangle - U^0 |\Psi_{\rm in /out} \rangle \Vert \stackrel{t\to \mp \infty}{\longrightarrow} 0,
 \end{equation}
-The evolution with $H$ and $H_0$ will be given by the unitary operators
+where the evolution unitary operators are
 \begin{align}
 U(t_1,t_0) = e^{-iH(t_1-t_0)},~\mbox{and}~ U_0(t_1,t_0)= e^{-iH_0(t_1-t_0)}.
 \end{align}
-
 If the latter holds, the $S$ operator  is defined as:
 \begin{equation}
 \label{Sinout}
 \vert \Psi_{\rm out} \rangle = S \,  \vert \Psi_{\rm in} \rangle  \;.
 \end{equation}
-It can be shown that, $S = \Omega_-^\dagger \Omega_+$ where $\Omega_\pm := \lim_{t \mp \infty} U^{-1} (t) U_0 (t)$ are the M\"  olmer isometries, see again \cite{Taylor1972}. The $S$-matrix, as defined in  \eqref{Sdef}, is its matrix elements.  The  states $| \Psi_{\rm in} \rangle$ and $|\Psi_{\rm out} \rangle$ are  named input and output states.
+It can be shown that, $S = \Omega_-^\dagger \Omega_+$ where $\Omega_\pm := \lim_{t \mp \infty} U^{-1} (t) U_0 (t)$ are the M\"  olmer isometries, see again \cite{Taylor1972}. {\color{red}The $S$ matrix, as defined in  \eqref{Sdef}, is its matrix elements.}  The  states $| \Psi_{\rm in} \rangle$ and $|\Psi_{\rm out} \rangle$ are  named input and output states.
  
 
-To show that \eqref{H-full} satisfies \eqref{asymptotic} we first prove a theorem stating that far away the scatter field operators evolve under the free hamiltonian.
+To show that \eqref{H-full} satisfies \eqref{asymptotic} we first prove a theorem stating that far away the scatter field operators evolve under the free Hamiltonian.
 
 \begin{theorem}\label{th:int_evol}
-Let $H$ denote the Hamiltonian describing the interaction between a propagating wavepacket and a localized few-level system. This Hamiltonian will be given by Eq.\ \ref{eq:H-full}, where the bounded operators $H_{sys},c\in \mathbb{R}^{d\times d}$ describe a few-level scatterer sitting at $x_{sys}=0$. We will assume the conditions of Theorem\ \ref{th:free-causality}: (i) {\color{red}non-negative}, finite group velocity, and (ii) differentiable, polynomially bound functions $\omega_k$ and $g_k$, with degrees $n\geq 2$. Then all wavepackets outside the light-cone of the scatterer $c$ evolve approximately with the free Hamiltonian, $H_0$. More precisely, if $(\bar x,t_1)$ and $(\bar x,t_0)$ are two points outside the light cone
+{\color{red}No hace falta decir qué es $H$, ya se ha definido} Let $H$ denote the Hamiltonian describing the interaction between a propagating wave packet and a localized few-level system. This Hamiltonian will be given by Eq.\ \ref{H-full}, where the bounded operators {\color{red}¿Qué es $c$? Supongo que el operador de acoplo, $S$} $H_{sys},c\in \mathbb{R}^{d\times d}$ describe a few-level scatterer sitting at $x_{sys}=0$. We will assume the conditions of Theorem\ \ref{th:free-causality}: (i) {\color{red}non-negative}, finite group velocity, and (ii) differentiable, polynomially bound functions $\omega_k$ and $g_k$, with degrees $n\geq 2$. Then all wave packets outside the light-cone of the {\color{red}¿scatterer $c$?} scatterer $c$ evolve approximately with the free Hamiltonian, $H_0$. More precisely, if $(\bar x,t_1)$ and $(\bar x,t_0)$ are two points outside the light cone
 \begin{equation}
-\psi(t_1) \simeq U_0(t_1,t_0)^\dagger\psi(t_0)U(t_1,t_0)
+\psi_k(x,t_1) \simeq U_0(t_1,t_0)^\dagger\psi_k(x,t_0)U(t_1,t_0)
 +\mathcal{O}\left(\frac{1}{|d_\text{min}|^{n-1}}\right),
 \end{equation}
-where $d_\text{min} = \min \{d_\text{min}(\bar x,t_1),d_\text{min}(\bar x,t_0)\}\gg 0$ and
+where $d_\text{min} = \min \{d_\text{min}(x,t_1),d_\text{min}(x,t_0)\}\gg 0$ and
 \begin{equation}
 U_0(t,t_0) = \exp\left[-i(t-t_0)\sum_k\omega_k a_k(t_0)^\dagger a_k(t_0)\right]
 \end{equation}
@@ -537,27 +536,27 @@ Making the change of variables $a_k(t) = \exp(-i\omega_k t)b_k(t)$, we have
 \begin{equation}
 \partial_t b_k(t) = -ig_k S(t) e^{+i\omega_k t},
 \end{equation}
-so that the wavepacket operators evolved from some initial time $t_{s}$ are
+so that the wave packet operators evolved from some initial time $t_{s}$ are
 \begin{align}
-\psi(t) &= \int e^{ik \bar x - i \omega_k t} \left[b_k(t_s)
--i\int_{t_{s}}^t g_k S(\tau)e^{+i\omega_k \tau}d\tau\right]\phi(k)dk\\
-&=U_0(t,t_s)\psi(t_s)U_0(t,t_s)^\dagger - 
-i\int_{t_{s}}^t \left[\int e^{ik\bar x-ic(t-\tau)}g_k\phi(k)dk
+\psi_{k_0}(x,t) &= \int e^{ik  x - i \omega_k t} \left[b_k(t_s)
+-i\int_{t_{s}}^t g_k S(\tau)e^{+i\omega_k \tau}d\tau\right]\phi_{k_0}(k)dk\\
+&=U_0(t,t_s)\psi_{k_0}(x,t_s)U_0(t,t_s)^\dagger - 
+i\int_{t_{s}}^t \left[\int e^{ik x-ic(t-\tau)}g_k\phi_{k_0}(k)dk
 \right]\,S(\tau)d\tau\\
-&=U_0(t,t_s)\psi(t_s)U_0(t,t_s)^\dagger- 
-i\int_{0}^{t-t_s} \left[\int e^{ik\bar x-ic\tau'}g_k\phi(k)dk
+&=U_0(t,t_s)\psi_{k_0}(x,t_s)U_0(t,t_s)^\dagger- 
+i\int_{0}^{t-t_s} \left[\int e^{ik x-ic\tau'}g_k\phi_{k_0}(k)dk
 \right]\,S(\tau)d\tau'.
 \end{align}
-The first part corresponds to free evolution, while the second part is an error term $\varepsilon(t)$ which can be bounded. We will assume without loss of generality $\Vert{S}\Vert=1$ {\color{red}(habría que decir qué significa esa norma; no sé si hemos definido normas para operadores previamente)} and $|t_1|>|t_0|$. We have to choose the integration limits $t$ and $t_s$ so that $\rm{sign}(\tau')=\rm{sign}(\bar x)$. If $\bar x>0$ then $t_1>t_0>0$ and $(t,t_s)=(t_1,t_0)$ is a good choice. If $x<0$ then $0>t_0>t_1$ and again $(t,t_s)=(t_1,t_0)$ is also a valid choice ($\tau'<0$). This means we can introduce $\tau''=\rm{sign}(\bar x)\tau'\geq 0$ and bound
+The first part corresponds to free evolution, while the second part is an error term $\varepsilon(t)$ which can be bounded. We will assume without loss of generality $\Vert{S}\Vert=1$ {\color{red}(habría que decir qué significa esa norma; no sé si hemos definido normas para operadores previamente)} and $|t_1|>|t_0|$. We have to choose the integration limits $t$ and $t_s$ so that $\rm{sign}(\tau')=\rm{sign}(x)$. If $x>0$ then $t_1>t_0>0$ and $(t,t_s)=(t_1,t_0)$ is a good choice. If $x<0$ then $0>t_0>t_1$ and again $(t,t_s)=(t_1,t_0)$ is also a valid choice ($\tau'<0$). This means we can introduce $\tau''=\rm{sign}(x)\tau'\geq 0$ and bound
 \begin{align}
 |\varepsilon(t_1)|
-&\leq \int_{0}^{|t_1-t_0|} \left|\int e^{i\;\rm{sign}(\bar x)kd_c(|x|,\tau'')}q(k)dk\right|d\tau''
-\leq \int_{0}^{|t_1-t_0|} \mathcal{O}\left(\frac{1}{d_c(|\bar x|,\tau'')^{n}}\right)d\tau''\\
+&\leq \int_{0}^{|t_1-t_0|} \left|\int e^{i\;\rm{sign}(x)kd_c(|x|,\tau'')}q(k)dk\right|d\tau''
+\leq \int_{0}^{|t_1-t_0|} \mathcal{O}\left(\frac{1}{d_c(| x|,\tau'')^{n}}\right)d\tau''\\
 &\leq \mathcal{O}\left(
-\left. \frac{1}{c(n-1)} \frac{1}{(|\bar x|-c\tau)^{n-1}}\right|_{\tau=0}^{\tau=|t_1-t_0|}\right)\
-\leq \mathcal{O}\left(\frac{1}{d_c(|\bar x|,|t_1-t_0|)^{n-1}}\right).
+\left. \frac{1}{c(n-1)} \frac{1}{(| x|-c\tau)^{n-1}}\right|_{\tau=0}^{\tau=|t_1-t_0|}\right)\
+\leq \mathcal{O}\left(\frac{1}{d_c(| x|,|t_1-t_0|)^{n-1}}\right).
 \end{align}
-Here we have used the fact that $d_c(|\bar x|,\tau'')\geq d_c(|\bar x|,|t_1-t_0|)> 0$ in the domain of integration. We can now use the fact that $d_c(|\bar x|,|t_1-t_0|)\geq d_c(|\bar x|,|t_1|)\geq \min\{d_c(\bar x,t_1),d_c(\bar x,t_0)\}$, obtaining the expression in the theorem.
+Here we have used the fact that $d_c(| x|,\tau'')\geq d_c(| x|,|t_1-t_0|)> 0$ in the domain of integration. We can now use the fact that $d_c(| x|,|t_1-t_0|)\geq d_c(|x|,|t_1|)\geq \min\{d_c(x,t_1),d_c(x,t_0)\}$, obtaining the expression in the theorem.
 \end{proof}
 
 
@@ -568,10 +567,10 @@ In order to do so,  we still need to introduce  single photon input and output s
 \begin{equation}
 \label{inoutdef}
 | \Psi_{\rm in / out} \rangle = 
-\psi_n^\dagger (t_\mp) | \Omega_\nu  \rangle
-\qquad  \vert \bar x_n \vert \to \infty \; \wedge \;  t_\mp \to \mp \infty \, .
+\psi_{k_n}^\dagger (x_n,t_\mp) | \Omega_\nu  \rangle
+\qquad  \vert x_n \vert \to \infty \; \wedge \;  t_\mp \to \mp \infty \, .
 \end{equation}
-with $\vert \Omega_\nu \rangle$ are bound states including the ground state and the excited ones,  Cf. Eqs. \eqref{gs-ansatz} , \eqref{bound} and corollary \ref{coro:gs}.  
+with $\vert \Omega_\nu \rangle$ are bound states including the ground state and the excited ones,  Cf. Eqs. \eqref{gs-ansatz}, \eqref{bound} and corollary \ref{coro:gs}.  
 Now, using  the   theorems \ref{th:int_evol}  and  \ref{theo:bound-x} and  corollary \ref{coro:gs},  the asymptotic condition, Eq. \eqref{asymptotic}, follows.  Thus, we can enunciate the corollary,
 
 \begin{corollary}
@@ -593,7 +592,7 @@ Our input state will read
 \begin{equation}
 |\Psi_\text{in}\rangle = \left(\prod_{n=1}^N \psi_{k_n}(x_n)^\dagger \right)|\nu\rangle,
 \end{equation}
-with $|x_n-x_m|\to\infty$ for all $n\neq m$ and $\ket{\nu}$ a stable (so localized) state of the scatterer, \emph{e.g.}, $\ket{\nu}$ could be the ground state $\ket{\Omega}$. We choose $x_1>x_2>\dots >x_N$. Our output state will be also composed by separated wavepackets
+with $|x_n-x_m|\to\infty$ for all $n\neq m$ and $\ket{\nu}$ a stable (so localized) state of the scatterer, \emph{e.g.}, $\ket{\nu}$ could be the ground state $\ket{\Omega}$. We choose $x_1>x_2>\dots >x_N$. Our output state will be also composed by separated wave packets
 \begin{equation}
 |\Psi_\text{out}\rangle = \left(\prod_{n=1}^N \psi'_{p_n}(y_n)^\dagger \right)|\mu\rangle,
 \end{equation}
@@ -606,7 +605,7 @@ Given a general operator $\mathcal{O}$, we introduce the input-output operators
 \label{eq:O_in}\mathcal{O}_\text{in} & \equiv e^{iHt_-}e^{-iH_0t_-} \mathcal{O}e^{iH_0t_-}e^{-iHt_-},\\
 \label{eq:O_out}\mathcal{O}_\text{out} & \equiv e^{iHt_+}e^{-iH_0t_+} \mathcal{O}e^{iH_0t_+}e^{-iHt_+},
 \end{align}
-with $t_\pm \to \pm \infty$, being $H$ the full Hamiltonian, Eq. \eqref{H-full}, and $H_0$ its photonic part. The scattering amplitude can be rewritten in terms of input-output operators for the wavepackets $\psi_{k_n}(x_n)$ and $\psi_{p_m}(y_m)$:
+with $t_\pm \to \pm \infty$, being $H$ the full Hamiltonian, Eq. \eqref{H-full}, and $H_0$ its photonic part. The scattering amplitude can be rewritten in terms of input-output operators for the wave packets $\psi_{k_n}(x_n)$ and $\psi_{p_m}(y_m)$:
 \begin{equation}
 A_{\text{in}\to\text{out}}=\bra{\mu} \prod_{m=1}^N (\psi'_{p_m}(y_m))_\text{out}\prod_{n=1}^N(\psi_{k_n}(x_n)^\dagger)_\text{in}\ket{\nu}.
 \end{equation}
